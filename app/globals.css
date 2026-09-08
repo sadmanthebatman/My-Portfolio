@@ -2,16 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body {
-  background:#050505;
-  color:#00ff88;
-  font-family:monospace;
+body{
+background:#050505;
+color:#00ff66;
+font-family:monospace;
 }
-
-.card {
-  border:1px solid #123;
-  background:#080808;
-  padding:20px;
-  border-radius:12px;
+.terminal{
+background:#090909;
+border:1px solid #174;
+padding:20px;
+border-radius:12px;
 }

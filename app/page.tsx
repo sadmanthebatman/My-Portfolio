@@ -55,8 +55,6 @@ link:"https://github.com/sadmanthebatman/SportPulse"
 
 
 
-
-
 const securityGroups=[
 
 {
@@ -104,22 +102,12 @@ items:[
 
 
 
-
-
-
-
 export default function Home(){
 
 
 return(
 
 <main className="min-h-screen px-6 md:px-16 py-10">
-
-
-
-
-
-{/* HERO */}
 
 
 <section className="grid md:grid-cols-2 gap-10 items-center">
@@ -135,8 +123,6 @@ return(
 CYBER SECURITY PROFILE
 
 </div>
-
-
 
 
 <h1 className="text-5xl md:text-7xl font-bold">
@@ -160,7 +146,6 @@ Cybersecurity Enthusiast
 </h2>
 
 
-
 <p className="text-gray-500 mt-5 max-w-xl">
 
 Focused on penetration testing, SOC operations,
@@ -171,13 +156,13 @@ and secure system engineering.
 
 
 
-
 <div className="flex gap-4 mt-8">
 
 
 <a
 href="/Sadman-Sakib-Abir-Resume.pdf"
-download
+target="_blank"
+rel="noopener noreferrer"
 className="btn"
 >
 
@@ -193,6 +178,7 @@ Resume
 <a
 href="https://github.com/sadmanthebatman"
 target="_blank"
+rel="noopener noreferrer"
 className="btn"
 >
 
@@ -203,15 +189,10 @@ GitHub
 </a>
 
 
-
 </div>
 
 
-
 </div>
-
-
-
 
 
 
@@ -299,16 +280,7 @@ SOC Operations / Pentesting
 
 </section>
 
-
-
-
-
-
-
-
-
 {/* PROJECTS */}
-
 
 
 <section className="mt-24">
@@ -352,11 +324,13 @@ className="glass project-card"
 
 
 
+
 <h3 className="text-xl font-bold mt-6">
 
 {project.title}
 
 </h3>
+
 
 
 <p className="text-green-400 text-sm mt-3">
@@ -367,11 +341,13 @@ className="glass project-card"
 
 
 
+
 <p className="text-gray-400 mt-5 text-sm">
 
 {project.description}
 
 </p>
+
 
 
 
@@ -395,9 +371,11 @@ project.tags.map(tag=>(
 
 
 
+
 <a
 href={project.link}
 target="_blank"
+rel="noopener noreferrer"
 className="flex gap-2 items-center text-green-400 mt-6"
 >
 
@@ -408,6 +386,7 @@ View Repository
 <ExternalLink size={15}/>
 
 </a>
+
 
 
 </div>
@@ -428,11 +407,7 @@ View Repository
 
 
 
-
-
-
 {/* SECURITY ARSENAL */}
-
 
 
 <section className="mt-24">
@@ -445,11 +420,13 @@ Security Arsenal
 </h2>
 
 
+
 <p className="subtitle">
 
 Tools and technologies used for offensive and defensive security
 
 </p>
+
 
 
 
@@ -478,6 +455,7 @@ securityGroups.map(group=>(
 
 
 </div>
+
 
 
 
@@ -510,7 +488,6 @@ className="border-b border-green-900 pb-2"
 
 ))
 
-
 }
 
 
@@ -524,11 +501,7 @@ className="border-b border-green-900 pb-2"
 
 
 
-
-
-
 {/* EXPERIENCE */}
-
 
 
 <section className="mt-24">
@@ -539,6 +512,7 @@ className="border-b border-green-900 pb-2"
 Professional Experience
 
 </h2>
+
 
 
 
@@ -563,11 +537,13 @@ Cyber Security Analyst Intern
 </h3>
 
 
+
 <p className="text-green-400">
 
 Business Automation Limited
 
 </p>
+
 
 
 <p className="text-gray-500">
@@ -594,9 +570,11 @@ Oct 2025 — Jan 2026
 </p>
 
 
+
 <p>
 • Worked with threat detection, security monitoring, endpoint visibility and incident investigation for suspicious activity analysis.
 </p>
+
 
 
 <p>
@@ -604,14 +582,17 @@ Oct 2025 — Jan 2026
 </p>
 
 
+
 <p>
 • Supported alert management, incident response and security orchestration workflows using <b>Splunk</b>, <b>TheHive</b> and <b>MISP</b> threat intelligence.
 </p>
 
 
+
 <p>
 • Conducted digital forensics, malware and network analysis using <b>Velociraptor</b>, <b>Wireshark</b> and <b>VirusTotal</b>.
 </p>
+
 
 
 <p>
@@ -633,11 +614,7 @@ Oct 2025 — Jan 2026
 
 
 
-
-
-
 {/* CONTACT */}
-
 
 
 <section className="mt-24">
@@ -645,9 +622,11 @@ Oct 2025 — Jan 2026
 
 <h2 className="section-title">
 
-Secure Communication
+Feel Free To Reach Out.
 
 </h2>
+
+
 
 
 
@@ -658,6 +637,7 @@ Secure Communication
 icon={<Github/>}
 title="GitHub"
 value="github.com/sadmanthebatman"
+link="https://github.com/sadmanthebatman"
 />
 
 
@@ -665,7 +645,8 @@ value="github.com/sadmanthebatman"
 <Contact
 icon={<Linkedin/>}
 title="LinkedIn"
-value="https://www.linkedin.com/in/sadman-sakib-abir-38967841b/?locale=en-US"
+value="www.linkedin.com/in/sadman-sakib-abir-38967841b"
+link="https://www.linkedin.com/in/sadman-sakib-abir-38967841b"
 />
 
 
@@ -674,13 +655,16 @@ value="https://www.linkedin.com/in/sadman-sakib-abir-38967841b/?locale=en-US"
 icon={<Mail/>}
 title="Email"
 value="sadmansakibabir717@gmail.com"
+link="mailto:sadmansakibabir717@gmail.com"
 />
+
 
 
 </div>
 
 
 </section>
+
 
 
 
@@ -699,17 +683,27 @@ value="sadmansakibabir717@gmail.com"
 function Contact({
 icon,
 title,
-value
+value,
+link
 }:{
 icon:React.ReactNode;
 title:string;
 value:string;
+link:string;
 }){
 
 
 return(
 
-<div className="glass">
+<a
+href={link}
+target="_blank"
+rel="noopener noreferrer"
+className="block"
+>
+
+
+<div className="glass hover:border-green-400 transition cursor-pointer">
 
 
 <div className="text-green-400">
@@ -719,11 +713,13 @@ return(
 </div>
 
 
+
 <h3 className="text-xl mt-4">
 
 {title}
 
 </h3>
+
 
 
 <p className="text-gray-400 mt-2">
@@ -733,8 +729,11 @@ return(
 </p>
 
 
+
 </div>
 
+
+</a>
 
 )
 

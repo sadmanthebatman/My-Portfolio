@@ -3,13 +3,15 @@
 @tailwind utilities;
 
 body{
-background:#050505;
-color:#00ff66;
-font-family:monospace;
+ background:#050505;
+ color:#3f7855;
+ font-family:monospace;
 }
+
 .terminal{
-background:#090909;
-border:1px solid #174;
-padding:20px;
-border-radius:12px;
+ background:#080808;
+ border:1px solid #174d29;
+ border-radius:12px;
+ padding:24px;
+ box-shadow:0 0 30px rgba(0,255,100,.15);
 }

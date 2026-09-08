@@ -1,26 +1,58 @@
-.cyber-overlay {
+import "./globals.css";
+import type { Metadata } from "next";
 
-position:fixed;
+export const metadata: Metadata = {
+  title: "SADMAN SAKIB ABIR",
+  description:
+    "Sadman Sakib Abir | Cybersecurity Enthusiast | Penetration Testing | SOC Operations",
+  keywords: [
+    "Cybersecurity",
+    "Penetration Testing",
+    "SOC Analyst",
+    "Kali Linux",
+    "Security Research",
+    "Sadman Sakib Abir",
+  ],
+  authors: [
+    {
+      name: "Sadman Sakib Abir",
+    },
+  ],
+  creator: "Sadman Sakib Abir",
 
-inset:0;
+  openGraph: {
+    title: "SADMAN // CYBER OPERATIONS",
+    description:
+      "Cybersecurity portfolio and security research profile",
+    type: "website",
+  },
 
-pointer-events:none;
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
 
-background:
 
-linear-gradient(
-rgba(0,255,120,0.03) 1px,
-transparent 1px
-),
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
 
-linear-gradient(
-90deg,
-rgba(0,255,120,0.03) 1px,
-transparent 1px
-);
+  return (
 
-background-size:50px 50px;
+    <html lang="en">
 
-z-index:999;
+      <body>
+
+        <div className="cyber-overlay" />
+
+        {children}
+
+      </body>
+
+    </html>
+
+  );
 
 }

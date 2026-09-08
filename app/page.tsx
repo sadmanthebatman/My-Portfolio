@@ -127,11 +127,11 @@ CYBER SECURITY PROFILE
 
 <h1 className="text-5xl md:text-7xl font-bold">
 
-SADMAN
+SADMAN{" "}
 
 <span className="text-green-400">
 
-  SAKIB ABIR
+SAKIB ABIR
 
 </span>
 

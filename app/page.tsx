@@ -1,77 +1,52 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import {
-  Terminal,
-  Shield,
-  Activity,
-  Wifi,
-  Cpu,
   Github,
   Linkedin,
   Mail,
+  Shield,
+  Terminal,
+  ExternalLink,
   Code2,
   Network,
   Database,
-  ExternalLink,
   Lock,
+  Server,
+  Download,
 } from "lucide-react";
-
-
-const bootLines = [
-  "> Initializing SADMAN'S Work",
-  "> Loading security modules",
-  
-  "> You r welcome ✓",
-];
 
 
 const projects = [
   {
     title: "SimpleFS File System Implementation",
-    category: "Operating Systems | C | File Systems",
+    type: "Operating Systems • C Programming",
+    icon: <Database size={40}/>,
     description:
-      "A lightweight file system implementation featuring superblock management, inode-based storage, bitmap allocation, directory entries and virtual disk management.",
-    github:
-      "https://github.com/sadmanthebatman/SimpleFS-File-System-Implementation",
-    icon: <Database size={45}/>,
-    tags:[
-      "C",
-      "OS",
-      "Inode",
-      "Bitmap Allocation"
-    ]
+      "A lightweight file system implementation featuring superblock management, inode-based storage, bitmap allocation, directory entries, and virtual disk management.",
+    tags:["C","File System","Inode","OS"],
+    link:"https://github.com/sadmanthebatman/SimpleFS-File-System-Implementation"
   },
 
+
   {
-    title: "Bangladesh Board Examination Emergency Network",
-    category: "Cisco Networking | Infrastructure",
+    title:"Bangladesh Board Examination Emergency Network",
+    type:"Cisco Networking • Infrastructure",
+    icon:<Network size={40}/>,
     description:
-      "Enterprise network design using Cisco Packet Tracer with VLSM, RIPv2, static routing, floating static routing, DHCP, DNS, HTTP, email services and redundancy.",
-    github:
-      "https://github.com/sadmanthebatman/Bangladesh-Board-Examination-Emergency-Network",
-    icon:<Network size={45}/>,
-    tags:[
-      "Cisco",
-      "VLSM",
-      "Routing",
-      "DHCP"
-    ]
+      "Enterprise network design using Cisco Packet Tracer with VLSM, RIPv2, static routing, DHCP, DNS, HTTP, email services and redundancy.",
+    tags:["Cisco","VLSM","Routing","Networking"],
+    link:"https://github.com/sadmanthebatman/Bangladesh-Board-Examination-Emergency-Network"
   },
+
 
   {
     title:"SportPulse",
-    category:"Full Stack Development | Analytics",
+    type:"Full Stack Development",
+    icon:<Code2 size={40}/>,
     description:
-      "Multi-sport analytics platform providing player statistics, match archives, standings, comparisons and administrative management.",
-    github:
-      "https://github.com/sadmanthebatman/SportPulse",
-    icon:<Code2 size={45}/>,
-    tags:[
-      "React",
-      "Node.js",
-      "Dashboard"
-    ]
+      "Multi-sport analytics platform with player statistics, match archives, standings, comparisons and admin dashboard.",
+    tags:["React","Node.js","Dashboard"],
+    link:"https://github.com/sadmanthebatman/SportPulse"
   }
 ];
 
@@ -86,188 +61,164 @@ const skills=[
 "Wireshark",
 "Wazuh",
 "Splunk",
-"Suricata",
-"Docker"
+"Docker",
+"Linux"
 ];
 
 
 
 export default function Home(){
 
-const [boot,setBoot]=useState("");
-
-
-
-useEffect(()=>{
-
-let index=0;
-
-const text=bootLines.join("\n");
-
-const timer=setInterval(()=>{
-
-if(index < text.length){
-
-setBoot(prev=>prev+text[index]);
-
-index++;
-
-}
-else{
-
-clearInterval(timer);
-
-}
-
-},40);
-
-
-return()=>clearInterval(timer);
-
-
-},[]);
-
-
-
 
 return(
 
-<main className="min-h-screen p-6 md:p-12">
-
-
-
-{/* HEADER */}
-
-<header className="flex justify-between items-center border-b border-green-900 pb-6">
-
-
-<div>
-
-<h1 className="text-3xl font-bold">
-SADMAN // CYBER OPERATIONS
-</h1>
-
-
-<p className="text-gray-500 mt-2">
-Cyber Security • SOC • Penetration Testing
-</p>
-
-
-</div>
-
-
-
-<div className="flex items-center gap-2">
-
-<span className="w-3 h-3 bg-green-400 rounded-full animate-pulse"/>
-
-ONLINE
-
-</div>
-
-
-</header>
-
-
-
-
-
-
+<main className="min-h-screen text-white px-6 md:px-16 py-10">
 
 
 {/* HERO */}
 
 
-<section className="grid md:grid-cols-2 gap-8 mt-10">
+<section className="
+grid md:grid-cols-2 gap-10 items-center
+">
 
 
-<div className="terminal">
+<div>
 
 
-<div className="flex gap-3 items-center">
+<div className="
+flex items-center gap-3 text-green-400 mb-5
+">
 
-<Terminal/>
+<Shield/>
 
-root@sadman:~$
+CYBER SECURITY PROFILE
 
 </div>
 
 
 
-<pre className="mt-6 text-green-400 whitespace-pre-wrap">
+<h1 className="
+text-5xl md:text-7xl font-bold
+leading-tight
+">
 
-{boot}
+SADMAN
+<br/>
 
-</pre>
+<span className="text-green-400">
 
+SAKIB ABIR
 
-<h2 className="text-5xl font-bold mt-8">
-
-SADMAN SAKIB ABIR
-
-</h2>
+</span>
 
 
-<p className="text-xl mt-4">
+</h1>
+
+
+<p className="
+text-xl text-gray-400 mt-6
+">
 
 Cybersecurity Enthusiast
 
 </p>
 
 
-<p className="text-gray-500 mt-3">
+<p className="
+text-gray-500 mt-4 max-w-xl
+">
 
-Security Researcher | SOC Operations | Pentesting
+Focused on penetration testing, SOC operations,
+security research, and building secure systems.
 
 </p>
 
 
+
+<div className="flex gap-4 mt-8">
+
+
+<a className="btn">
+
+<Download size={18}/>
+
+Resume
+
+</a>
+
+
+<a className="btn">
+
+Github
+
+</a>
+
+
+</div>
+
+
 </div>
 
 
 
 
 
+{/* SYSTEM CARD */}
 
-<div className="terminal flex flex-col justify-center">
+
+<div className="glass">
 
 
-<div className="flex items-center gap-3">
+<div className="flex gap-3 items-center">
 
-<Shield/>
+<Terminal/>
 
-SYSTEM PROFILE
+SYSTEM STATUS
 
 </div>
-
 
 
 <div className="mt-8 space-y-5">
 
 
-<p>
-ACCESS LEVEL:
-<span className="text-green-400">
- ROOT
-</span>
+<div>
+
+<p className="text-gray-500">
+Availability
 </p>
 
-
-<p>
-THREAT STATUS:
-<span className="text-green-400">
- LOW
-</span>
+<p className="text-green-400 text-xl">
+ONLINE
 </p>
 
+</div>
 
-<p>
-SECURITY MODE:
-<span className="text-green-400">
- ACTIVE
-</span>
+
+
+<div>
+
+<p className="text-gray-500">
+Security Level
 </p>
 
+<p className="text-green-400 text-xl">
+ACTIVE
+</p>
+
+</div>
+
+
+
+<div>
+
+<p className="text-gray-500">
+Primary Focus
+</p>
+
+<p>
+SOC / Pentesting
+</p>
 
 </div>
 
@@ -275,30 +226,7 @@ SECURITY MODE:
 </div>
 
 
-
-</section>
-
-
-
-
-
-
-
-
-
-{/* STATUS */}
-
-
-<section className="grid md:grid-cols-4 gap-5 mt-10">
-
-
-<Card icon={<Shield/>} title="Security" value="ROOT"/>
-
-<Card icon={<Activity/>} title="Threat" value="LOW"/>
-
-<Card icon={<Wifi/>} title="Network" value="ONLINE"/>
-
-<Card icon={<Cpu/>} title="System" value="ACTIVE"/>
+</div>
 
 
 </section>
@@ -314,32 +242,37 @@ SECURITY MODE:
 {/* PROJECTS */}
 
 
-<section className="mt-16">
+<section className="mt-24">
 
 
-<h2 className="text-4xl font-bold">
+<h2 className="section-title">
 
-FEATURED PROJECTS
+Featured Projects
 
 </h2>
 
 
-<p className="text-gray-500 mt-2">
+<p className="subtitle">
+
 Selected engineering and cybersecurity projects
+
 </p>
 
 
 
-<div className="grid md:grid-cols-3 gap-6 mt-8">
+
+<div className="
+grid md:grid-cols-3 gap-8 mt-10
+">
 
 
 {
 projects.map(project=>(
 
 
-<div 
+<div
 key={project.title}
-className="terminal hover:-translate-y-2 transition"
+className="glass project-card"
 >
 
 
@@ -350,21 +283,24 @@ className="terminal hover:-translate-y-2 transition"
 </div>
 
 
-<h3 className="text-xl font-bold mt-5">
+
+<h3 className="text-xl font-bold mt-6">
 
 {project.title}
 
 </h3>
 
 
-<p className="text-green-400 mt-2 text-sm">
 
-{project.category}
+<p className="text-green-400 text-sm mt-2">
+
+{project.type}
 
 </p>
 
 
-<p className="text-gray-400 mt-4 text-sm">
+
+<p className="text-gray-400 mt-5 text-sm">
 
 {project.description}
 
@@ -379,9 +315,11 @@ project.tags.map(tag=>(
 
 <span
 key={tag}
-className="border border-green-900 px-3 py-1 rounded text-xs"
+className="tag"
 >
+
 {tag}
+
 </span>
 
 ))
@@ -390,26 +328,32 @@ className="border border-green-900 px-3 py-1 rounded text-xs"
 </div>
 
 
+
 <a
-href={project.github}
+href={project.link}
 target="_blank"
-className="flex items-center gap-2 mt-6 text-green-400"
+className="
+flex items-center gap-2
+text-green-400
+mt-6
+"
 >
 
-<Github size={18}/>
+View Repository
 
-VIEW SOURCE
-
-<ExternalLink size={15}/>
+<ExternalLink size={16}/>
 
 </a>
+
 
 
 </div>
 
 
 ))
+
 }
+
 
 
 </div>
@@ -428,18 +372,20 @@ VIEW SOURCE
 {/* SKILLS */}
 
 
-<section className="mt-16">
+<section className="mt-24">
 
 
-<h2 className="text-4xl font-bold">
+<h2 className="section-title">
 
-SECURITY ARSENAL
+Security Arsenal
 
 </h2>
 
 
 
-<div className="grid md:grid-cols-5 gap-4 mt-8">
+<div className="
+grid grid-cols-2 md:grid-cols-5 gap-5 mt-10
+">
 
 
 {
@@ -447,10 +393,13 @@ skills.map(skill=>(
 
 <div
 key={skill}
-className="terminal text-center"
+className="glass text-center py-6"
 >
 
-<Lock size={20}/>
+<Lock
+className="mx-auto text-green-400"
+/>
+
 
 <p className="mt-3">
 
@@ -461,10 +410,79 @@ className="terminal text-center"
 
 </div>
 
-
 ))
 }
 
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+{/* EXPERIENCE */}
+
+
+<section className="mt-24">
+
+
+<h2 className="section-title">
+
+Experience
+
+</h2>
+
+
+
+<div className="glass mt-8">
+
+
+<div className="flex gap-3">
+
+<Server/>
+
+<h3 className="text-xl">
+
+Cyber Security Analyst Intern
+
+</h3>
+
+
+</div>
+
+
+<p className="text-green-400 mt-3">
+
+Business Automation Limited
+
+</p>
+
+
+
+<p className="text-gray-400 mt-5">
+
+• Vulnerability Assessment
+
+<br/>
+
+• Penetration Testing
+
+<br/>
+
+• Security Monitoring
+
+<br/>
+
+• Threat Analysis
+
+</p>
 
 
 </div>
@@ -482,385 +500,45 @@ className="terminal text-center"
 
 {/* CONTACT */}
 
-<section className="terminal mt-16 relative overflow-hidden">
+
+<section className="mt-24">
 
 
-{/* Background Glow */}
+<h2 className="section-title">
 
-<div className="
-absolute
-top-0
-right-0
-w-72
-h-72
-bg-green-400/10
-blur-3xl
-rounded-full
-">
-</div>
-
-
-
-<div className="relative z-10">
-
-
-<div className="flex items-center gap-3">
-
-<div className="
-p-3
-rounded-lg
-bg-green-400/10
-border
-border-green-900
-">
-
-<Mail className="text-green-400"/>
-
-</div>
-
-
-<div>
-
-<h2 className="text-3xl font-bold">
-
-CONTACT TERMINAL
+Secure Communication
 
 </h2>
 
 
-<p className="text-gray-500 mt-1">
-
-Establish secure communication channel
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-{/* Terminal Message */}
 
 <div className="
-mt-8
-border
-border-green-900
-rounded-xl
-p-5
-bg-black/50
+grid md:grid-cols-3 gap-6 mt-10
 ">
 
 
-<p className="text-green-400">
+<ContactCard
+icon={<Github/>}
+title="GitHub"
+value="github.com/sadmanthebatman"
+/>
 
-root@sadman:~$ connect --secure
 
-</p>
 
+<ContactCard
+icon={<Linkedin/>}
+title="LinkedIn"
+value="linkedin.com/in/sadman-sakib-abir"
+/>
 
-<p className="text-gray-400 mt-3">
 
-Searching available communication channels...
 
-</p>
+<ContactCard
+icon={<Mail/>}
+title="Email"
+value="sadmansakibabir717@gmail.com"
+/>
 
-
-<p className="text-green-400 mt-2">
-
-✓ Connection endpoints found
-
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-
-{/* Contact Cards */}
-
-<div className="
-grid
-md:grid-cols-3
-gap-5
-mt-8
-">
-
-
-
-{/* Github */}
-
-<a
-
-href="https://github.com/sadmanthebatman"
-
-target="_blank"
-
-className="
-group
-border
-border-green-900
-rounded-xl
-p-5
-hover:border-green-400
-hover:bg-green-400/5
-transition
-"
-
->
-
-
-<div className="flex items-center gap-3">
-
-
-<div className="
-p-3
-rounded-lg
-bg-green-400/10
-">
-
-<Github size={25}/>
-
-</div>
-
-
-<div>
-
-<h3 className="font-bold">
-
-GitHub
-
-</h3>
-
-
-<p className="text-sm text-gray-500">
-
-Source Code Repository
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-<p className="
-mt-4
-text-green-400
-text-sm
-group-hover:underline
-">
-
-github.com/sadmanthebatman
-
-</p>
-
-
-</a>
-
-
-
-
-
-
-
-{/* LinkedIn */}
-
-<a
-
-href="https://linkedin.com/in/sadman-sakib-abir"
-
-target="_blank"
-
-className="
-group
-border
-border-green-900
-rounded-xl
-p-5
-hover:border-green-400
-hover:bg-green-400/5
-transition
-"
-
->
-
-
-<div className="flex items-center gap-3">
-
-
-<div className="
-p-3
-rounded-lg
-bg-green-400/10
-">
-
-<Linkedin size={25}/>
-
-</div>
-
-
-<div>
-
-<h3 className="font-bold">
-
-LinkedIn
-
-</h3>
-
-
-<p className="text-sm text-gray-500">
-
-Professional Network
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-<p className="
-mt-4
-text-green-400
-text-sm
-group-hover:underline
-">
-
-linkedin.com/in/sadman-sakib-abir
-
-</p>
-
-
-</a>
-
-
-
-
-
-
-
-{/* Email */}
-
-<a
-
-href="mailto:sadmansakibabir717@gmail.com"
-
-className="
-group
-border
-border-green-900
-rounded-xl
-p-5
-hover:border-green-400
-hover:bg-green-400/5
-transition
-"
-
->
-
-
-<div className="flex items-center gap-3">
-
-
-<div className="
-p-3
-rounded-lg
-bg-green-400/10
-">
-
-<Mail size={25}/>
-
-</div>
-
-
-<div>
-
-<h3 className="font-bold">
-
-Email
-
-</h3>
-
-
-<p className="text-sm text-gray-500">
-
-Direct Communication
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-<p className="
-mt-4
-text-green-400
-text-sm
-group-hover:underline
-">
-
-sadmansakibabir717@gmail.com
-
-</p>
-
-
-</a>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-{/* Footer Command */}
-
-<div className="
-mt-10
-text-center
-text-gray-500
-text-sm
-">
-
-
-<p>
-
-&gt; Waiting for incoming connection...
-
-<span className="animate-pulse text-green-400">
-
-█
-
-</span>
-
-</p>
-
-
-</div>
 
 
 </div>
@@ -871,8 +549,16 @@ text-sm
 
 
 
+</main>
 
-function Card({
+)
+
+}
+
+
+
+
+function ContactCard({
 icon,
 title,
 value
@@ -885,22 +571,27 @@ value:string;
 
 return(
 
-<div className="terminal">
+<div className="glass">
 
-<div className="flex gap-3">
+<div className="text-green-400">
 
 {icon}
-
-{title}
 
 </div>
 
 
-<h3 className="text-3xl mt-5">
+<h3 className="mt-4 text-xl">
+
+{title}
+
+</h3>
+
+
+<p className="text-gray-400 mt-2 text-sm">
 
 {value}
 
-</h3>
+</p>
 
 
 </div>

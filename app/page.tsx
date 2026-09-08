@@ -19,10 +19,10 @@ import {
 
 
 const bootLines = [
-  "> Initializing SADMAN.OS",
+  "> Initializing SADMAN'S Work",
   "> Loading security modules",
-  "> Connecting SOC dashboard",
-  "> Access granted ✓",
+  
+  "> You r welcome ✓",
 ];
 
 
@@ -482,45 +482,55 @@ className="terminal text-center"
 
 {/* CONTACT */}
 
+<section className="terminal mt-16 relative overflow-hidden">
 
-<section className="terminal mt-16">
+
+{/* Background Glow */}
+
+<div className="
+absolute
+top-0
+right-0
+w-72
+h-72
+bg-green-400/10
+blur-3xl
+rounded-full
+">
+</div>
 
 
-<h2 className="text-3xl">
+
+<div className="relative z-10">
+
+
+<div className="flex items-center gap-3">
+
+<div className="
+p-3
+rounded-lg
+bg-green-400/10
+border
+border-green-900
+">
+
+<Mail className="text-green-400"/>
+
+</div>
+
+
+<div>
+
+<h2 className="text-3xl font-bold">
 
 CONTACT TERMINAL
 
 </h2>
 
 
-<div className="mt-6 space-y-4">
+<p className="text-gray-500 mt-1">
 
-
-<p className="flex gap-3">
-
-<Github/>
-
-github.com/sadmanthebatman
-
-</p>
-
-
-
-<p className="flex gap-3">
-
-<Linkedin/>
-
-linkedin.com/in/sadman-sakib-abir
-
-</p>
-
-
-
-<p className="flex gap-3">
-
-<Mail/>
-
-sadmansakibabir717@gmail.com
+Establish secure communication channel
 
 </p>
 
@@ -528,16 +538,335 @@ sadmansakibabir717@gmail.com
 </div>
 
 
+</div>
+
+
+
+
+
+{/* Terminal Message */}
+
+<div className="
+mt-8
+border
+border-green-900
+rounded-xl
+p-5
+bg-black/50
+">
+
+
+<p className="text-green-400">
+
+root@sadman:~$ connect --secure
+
+</p>
+
+
+<p className="text-gray-400 mt-3">
+
+Searching available communication channels...
+
+</p>
+
+
+<p className="text-green-400 mt-2">
+
+✓ Connection endpoints found
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+{/* Contact Cards */}
+
+<div className="
+grid
+md:grid-cols-3
+gap-5
+mt-8
+">
+
+
+
+{/* Github */}
+
+<a
+
+href="https://github.com/sadmanthebatman"
+
+target="_blank"
+
+className="
+group
+border
+border-green-900
+rounded-xl
+p-5
+hover:border-green-400
+hover:bg-green-400/5
+transition
+"
+
+>
+
+
+<div className="flex items-center gap-3">
+
+
+<div className="
+p-3
+rounded-lg
+bg-green-400/10
+">
+
+<Github size={25}/>
+
+</div>
+
+
+<div>
+
+<h3 className="font-bold">
+
+GitHub
+
+</h3>
+
+
+<p className="text-sm text-gray-500">
+
+Source Code Repository
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<p className="
+mt-4
+text-green-400
+text-sm
+group-hover:underline
+">
+
+github.com/sadmanthebatman
+
+</p>
+
+
+</a>
+
+
+
+
+
+
+
+{/* LinkedIn */}
+
+<a
+
+href="https://linkedin.com/in/sadman-sakib-abir"
+
+target="_blank"
+
+className="
+group
+border
+border-green-900
+rounded-xl
+p-5
+hover:border-green-400
+hover:bg-green-400/5
+transition
+"
+
+>
+
+
+<div className="flex items-center gap-3">
+
+
+<div className="
+p-3
+rounded-lg
+bg-green-400/10
+">
+
+<Linkedin size={25}/>
+
+</div>
+
+
+<div>
+
+<h3 className="font-bold">
+
+LinkedIn
+
+</h3>
+
+
+<p className="text-sm text-gray-500">
+
+Professional Network
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<p className="
+mt-4
+text-green-400
+text-sm
+group-hover:underline
+">
+
+linkedin.com/in/sadman-sakib-abir
+
+</p>
+
+
+</a>
+
+
+
+
+
+
+
+{/* Email */}
+
+<a
+
+href="mailto:sadmansakibabir717@gmail.com"
+
+className="
+group
+border
+border-green-900
+rounded-xl
+p-5
+hover:border-green-400
+hover:bg-green-400/5
+transition
+"
+
+>
+
+
+<div className="flex items-center gap-3">
+
+
+<div className="
+p-3
+rounded-lg
+bg-green-400/10
+">
+
+<Mail size={25}/>
+
+</div>
+
+
+<div>
+
+<h3 className="font-bold">
+
+Email
+
+</h3>
+
+
+<p className="text-sm text-gray-500">
+
+Direct Communication
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<p className="
+mt-4
+text-green-400
+text-sm
+group-hover:underline
+">
+
+sadmansakibabir717@gmail.com
+
+</p>
+
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+{/* Footer Command */}
+
+<div className="
+mt-10
+text-center
+text-gray-500
+text-sm
+">
+
+
+<p>
+
+&gt; Waiting for incoming connection...
+
+<span className="animate-pulse text-green-400">
+
+█
+
+</span>
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
 </section>
-
-
-
-</main>
-
-)
-
-}
-
 
 
 

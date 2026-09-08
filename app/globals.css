@@ -2,7 +2,574 @@
 @tailwind components;
 @tailwind utilities;
 
+body{@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* =========================
+   GLOBAL CYBER THEME
+========================= */
+
+:root {
+  --green: #00ff88;
+  --green-dark: #064d2b;
+  --cyan: #00eaff;
+  --bg: #020403;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+
+  margin:0;
+
+  min-height:100vh;
+
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(0,255,120,0.12),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #020403,
+      #050505 50%,
+      #010201
+    );
+
+  color:#00ff88;
+
+  font-family:
+    "JetBrains Mono",
+    "Fira Code",
+    monospace;
+
+  overflow-x:hidden;
+
+}
+
+
+
+/* =========================
+   CYBER GRID BACKGROUND
+========================= */
+
+
+body::before {
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background-image:
+
+linear-gradient(
+rgba(0,255,120,.05) 1px,
+transparent 1px
+),
+
+linear-gradient(
+90deg,
+rgba(0,255,120,.05) 1px,
+transparent 1px
+);
+
+
+background-size:
+40px 40px;
+
+
+pointer-events:none;
+
+z-index:-2;
+
+}
+
+
+
+/* =========================
+   CRT SCANLINES
+========================= */
+
+
+body::after {
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+
+background:
+
+repeating-linear-gradient(
+0deg,
+rgba(255,255,255,0.03),
+rgba(255,255,255,0.03) 1px,
+transparent 2px,
+transparent 4px
+);
+
+
+pointer-events:none;
+
+z-index:20;
+
+}
+
+
+
+/* =========================
+   TERMINAL WINDOWS
+========================= */
+
+
+.terminal {
+
+
+background:
+
+linear-gradient(
+145deg,
+rgba(10,20,15,.95),
+rgba(0,0,0,.95)
+);
+
+
+border:
+
+1px solid rgba(0,255,136,.35);
+
+
+
+border-radius:16px;
+
+
+padding:25px;
+
+
+box-shadow:
+
+
+0 0 30px
+rgba(0,255,136,.12),
+
+
+inset 0 0 20px
+rgba(0,255,136,.05);
+
+
+
+backdrop-filter:blur(10px);
+
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+
+.terminal::before {
+
+
+content:"";
+
+
+position:absolute;
+
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:2px;
+
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+var(--green),
+transparent
+);
+
+
+animation:
+
+scan 3s linear infinite;
+
+
+}
+
+
+
+@keyframes scan {
+
+
+0%{
+
+transform:translateX(-100%);
+
+}
+
+
+100%{
+
+transform:translateX(100%);
+
+}
+
+
+}
+
+
+
+
+/* =========================
+   CARDS
+========================= */
+
+
+.card,
+.skill,
+.project,
+.soc {
+
+
+background:
+
+rgba(0,20,10,.55);
+
+
+
+border:
+
+1px solid
+rgba(0,255,136,.25);
+
+
+
+border-radius:14px;
+
+
+
+transition:.3s;
+
+
+
+}
+
+
+.card:hover,
+.skill:hover,
+.project:hover,
+.soc:hover {
+
+
+transform:translateY(-5px);
+
+
+
+border-color:
+
+var(--green);
+
+
+
+box-shadow:
+
+0 0 25px
+rgba(0,255,136,.25);
+
+
+
+}
+
+
+
+
+
+/* =========================
+   TEXT EFFECTS
+========================= */
+
+
+.glitch {
+
+
+text-shadow:
+
+2px 0 #00ffff,
+-2px 0 #ff004c;
+
+
+animation:
+
+glitch 1s infinite;
+
+}
+
+
+
+@keyframes glitch {
+
+
+0%,100%{
+
+transform:none;
+
+}
+
+
+20%{
+
+transform:translateX(2px);
+
+}
+
+
+40%{
+
+transform:translateX(-2px);
+
+}
+
+
+}
+
+
+
+
+/* =========================
+   TERMINAL CURSOR
+========================= */
+
+
+.cursor {
+
+
+display:inline-block;
+
+
+width:10px;
+
+
+height:20px;
+
+
+background:var(--green);
+
+
+animation:
+
+blink .8s infinite;
+
+
+}
+
+
+
+@keyframes blink {
+
+
+50%{
+
+opacity:0;
+
+}
+
+
+}
+
+
+
+
+
+/* =========================
+   PROGRESS BARS
+========================= */
+
+
+.progress {
+
+
+height:8px;
+
+
+background:#07150d;
+
+
+border-radius:20px;
+
+
+overflow:hidden;
+
+
+
+}
+
+
+
+.progress span {
+
+
+display:block;
+
+
+height:100%;
+
+
+background:
+
+
+linear-gradient(
+90deg,
+#00ff88,
+#00eaff
+);
+
+
+box-shadow:
+
+0 0 15px
+#00ff88;
+
+
+
+}
+
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+
+button {
+
+
+background:
+
+linear-gradient(
+90deg,
+#00ff88,
+#00ccff
+);
+
+
+
+color:black;
+
+
+
+font-weight:bold;
+
+
+border-radius:8px;
+
+
+padding:10px 20px;
+
+
+transition:.3s;
+
+
+}
+
+
+
+button:hover {
+
+
+box-shadow:
+
+0 0 25px
+#00ff88;
+
+
+transform:scale(1.05);
+
+
+}
+
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+
+::-webkit-scrollbar {
+
+width:10px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+background:#020403;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+
+background:#00ff88;
+
+
+border-radius:10px;
+
+
+}
+
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:768px){
+
+
 body{
+
+font-size:14px;
+
+}
+
+
+.terminal{
+
+padding:18px;
+
+}
+
+
+}
  background:#050505;
  color:#3f7855;
  font-family:monospace;

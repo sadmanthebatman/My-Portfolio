@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import {
   Terminal,
   Shield,
@@ -11,139 +10,151 @@ import {
   Github,
   Linkedin,
   Mail,
-  Crosshair,
+  Code2,
+  Network,
   Database,
+  ExternalLink,
   Lock,
-  Server,
-  FileText,
-  Award,
-  Target,
 } from "lucide-react";
 
 
-const bootText = [
-  "Initializing SADMAN.OS security framework...",
-  "Loading cyber operations profile...",
-  "Connecting threat intelligence database...",
-  "Starting SOC monitoring modules...",
-  "Access granted: ROOT USER",
-];
-
-
-const skills = [
-  {
-    name: "Kali Linux",
-    level: "95%",
-    type: "Offensive Security",
-  },
-  {
-    name: "Burp Suite",
-    level: "90%",
-    type: "Web Pentesting",
-  },
-  {
-    name: "Nmap",
-    level: "90%",
-    type: "Network Recon",
-  },
-  {
-    name: "Python",
-    level: "90%",
-    type: "Automation",
-  },
-  {
-    name: "Wireshark",
-    level: "85%",
-    type: "Network Analysis",
-  },
-  {
-    name: "Wazuh / SIEM",
-    level: "85%",
-    type: "SOC Operations",
-  },
+const bootLines = [
+  "> Initializing SADMAN.OS",
+  "> Loading security modules",
+  "> Connecting SOC dashboard",
+  "> Access granted ✓",
 ];
 
 
 const projects = [
   {
-    title: "TCP Port Scanner",
-    tech: "Python | Socket Programming",
-    desc: "Network reconnaissance tool for scanning open ports and analyzing services.",
+    title: "SimpleFS File System Implementation",
+    category: "Operating Systems | C | File Systems",
+    description:
+      "A lightweight file system implementation featuring superblock management, inode-based storage, bitmap allocation, directory entries and virtual disk management.",
+    github:
+      "https://github.com/sadmanthebatman/SimpleFS-File-System-Implementation",
+    icon: <Database size={45}/>,
+    tags:[
+      "C",
+      "OS",
+      "Inode",
+      "Bitmap Allocation"
+    ]
   },
+
   {
-    title: "Security Research Lab",
-    tech: "Linux | Vulnerability Assessment",
-    desc: "Hands-on penetration testing environment for security experiments.",
+    title: "Bangladesh Board Examination Emergency Network",
+    category: "Cisco Networking | Infrastructure",
+    description:
+      "Enterprise network design using Cisco Packet Tracer with VLSM, RIPv2, static routing, floating static routing, DHCP, DNS, HTTP, email services and redundancy.",
+    github:
+      "https://github.com/sadmanthebatman/Bangladesh-Board-Examination-Emergency-Network",
+    icon:<Network size={45}/>,
+    tags:[
+      "Cisco",
+      "VLSM",
+      "Routing",
+      "DHCP"
+    ]
   },
+
   {
-    title: "SOC Monitoring Platform",
-    tech: "SIEM | Threat Detection",
-    desc: "Security monitoring workflow using defensive security concepts.",
-  },
+    title:"SportPulse",
+    category:"Full Stack Development | Analytics",
+    description:
+      "Multi-sport analytics platform providing player statistics, match archives, standings, comparisons and administrative management.",
+    github:
+      "https://github.com/sadmanthebatman/SportPulse",
+    icon:<Code2 size={45}/>,
+    tags:[
+      "React",
+      "Node.js",
+      "Dashboard"
+    ]
+  }
 ];
 
 
-export default function Home() {
 
-  const [boot, setBoot] = useState("");
-  const [cmd, setCmd] = useState("");
-
-
-  useEffect(() => {
-
-    const text = bootText.join("\n");
-    let index = 0;
-
-
-    const timer = setInterval(() => {
-
-      if(index < text.length){
-
-        setBoot(prev => prev + text[index]);
-        index++;
-
-      }
-      else{
-
-        clearInterval(timer);
-
-      }
-
-    },35);
-
-
-    return ()=>clearInterval(timer);
-
-  },[]);
+const skills=[
+"Kali Linux",
+"Burp Suite",
+"Nmap",
+"Metasploit",
+"Python",
+"Wireshark",
+"Wazuh",
+"Splunk",
+"Suricata",
+"Docker"
+];
 
 
 
-return (
+export default function Home(){
+
+const [boot,setBoot]=useState("");
+
+
+
+useEffect(()=>{
+
+let index=0;
+
+const text=bootLines.join("\n");
+
+const timer=setInterval(()=>{
+
+if(index < text.length){
+
+setBoot(prev=>prev+text[index]);
+
+index++;
+
+}
+else{
+
+clearInterval(timer);
+
+}
+
+},40);
+
+
+return()=>clearInterval(timer);
+
+
+},[]);
+
+
+
+
+return(
 
 <main className="min-h-screen p-6 md:p-12">
 
 
+
 {/* HEADER */}
 
-<header className="flex justify-between items-center border-b border-green-900 pb-5">
+<header className="flex justify-between items-center border-b border-green-900 pb-6">
 
 
 <div>
 
 <h1 className="text-3xl font-bold">
-
 SADMAN // CYBER OPERATIONS
-
 </h1>
 
 
-<p className="text-gray-500">
-
-Security Research | Penetration Testing | SOC
-
+<p className="text-gray-500 mt-2">
+Cyber Security • SOC • Penetration Testing
 </p>
 
+
 </div>
+
 
 
 <div className="flex items-center gap-2">
@@ -161,66 +172,16 @@ ONLINE
 
 
 
+
+
+
 {/* HERO */}
 
 
-<section className="grid md:grid-cols-3 gap-6 mt-10">
+<section className="grid md:grid-cols-2 gap-8 mt-10">
 
 
-<motion.div
-
-initial={{opacity:0,x:-40}}
-
-animate={{opacity:1,x:0}}
-
-className="terminal flex flex-col items-center justify-center"
-
->
-
-
-<div className="border border-green-400 rounded-full p-8">
-
-<Shield size={80}/>
-
-</div>
-
-
-<h2 className="text-3xl mt-5">
-
-ROOT
-
-</h2>
-
-
-<p>
-
-Cyber Security Operator
-
-</p>
-
-
-<p className="text-gray-500 mt-3">
-
-Clearance Level: MAX
-
-</p>
-
-
-</motion.div>
-
-
-
-
-
-<motion.div
-
-initial={{opacity:0,x:40}}
-
-animate={{opacity:1,x:0}}
-
-className="terminal md:col-span-2"
-
->
+<div className="terminal">
 
 
 <div className="flex gap-3 items-center">
@@ -232,13 +193,10 @@ root@sadman:~$
 </div>
 
 
-<pre className="mt-6 whitespace-pre-wrap">
+
+<pre className="mt-6 text-green-400 whitespace-pre-wrap">
 
 {boot}
-
-<span className="animate-pulse">
-█
-</span>
 
 </pre>
 
@@ -250,21 +208,72 @@ SADMAN SAKIB ABIR
 </h2>
 
 
-<p className="text-xl mt-3">
+<p className="text-xl mt-4">
 
 Cybersecurity Enthusiast
 
 </p>
 
 
-<p className="text-gray-500">
+<p className="text-gray-500 mt-3">
 
-Penetration Testing • SOC Operations • Security Research
+Security Researcher | SOC Operations | Pentesting
 
 </p>
 
 
-</motion.div>
+</div>
+
+
+
+
+
+
+<div className="terminal flex flex-col justify-center">
+
+
+<div className="flex items-center gap-3">
+
+<Shield/>
+
+SYSTEM PROFILE
+
+</div>
+
+
+
+<div className="mt-8 space-y-5">
+
+
+<p>
+ACCESS LEVEL:
+<span className="text-green-400">
+ ROOT
+</span>
+</p>
+
+
+<p>
+THREAT STATUS:
+<span className="text-green-400">
+ LOW
+</span>
+</p>
+
+
+<p>
+SECURITY MODE:
+<span className="text-green-400">
+ ACTIVE
+</span>
+</p>
+
+
+</div>
+
+
+</div>
+
 
 
 </section>
@@ -276,165 +285,20 @@ Penetration Testing • SOC Operations • Security Research
 
 
 
-{/* SYSTEM STATUS */}
+
+{/* STATUS */}
 
 
 <section className="grid md:grid-cols-4 gap-5 mt-10">
 
 
-<Status icon={<Shield/>} title="Security" value="ROOT"/>
-<Status icon={<Activity/>} title="Threat" value="LOW"/>
-<Status icon={<Wifi/>} title="Network" value="ONLINE"/>
-<Status icon={<Cpu/>} title="System" value="ACTIVE"/>
+<Card icon={<Shield/>} title="Security" value="ROOT"/>
 
+<Card icon={<Activity/>} title="Threat" value="LOW"/>
 
-</section>
+<Card icon={<Wifi/>} title="Network" value="ONLINE"/>
 
-
-
-
-
-
-
-
-
-{/* COMMAND TERMINAL */}
-
-
-<section className="terminal mt-10">
-
-
-<h2 className="text-3xl flex gap-3">
-
-<Terminal/>
-
-Interactive Terminal
-
-</h2>
-
-
-<div className="mt-5">
-
-root@sadman:~$
-
-<input
-
-className="bg-transparent outline-none ml-3"
-
-value={cmd}
-
-onChange={(e)=>setCmd(e.target.value)}
-
-placeholder="type help"
-
-/>
-
-</div>
-
-
-
-{
-cmd==="help" &&
-
-<div className="mt-5 text-gray-400">
-
-<p>about</p>
-<p>skills</p>
-<p>projects</p>
-<p>resume</p>
-<p>contact</p>
-
-</div>
-
-}
-
-
-</section>
-
-
-
-
-
-
-
-
-
-{/* SKILLS */}
-
-
-<section className="mt-12">
-
-
-<h2 className="text-3xl flex gap-3">
-
-<Crosshair/>
-
-Security Arsenal
-
-</h2>
-
-
-
-<div className="grid md:grid-cols-3 gap-5 mt-6">
-
-
-{
-skills.map(skill=>(
-
-
-<div className="terminal" key={skill.name}>
-
-
-<div className="flex justify-between">
-
-<span>
-
-{skill.name}
-
-</span>
-
-
-<span>
-
-{skill.level}
-
-</span>
-
-
-</div>
-
-
-<p className="text-gray-500 text-sm">
-
-{skill.type}
-
-</p>
-
-
-<div className="h-2 bg-black mt-4">
-
-<div
-
-className="h-full bg-green-400"
-
-style={{
-width:skill.level
-}}
-
-/>
-
-</div>
-
-
-</div>
-
-
-))
-
-}
-
-
-</div>
+<Card icon={<Cpu/>} title="System" value="ACTIVE"/>
 
 
 </section>
@@ -450,64 +314,101 @@ width:skill.level
 {/* PROJECTS */}
 
 
-<section className="mt-12">
+<section className="mt-16">
 
 
-<h2 className="text-3xl flex gap-3">
+<h2 className="text-4xl font-bold">
 
-<Database/>
-
-Project Database
+FEATURED PROJECTS
 
 </h2>
 
 
-<div className="grid md:grid-cols-3 gap-6 mt-6">
+<p className="text-gray-500 mt-2">
+Selected engineering and cybersecurity projects
+</p>
+
+
+
+<div className="grid md:grid-cols-3 gap-6 mt-8">
 
 
 {
 projects.map(project=>(
 
 
-<div className="terminal" key={project.title}>
+<div 
+key={project.title}
+className="terminal hover:-translate-y-2 transition"
+>
 
 
-<Lock/>
+<div className="text-green-400">
+
+{project.icon}
+
+</div>
 
 
-<h3 className="text-xl mt-4">
+<h3 className="text-xl font-bold mt-5">
 
 {project.title}
 
 </h3>
 
 
-<p className="text-green-400">
+<p className="text-green-400 mt-2 text-sm">
 
-{project.tech}
-
-</p>
-
-
-<p className="text-gray-500 mt-3">
-
-{project.desc}
+{project.category}
 
 </p>
 
 
-<button className="mt-5">
+<p className="text-gray-400 mt-4 text-sm">
 
-VIEW SOURCE →
+{project.description}
 
-</button>
+</p>
+
+
+
+<div className="flex flex-wrap gap-2 mt-5">
+
+{
+project.tags.map(tag=>(
+
+<span
+key={tag}
+className="border border-green-900 px-3 py-1 rounded text-xs"
+>
+{tag}
+</span>
+
+))
+}
+
+</div>
+
+
+<a
+href={project.github}
+target="_blank"
+className="flex items-center gap-2 mt-6 text-green-400"
+>
+
+<Github size={18}/>
+
+VIEW SOURCE
+
+<ExternalLink size={15}/>
+
+</a>
 
 
 </div>
 
 
 ))
-
 }
 
 
@@ -524,51 +425,46 @@ VIEW SOURCE →
 
 
 
-{/* EXPERIENCE */}
+{/* SKILLS */}
 
 
-<section className="terminal mt-12">
+<section className="mt-16">
 
 
-<h2 className="text-3xl flex gap-3">
+<h2 className="text-4xl font-bold">
 
-<Target/>
-
-Mission Log
+SECURITY ARSENAL
 
 </h2>
 
 
-<div className="mt-5">
+
+<div className="grid md:grid-cols-5 gap-4 mt-8">
 
 
-<p>
+{
+skills.map(skill=>(
 
-[2025] Cyber Security Analyst Intern
+<div
+key={skill}
+className="terminal text-center"
+>
 
-</p>
+<Lock size={20}/>
 
+<p className="mt-3">
 
-<p>
-
-Business Automation Limited
-
-</p>
-
-
-<p className="text-gray-500 mt-3">
-
-✓ Vulnerability Assessment
-
-<br/>
-
-✓ Penetration Testing
-
-<br/>
-
-✓ SOC Monitoring
+{skill}
 
 </p>
+
+
+</div>
+
+
+))
+}
+
 
 
 </div>
@@ -584,91 +480,20 @@ Business Automation Limited
 
 
 
-{/* CERTIFICATION */}
-
-
-<section className="terminal mt-12">
-
-
-<h2 className="text-3xl flex gap-3">
-
-<Award/>
-
-Training Database
-
-</h2>
-
-
-<p className="mt-5">
-
-HackTheBox | TryHackMe | Cybersecurity Labs
-
-</p>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-{/* RESUME */}
-
-
-<section className="terminal mt-12">
-
-
-<h2 className="text-3xl flex gap-3">
-
-<FileText/>
-
-Resume Terminal
-
-</h2>
-
-
-<p className="mt-5">
-
-root@sadman:~$ download resume.pdf
-
-</p>
-
-
-<button className="mt-5">
-
-DOWNLOAD CV
-
-</button>
-
-
-</section>
-
-
-
-
-
-
-
-
-
 {/* CONTACT */}
 
 
-<section className="terminal mt-12">
+<section className="terminal mt-16">
 
 
 <h2 className="text-3xl">
 
-Contact Terminal
+CONTACT TERMINAL
 
 </h2>
 
 
-<div className="mt-5 space-y-4">
+<div className="mt-6 space-y-4">
 
 
 <p className="flex gap-3">
@@ -680,6 +505,7 @@ github.com/sadmanthebatman
 </p>
 
 
+
 <p className="flex gap-3">
 
 <Linkedin/>
@@ -687,6 +513,7 @@ github.com/sadmanthebatman
 linkedin.com/in/sadman-sakib-abir
 
 </p>
+
 
 
 <p className="flex gap-3">
@@ -716,7 +543,7 @@ sadmansakibabir717@gmail.com
 
 
 
-function Status({
+function Card({
 icon,
 title,
 value
@@ -727,7 +554,7 @@ value:string;
 }){
 
 
-return (
+return(
 
 <div className="terminal">
 
@@ -740,7 +567,7 @@ return (
 </div>
 
 
-<h3 className="text-2xl mt-4">
+<h3 className="text-3xl mt-5">
 
 {value}
 

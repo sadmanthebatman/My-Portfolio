@@ -1,10 +1,26 @@
-import "./globals.css";
+.cyber-overlay {
 
-export const metadata = {
- title: "Sadman Sakib Abir | Cybersecurity Portfolio",
- description: "Cybersecurity portfolio"
-};
+position:fixed;
 
-export default function RootLayout({children}:{children:React.ReactNode}) {
- return <html lang="en"><body>{children}</body></html>;
+inset:0;
+
+pointer-events:none;
+
+background:
+
+linear-gradient(
+rgba(0,255,120,0.03) 1px,
+transparent 1px
+),
+
+linear-gradient(
+90deg,
+rgba(0,255,120,0.03) 1px,
+transparent 1px
+);
+
+background-size:50px 50px;
+
+z-index:999;
+
 }

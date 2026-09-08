@@ -1,5 +1,6 @@
 import { Shield, Terminal } from "lucide-react";
 
+
 const skills = [
 "Python","JAVA","C++","Kali Linux","Burp Suite","Nmap",
 "Metasploit","Docker","Kubernetes","SIEM","Threat Hunting",

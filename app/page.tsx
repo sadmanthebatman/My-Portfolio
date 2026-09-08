@@ -15,136 +15,147 @@ import {
   Database,
   Lock,
   Server,
+  FileText,
+  Award,
+  Target,
 } from "lucide-react";
 
 
-const bootLines = [
-  "Initializing SADMAN.OS...",
-  "Loading cybersecurity profile...",
-  "Connecting threat intelligence...",
-  "Activating SOC dashboard...",
-  "Access granted: ROOT",
+const bootText = [
+  "Initializing SADMAN.OS security framework...",
+  "Loading cyber operations profile...",
+  "Connecting threat intelligence database...",
+  "Starting SOC monitoring modules...",
+  "Access granted: ROOT USER",
 ];
 
 
 const skills = [
-  "Kali Linux",
-  "Burp Suite",
-  "Nmap",
-  "Metasploit",
-  "Python",
-  "Wireshark",
-  "Wazuh",
-  "Splunk",
-  "Suricata",
-  "TheHive",
-  "MISP",
-  "Docker",
+  {
+    name: "Kali Linux",
+    level: "95%",
+    type: "Offensive Security",
+  },
+  {
+    name: "Burp Suite",
+    level: "90%",
+    type: "Web Pentesting",
+  },
+  {
+    name: "Nmap",
+    level: "90%",
+    type: "Network Recon",
+  },
+  {
+    name: "Python",
+    level: "90%",
+    type: "Automation",
+  },
+  {
+    name: "Wireshark",
+    level: "85%",
+    type: "Network Analysis",
+  },
+  {
+    name: "Wazuh / SIEM",
+    level: "85%",
+    type: "SOC Operations",
+  },
 ];
 
 
 const projects = [
   {
     title: "TCP Port Scanner",
-    category: "Network Recon",
-    description:
-      "Python based security tool for network port discovery and analysis.",
+    tech: "Python | Socket Programming",
+    desc: "Network reconnaissance tool for scanning open ports and analyzing services.",
   },
-
   {
-    title: "Cyber Security Lab",
-    category: "Penetration Testing",
-    description:
-      "Virtual environment for vulnerability assessment and exploitation practice.",
+    title: "Security Research Lab",
+    tech: "Linux | Vulnerability Assessment",
+    desc: "Hands-on penetration testing environment for security experiments.",
   },
-
   {
     title: "SOC Monitoring Platform",
-    category: "Blue Team",
-    description:
-      "Security monitoring practice using SIEM and threat intelligence tools.",
+    tech: "SIEM | Threat Detection",
+    desc: "Security monitoring workflow using defensive security concepts.",
   },
 ];
 
 
 export default function Home() {
 
-
   const [boot, setBoot] = useState("");
-  const [command,setCommand] = useState("");
+  const [cmd, setCmd] = useState("");
 
 
+  useEffect(() => {
 
-  useEffect(()=>{
-
-    const text = bootLines.join("\n");
-
+    const text = bootText.join("\n");
     let index = 0;
 
 
-    const timer=setInterval(()=>{
+    const timer = setInterval(() => {
 
       if(index < text.length){
 
-        setBoot(prev=>prev + text[index]);
-
+        setBoot(prev => prev + text[index]);
         index++;
 
       }
-
       else{
 
         clearInterval(timer);
 
       }
 
-
     },35);
 
 
     return ()=>clearInterval(timer);
 
-
   },[]);
-
-
 
 
 
 return (
 
-<main className="min-h-screen bg-black text-green-400 font-mono p-5 md:p-12">
+<main className="min-h-screen p-6 md:p-12">
 
 
-{/* NAVBAR */}
+{/* HEADER */}
 
-<nav className="
-flex justify-between items-center
-border-b border-green-900
-pb-5 mb-10
-">
+<header className="flex justify-between items-center border-b border-green-900 pb-5">
 
-<h1 className="text-2xl font-bold">
 
-SADMAN.OS
+<div>
+
+<h1 className="text-3xl font-bold">
+
+SADMAN // CYBER OPERATIONS
 
 </h1>
 
 
-<div className="
-flex items-center gap-2
-">
+<p className="text-gray-500">
 
-<span className="
-h-3 w-3 bg-green-400 rounded-full animate-pulse
-"/>
+Security Research | Penetration Testing | SOC
 
-SYSTEM ONLINE
+</p>
 
 </div>
 
 
-</nav>
+<div className="flex items-center gap-2">
+
+<span className="w-3 h-3 bg-green-400 rounded-full animate-pulse"/>
+
+ONLINE
+
+</div>
+
+
+</header>
 
 
 
@@ -152,36 +163,24 @@ SYSTEM ONLINE
 
 {/* HERO */}
 
-<section className="
-grid md:grid-cols-3 gap-6
-">
+
+<section className="grid md:grid-cols-3 gap-6 mt-10">
 
 
 <motion.div
 
-initial={{opacity:0,y:30}}
+initial={{opacity:0,x:-40}}
 
-animate={{opacity:1,y:0}}
+animate={{opacity:1,x:0}}
 
-className="
-border border-green-900
-rounded-xl
-p-8
-bg-green-950/10
-shadow-[0_0_30px_rgba(0,255,100,.2)]
-flex flex-col items-center
-"
+className="terminal flex flex-col items-center justify-center"
 
 >
 
 
-<div className="
-border border-green-500
-rounded-full
-p-8
-">
+<div className="border border-green-400 rounded-full p-8">
 
-<Shield size={70}/>
+<Shield size={80}/>
 
 </div>
 
@@ -213,19 +212,18 @@ Clearance Level: MAX
 
 
 
+<motion.div
 
-<div className="
-md:col-span-2
-border border-green-900
-rounded-xl
-p-8
-bg-black
-">
+initial={{opacity:0,x:40}}
+
+animate={{opacity:1,x:0}}
+
+className="terminal md:col-span-2"
+
+>
 
 
-<div className="
-flex gap-3 items-center
-">
+<div className="flex gap-3 items-center">
 
 <Terminal/>
 
@@ -234,53 +232,39 @@ root@sadman:~$
 </div>
 
 
-
-<pre className="
-mt-6 whitespace-pre-wrap text-sm md:text-lg
-">
+<pre className="mt-6 whitespace-pre-wrap">
 
 {boot}
 
 <span className="animate-pulse">
-
 █
-
 </span>
 
 </pre>
 
 
-
-
-<h1 className="
-text-5xl font-bold mt-8
-">
+<h2 className="text-5xl font-bold mt-8">
 
 SADMAN SAKIB ABIR
 
-</h1>
+</h2>
 
 
-<p className="
-text-xl mt-4
-">
+<p className="text-xl mt-3">
 
-Cyber Security Enthusiast
+Cybersecurity Enthusiast
 
 </p>
 
 
-<p className="
-text-gray-500 mt-2
-">
+<p className="text-gray-500">
 
 Penetration Testing • SOC Operations • Security Research
 
 </p>
 
 
-
-</div>
+</motion.div>
 
 
 </section>
@@ -291,40 +275,17 @@ Penetration Testing • SOC Operations • Security Research
 
 
 
+
 {/* SYSTEM STATUS */}
 
 
-<section className="
-grid md:grid-cols-4 gap-5 mt-10
-">
+<section className="grid md:grid-cols-4 gap-5 mt-10">
 
 
-<Status
-icon={<Shield/>}
-title="Security"
-value="ROOT"
-/>
-
-
-<Status
-icon={<Activity/>}
-title="Threat"
-value="LOW"
-/>
-
-
-<Status
-icon={<Wifi/>}
-title="Network"
-value="ONLINE"
-/>
-
-
-<Status
-icon={<Cpu/>}
-title="System"
-value="ACTIVE"
-/>
+<Status icon={<Shield/>} title="Security" value="ROOT"/>
+<Status icon={<Activity/>} title="Threat" value="LOW"/>
+<Status icon={<Wifi/>} title="Network" value="ONLINE"/>
+<Status icon={<Cpu/>} title="System" value="ACTIVE"/>
 
 
 </section>
@@ -340,62 +301,52 @@ value="ACTIVE"
 {/* COMMAND TERMINAL */}
 
 
-<section className="
-border border-green-900
-rounded-xl
-p-6 mt-10
-">
+<section className="terminal mt-10">
 
 
 <h2 className="text-3xl flex gap-3">
 
 <Terminal/>
 
-Hacker Console
+Interactive Terminal
 
 </h2>
 
 
 <div className="mt-5">
 
-
 root@sadman:~$
-
 
 <input
 
-className="
-bg-transparent outline-none ml-3
-"
+className="bg-transparent outline-none ml-3"
 
-value={command}
+value={cmd}
 
-onChange={(e)=>setCommand(e.target.value)}
+onChange={(e)=>setCmd(e.target.value)}
 
 placeholder="type help"
 
 />
-
 
 </div>
 
 
 
 {
-command==="help" &&
+cmd==="help" &&
 
 <div className="mt-5 text-gray-400">
 
 <p>about</p>
 <p>skills</p>
 <p>projects</p>
-<p>contact</p>
 <p>resume</p>
+<p>contact</p>
 
 </div>
 
 }
-
 
 
 </section>
@@ -414,9 +365,7 @@ command==="help" &&
 <section className="mt-12">
 
 
-<h2 className="
-text-3xl flex gap-3
-">
+<h2 className="text-3xl flex gap-3">
 
 <Crosshair/>
 
@@ -426,43 +375,28 @@ Security Arsenal
 
 
 
-<div className="
-grid md:grid-cols-3 gap-5 mt-6
-">
+<div className="grid md:grid-cols-3 gap-5 mt-6">
 
 
 {
 skills.map(skill=>(
 
 
-<div
-
-key={skill}
-
-className="
-border border-green-900
-rounded-xl
-p-5
-hover:bg-green-900/20
-transition
-"
-
-
->
+<div className="terminal" key={skill.name}>
 
 
 <div className="flex justify-between">
 
 <span>
 
-{skill}
+{skill.name}
 
 </span>
 
 
 <span>
 
-90%
+{skill.level}
 
 </span>
 
@@ -470,17 +404,24 @@ transition
 </div>
 
 
+<p className="text-gray-500 text-sm">
 
-<div className="
-h-2 bg-gray-900 mt-3 rounded
-">
+{skill.type}
 
-<div className="
-h-full w-[90%]
-bg-green-400
-rounded
-"/>
+</p>
 
+
+<div className="h-2 bg-black mt-4">
+
+<div
+
+className="h-full bg-green-400"
+
+style={{
+width:skill.level
+}}
+
+/>
 
 </div>
 
@@ -491,7 +432,6 @@ rounded
 ))
 
 }
-
 
 
 </div>
@@ -522,31 +462,14 @@ Project Database
 </h2>
 
 
-
-
-<div className="
-grid md:grid-cols-3 gap-6 mt-6
-">
+<div className="grid md:grid-cols-3 gap-6 mt-6">
 
 
 {
-
 projects.map(project=>(
 
 
-<div
-
-key={project.title}
-
-className="
-border border-green-900
-rounded-xl
-p-6
-bg-green-950/10
-"
-
-
->
+<div className="terminal" key={project.title}>
 
 
 <Lock/>
@@ -559,27 +482,21 @@ bg-green-950/10
 </h3>
 
 
-<p className="text-green-500 mt-2">
+<p className="text-green-400">
 
-{project.category}
+{project.tech}
 
 </p>
 
 
 <p className="text-gray-500 mt-3">
 
-{project.description}
+{project.desc}
 
 </p>
 
 
-<button className="
-mt-5
-px-4 py-2
-bg-green-400
-text-black
-rounded
-">
+<button className="mt-5">
 
 VIEW SOURCE →
 
@@ -591,9 +508,7 @@ VIEW SOURCE →
 
 ))
 
-
 }
-
 
 
 </div>
@@ -609,52 +524,125 @@ VIEW SOURCE →
 
 
 
-{/* SOC */}
+{/* EXPERIENCE */}
 
 
-<section className="
-mt-12
-border border-green-900
-rounded-xl
-p-8
-">
+<section className="terminal mt-12">
 
 
-<h2 className="
-text-3xl flex gap-3
-">
+<h2 className="text-3xl flex gap-3">
 
-<Server/>
+<Target/>
 
-LIVE SOC MONITOR
+Mission Log
 
 </h2>
 
 
-<div className="mt-5 space-y-3">
+<div className="mt-5">
 
 
 <p>
-✓ IDS ........ ONLINE
+
+[2025] Cyber Security Analyst Intern
+
 </p>
 
 
 <p>
-✓ SIEM ....... ACTIVE
+
+Business Automation Limited
+
 </p>
 
 
-<p>
-✓ Threat Intel CONNECTED
-</p>
+<p className="text-gray-500 mt-3">
 
+✓ Vulnerability Assessment
 
-<p>
-✓ Firewall .... SECURED
+<br/>
+
+✓ Penetration Testing
+
+<br/>
+
+✓ SOC Monitoring
+
 </p>
 
 
 </div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+{/* CERTIFICATION */}
+
+
+<section className="terminal mt-12">
+
+
+<h2 className="text-3xl flex gap-3">
+
+<Award/>
+
+Training Database
+
+</h2>
+
+
+<p className="mt-5">
+
+HackTheBox | TryHackMe | Cybersecurity Labs
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+{/* RESUME */}
+
+
+<section className="terminal mt-12">
+
+
+<h2 className="text-3xl flex gap-3">
+
+<FileText/>
+
+Resume Terminal
+
+</h2>
+
+
+<p className="mt-5">
+
+root@sadman:~$ download resume.pdf
+
+</p>
+
+
+<button className="mt-5">
+
+DOWNLOAD CV
+
+</button>
 
 
 </section>
@@ -670,61 +658,50 @@ LIVE SOC MONITOR
 {/* CONTACT */}
 
 
-<section className="
-mt-12
-border border-green-900
-rounded-xl
-p-8
-">
+<section className="terminal mt-12">
 
 
 <h2 className="text-3xl">
 
-CONTACT TERMINAL
+Contact Terminal
 
 </h2>
 
 
-<div className="
-mt-5 space-y-4
-">
+<div className="mt-5 space-y-4">
 
 
-<div className="flex gap-3">
+<p className="flex gap-3">
 
 <Github/>
 
 github.com/sadmanthebatman
 
-</div>
+</p>
 
 
-<div className="flex gap-3">
+<p className="flex gap-3">
 
 <Linkedin/>
 
-www.linkedin.com/in/sadman-sakib-abir-38967841b/?locale=en-US
+linkedin.com/in/sadman-sakib-abir
 
-</div>
+</p>
 
 
-
-<div className="flex gap-3">
+<p className="flex gap-3">
 
 <Mail/>
 
 sadmansakibabir717@gmail.com
 
-</div>
+</p>
 
 
 </div>
 
 
 </section>
-
-
-
 
 
 
@@ -739,31 +716,20 @@ sadmansakibabir717@gmail.com
 
 
 
-
 function Status({
-
 icon,
 title,
 value
-
 }:{
-
 icon:React.ReactNode;
 title:string;
 value:string;
-
 }){
 
 
 return (
 
-<div className="
-border border-green-900
-rounded-xl
-p-6
-bg-green-950/10
-">
-
+<div className="terminal">
 
 <div className="flex gap-3">
 
@@ -774,9 +740,7 @@ bg-green-950/10
 </div>
 
 
-<h3 className="
-text-2xl mt-4
-">
+<h3 className="text-2xl mt-4">
 
 {value}
 

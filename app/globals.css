@@ -2,31 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-body{@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-
-/* =========================
-   GLOBAL CYBER THEME
-========================= */
+/* ===========================
+   ROOT VARIABLES
+=========================== */
 
 :root {
+
+  --background: #030504;
+
+  --foreground: #e5e7eb;
+
   --green: #00ff88;
-  --green-dark: #064d2b;
-  --cyan: #00eaff;
-  --bg: #020403;
+
+  --green-soft: rgba(0,255,136,0.15);
+
+  --cyan: #00e5ff;
+
+  --border: rgba(0,255,136,0.18);
+
 }
 
 
+/* ===========================
+   GLOBAL RESET
+=========================== */
+
 * {
+
   box-sizing: border-box;
+
 }
 
 
 html {
+
   scroll-behavior: smooth;
+
 }
+
 
 
 body {
@@ -36,24 +50,32 @@ body {
   min-height:100vh;
 
   background:
-    radial-gradient(
-      circle at top,
-      rgba(0,255,120,0.12),
-      transparent 40%
-    ),
-    linear-gradient(
-      135deg,
-      #020403,
-      #050505 50%,
-      #010201
-    );
 
-  color:#00ff88;
+  radial-gradient(
+    circle at 20% 10%,
+    rgba(0,255,136,.12),
+    transparent 35%
+  ),
+
+  radial-gradient(
+    circle at 80% 20%,
+    rgba(0,229,255,.08),
+    transparent 30%
+  ),
+
+  #030504;
+
+
+  color:var(--foreground);
+
 
   font-family:
-    "JetBrains Mono",
-    "Fira Code",
-    monospace;
+
+  "JetBrains Mono",
+  "Fira Code",
+  "Consolas",
+  monospace;
+
 
   overflow-x:hidden;
 
@@ -61,131 +83,163 @@ body {
 
 
 
-/* =========================
+/* ===========================
    CYBER GRID BACKGROUND
-========================= */
+=========================== */
 
 
 body::before {
 
+
 content:"";
+
 
 position:fixed;
 
+
 inset:0;
+
 
 background-image:
 
 linear-gradient(
-rgba(0,255,120,.05) 1px,
+rgba(0,255,136,.035) 1px,
 transparent 1px
 ),
 
 linear-gradient(
 90deg,
-rgba(0,255,120,.05) 1px,
+rgba(0,255,136,.035) 1px,
 transparent 1px
 );
 
 
+
 background-size:
-40px 40px;
+
+45px 45px;
+
 
 
 pointer-events:none;
 
+
 z-index:-2;
+
 
 }
 
 
 
-/* =========================
-   CRT SCANLINES
-========================= */
+/* ===========================
+   SCANLINE EFFECT
+=========================== */
 
 
 body::after {
 
+
 content:"";
+
 
 position:fixed;
 
+
 inset:0;
+
 
 
 background:
 
 repeating-linear-gradient(
 0deg,
-rgba(255,255,255,0.03),
-rgba(255,255,255,0.03) 1px,
+rgba(255,255,255,.025),
+rgba(255,255,255,.025) 1px,
 transparent 2px,
-transparent 4px
+transparent 5px
 );
+
 
 
 pointer-events:none;
 
-z-index:20;
+
+z-index:100;
+
 
 }
 
 
 
-/* =========================
-   TERMINAL WINDOWS
-========================= */
 
 
-.terminal {
+/* ===========================
+   GLASS CARDS
+=========================== */
+
+
+.glass {
 
 
 background:
 
 linear-gradient(
 145deg,
-rgba(10,20,15,.95),
-rgba(0,0,0,.95)
+rgba(15,20,18,.85),
+rgba(5,8,7,.75)
 );
+
 
 
 border:
 
-1px solid rgba(0,255,136,.35);
+1px solid var(--border);
 
 
 
-border-radius:16px;
+border-radius:20px;
 
 
-padding:25px;
+
+padding:30px;
+
+
+
+backdrop-filter:
+
+blur(15px);
+
 
 
 box-shadow:
 
 
-0 0 30px
-rgba(0,255,136,.12),
+0 0 35px
+rgba(0,255,136,.05),
 
 
-inset 0 0 20px
-rgba(0,255,136,.05);
+inset 0 0 25px
+rgba(0,255,136,.03);
 
 
 
-backdrop-filter:blur(10px);
+transition:
+
+all .35s ease;
 
 
 position:relative;
 
+
 overflow:hidden;
+
 
 }
 
 
 
-.terminal::before {
+
+.glass::before {
 
 
 content:"";
@@ -196,11 +250,15 @@ position:absolute;
 
 top:0;
 
-left:0;
+
+left:-100%;
+
 
 width:100%;
 
+
 height:2px;
+
 
 
 background:
@@ -213,28 +271,161 @@ transparent
 );
 
 
-animation:
 
-scan 3s linear infinite;
+transition:.5s;
 
 
 }
 
 
 
-@keyframes scan {
+.glass:hover::before {
+
+
+left:100%;
+
+
+}
+
+
+
+.glass:hover {
+
+
+transform:
+
+translateY(-6px);
+
+
+
+border-color:
+
+rgba(0,255,136,.5);
+
+
+
+box-shadow:
+
+
+0 0 40px
+rgba(0,255,136,.18);
+
+
+}
+
+
+
+
+
+
+/* ===========================
+   TERMINAL STYLE
+=========================== */
+
+
+.terminal {
+
+
+background:
+
+rgba(0,0,0,.65);
+
+
+
+border:
+
+1px solid rgba(0,255,136,.2);
+
+
+
+border-radius:18px;
+
+
+
+padding:30px;
+
+
+
+box-shadow:
+
+
+0 0 30px
+rgba(0,255,136,.08);
+
+
+
+position:relative;
+
+
+overflow:hidden;
+
+
+}
+
+
+
+.terminal::after {
+
+
+content:"";
+
+
+position:absolute;
+
+
+height:2px;
+
+
+width:100%;
+
+
+top:0;
+
+
+left:-100%;
+
+
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+#00ff88,
+transparent
+);
+
+
+
+animation:
+
+terminalScan 4s infinite;
+
+
+}
+
+
+
+@keyframes terminalScan {
 
 
 0%{
 
-transform:translateX(-100%);
+left:-100%;
+
+}
+
+
+50%{
+
+left:100%;
 
 }
 
 
 100%{
 
-transform:translateX(100%);
+left:100%;
 
 }
 
@@ -244,61 +435,224 @@ transform:translateX(100%);
 
 
 
-/* =========================
-   CARDS
-========================= */
 
 
-.card,
-.skill,
-.project,
-.soc {
+
+/* ===========================
+   HEADINGS
+=========================== */
+
+
+h1,h2,h3 {
+
+
+letter-spacing:-0.03em;
+
+
+}
+
+
+
+.section-title {
+
+
+font-size:
+
+2.5rem;
+
+
+font-weight:
+
+800;
+
 
 
 background:
 
-rgba(0,20,10,.55);
+linear-gradient(
+90deg,
+#ffffff,
+#00ff88
+);
+
+
+
+-webkit-background-clip:text;
+
+
+color:transparent;
+
+
+}
+
+
+
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+
+.btn {
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+gap:10px;
+
+
+background:
+
+linear-gradient(
+90deg,
+#00ff88,
+#00e5ff
+);
+
+
+
+color:#001;
+
+
+
+font-weight:
+
+700;
+
+
+
+padding:
+
+12px 22px;
+
+
+
+border-radius:
+
+12px;
+
+
+
+transition:
+
+.3s;
+
+
+
+cursor:pointer;
+
+
+}
+
+
+
+.btn:hover {
+
+
+transform:
+
+translateY(-3px)
+scale(1.03);
+
+
+
+box-shadow:
+
+0 0 30px
+rgba(0,255,136,.5);
+
+
+}
+
+
+
+
+
+
+/* ===========================
+   PROJECT CARDS
+=========================== */
+
+
+.project-card {
+
+
+min-height:430px;
+
+
+}
+
+
+
+.project-card:hover {
+
+
+border-color:
+
+#00ff88;
+
+
+}
+
+
+
+
+
+
+/* ===========================
+   TAGS
+=========================== */
+
+
+.tag {
+
+
+display:inline-flex;
+
+
+align-items:center;
+
+
+padding:
+
+6px 12px;
+
+
+
+border-radius:
+
+999px;
+
+
+
+font-size:
+
+12px;
+
+
+
+color:
+
+#00ff88;
+
+
+
+background:
+
+rgba(0,255,136,.08);
 
 
 
 border:
 
-1px solid
-rgba(0,255,136,.25);
-
-
-
-border-radius:14px;
-
-
-
-transition:.3s;
-
-
-
-}
-
-
-.card:hover,
-.skill:hover,
-.project:hover,
-.soc:hover {
-
-
-transform:translateY(-5px);
-
-
-
-border-color:
-
-var(--green);
-
-
-
-box-shadow:
-
-0 0 25px
-rgba(0,255,136,.25);
+1px solid rgba(0,255,136,.25);
 
 
 
@@ -308,186 +662,13 @@ rgba(0,255,136,.25);
 
 
 
-/* =========================
-   TEXT EFFECTS
-========================= */
 
+/* ===========================
+   LINKS
+=========================== */
 
-.glitch {
 
-
-text-shadow:
-
-2px 0 #00ffff,
--2px 0 #ff004c;
-
-
-animation:
-
-glitch 1s infinite;
-
-}
-
-
-
-@keyframes glitch {
-
-
-0%,100%{
-
-transform:none;
-
-}
-
-
-20%{
-
-transform:translateX(2px);
-
-}
-
-
-40%{
-
-transform:translateX(-2px);
-
-}
-
-
-}
-
-
-
-
-/* =========================
-   TERMINAL CURSOR
-========================= */
-
-
-.cursor {
-
-
-display:inline-block;
-
-
-width:10px;
-
-
-height:20px;
-
-
-background:var(--green);
-
-
-animation:
-
-blink .8s infinite;
-
-
-}
-
-
-
-@keyframes blink {
-
-
-50%{
-
-opacity:0;
-
-}
-
-
-}
-
-
-
-
-
-/* =========================
-   PROGRESS BARS
-========================= */
-
-
-.progress {
-
-
-height:8px;
-
-
-background:#07150d;
-
-
-border-radius:20px;
-
-
-overflow:hidden;
-
-
-
-}
-
-
-
-.progress span {
-
-
-display:block;
-
-
-height:100%;
-
-
-background:
-
-
-linear-gradient(
-90deg,
-#00ff88,
-#00eaff
-);
-
-
-box-shadow:
-
-0 0 15px
-#00ff88;
-
-
-
-}
-
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-
-button {
-
-
-background:
-
-linear-gradient(
-90deg,
-#00ff88,
-#00ccff
-);
-
-
-
-color:black;
-
-
-
-font-weight:bold;
-
-
-border-radius:8px;
-
-
-padding:10px 20px;
+a {
 
 
 transition:.3s;
@@ -497,48 +678,81 @@ transition:.3s;
 
 
 
-button:hover {
+a:hover {
 
 
-box-shadow:
-
-0 0 25px
-#00ff88;
-
-
-transform:scale(1.05);
+color:#00ff88;
 
 
 }
 
 
 
-/* =========================
-   SCROLLBAR
-========================= */
+
+
+
+/* ===========================
+   ICON GLOW
+=========================== */
+
+
+svg {
+
+
+filter:
+
+drop-shadow(
+0 0 8px
+rgba(0,255,136,.5)
+);
+
+
+}
+
+
+
+
+
+/* ===========================
+   CUSTOM SCROLLBAR
+=========================== */
 
 
 ::-webkit-scrollbar {
 
+
 width:10px;
 
+
 }
+
 
 
 ::-webkit-scrollbar-track {
 
-background:#020403;
+
+background:#020302;
+
 
 }
+
 
 
 ::-webkit-scrollbar-thumb {
 
 
-background:#00ff88;
+background:
+
+linear-gradient(
+#00ff88,
+#00e5ff
+);
 
 
-border-radius:10px;
+
+border-radius:
+
+20px;
 
 
 }
@@ -547,38 +761,68 @@ border-radius:10px;
 
 
 
-/* =========================
-   MOBILE
-========================= */
+/* ===========================
+   SELECTION
+=========================== */
+
+
+::selection {
+
+
+background:#00ff88;
+
+
+color:black;
+
+
+}
+
+
+
+
+
+
+/* ===========================
+   MOBILE OPTIMIZATION
+=========================== */
 
 
 @media(max-width:768px){
 
 
-body{
+.glass,
+.terminal {
 
-font-size:14px;
+
+padding:20px;
+
+
+}
+
+
+
+.section-title {
+
+
+font-size:
+
+2rem;
+
 
 }
 
 
-.terminal{
 
-padding:18px;
+body {
+
+
+font-size:
+
+14px;
+
 
 }
 
 
-}
- background:#050505;
- color:#3f7855;
- font-family:monospace;
-}
 
-.terminal{
- background:#080808;
- border:1px solid #174d29;
- border-radius:12px;
- padding:24px;
- box-shadow:0 0 30px rgba(0,255,100,.15);
 }

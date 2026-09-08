@@ -665,7 +665,7 @@ value="github.com/sadmanthebatman"
 <Contact
 icon={<Linkedin/>}
 title="LinkedIn"
-value="linkedin.com/in/sadman-sakib-abir"
+value="https://www.linkedin.com/in/sadman-sakib-abir-38967841b/?locale=en-US"
 />
 
 

@@ -10,60 +10,101 @@ import {
   Code2,
   Network,
   Database,
-  Lock,
+  Crosshair,
+  Radar,
   Server,
   Download,
 } from "lucide-react";
 
 
 const projects = [
-  {
-    title: "SimpleFS File System Implementation",
-    type: "Operating Systems • C Programming",
-    icon: <Database size={40}/>,
-    description:
-      "A lightweight file system implementation featuring superblock management, inode-based storage, bitmap allocation, directory entries, and virtual disk management.",
-    tags:["C","File System","Inode","OS"],
-    link:"https://github.com/sadmanthebatman/SimpleFS-File-System-Implementation"
-  },
+
+{
+title:"SimpleFS File System Implementation",
+type:"Operating Systems • C Programming",
+icon:<Database size={45}/>,
+description:
+"A lightweight file system implementation featuring superblock management, inode-based storage, bitmap allocation, directory entries and virtual disk management.",
+tags:["C","File System","Inode","Operating Systems"],
+link:"https://github.com/sadmanthebatman/SimpleFS-File-System-Implementation"
+},
 
 
-  {
-    title:"Bangladesh Board Examination Emergency Network",
-    type:"Cisco Networking • Infrastructure",
-    icon:<Network size={40}/>,
-    description:
-      "Enterprise network design using Cisco Packet Tracer with VLSM, RIPv2, static routing, DHCP, DNS, HTTP, email services and redundancy.",
-    tags:["Cisco","VLSM","Routing","Networking"],
-    link:"https://github.com/sadmanthebatman/Bangladesh-Board-Examination-Emergency-Network"
-  },
+{
+title:"Bangladesh Board Examination Emergency Network",
+type:"Cisco Networking • Infrastructure",
+icon:<Network size={45}/>,
+description:
+"Enterprise network architecture using Cisco Packet Tracer with VLSM, RIPv2, static routing, DHCP, DNS, HTTP, email services and redundancy.",
+tags:["Cisco","VLSM","Routing","Networking"],
+link:"https://github.com/sadmanthebatman/Bangladesh-Board-Examination-Emergency-Network"
+},
 
 
-  {
-    title:"SportPulse",
-    type:"Full Stack Development",
-    icon:<Code2 size={40}/>,
-    description:
-      "Multi-sport analytics platform with player statistics, match archives, standings, comparisons and admin dashboard.",
-    tags:["React","Node.js","Dashboard"],
-    link:"https://github.com/sadmanthebatman/SportPulse"
-  }
+{
+title:"SportPulse",
+type:"Full Stack Development",
+icon:<Code2 size={45}/>,
+description:
+"Multi-sport analytics platform with player statistics, match archives, standings, comparisons and administration dashboard.",
+tags:["React","Node.js","Dashboard"],
+link:"https://github.com/sadmanthebatman/SportPulse"
+}
+
 ];
 
 
 
-const skills=[
+
+
+const securityGroups=[
+
+{
+title:"Offensive Security",
+icon:<Crosshair/>,
+items:[
 "Kali Linux",
 "Burp Suite",
 "Nmap",
 "Metasploit",
-"Python",
-"Wireshark",
+"ffuf",
+"Shodan"
+]
+},
+
+
+{
+title:"Detection & Monitoring",
+icon:<Radar/>,
+items:[
+"Suricata IDS/IPS",
 "Wazuh",
 "Splunk",
+"TheHive",
+"MISP",
+"ESET XDR"
+]
+},
+
+
+{
+title:"Analysis & Engineering",
+icon:<Terminal/>,
+items:[
+"Python",
 "Docker",
+"Wireshark",
+"Velociraptor",
+"VirusTotal",
 "Linux"
+]
+}
+
 ];
+
+
+
+
 
 
 
@@ -72,23 +113,22 @@ export default function Home(){
 
 return(
 
-<main className="min-h-screen text-white px-6 md:px-16 py-10">
+<main className="min-h-screen px-6 md:px-16 py-10">
+
+
+
 
 
 {/* HERO */}
 
 
-<section className="
-grid md:grid-cols-2 gap-10 items-center
-">
+<section className="grid md:grid-cols-2 gap-10 items-center">
 
 
 <div>
 
 
-<div className="
-flex items-center gap-3 text-green-400 mb-5
-">
+<div className="flex gap-3 items-center text-green-400 mb-6">
 
 <Shield/>
 
@@ -98,48 +138,48 @@ CYBER SECURITY PROFILE
 
 
 
-<h1 className="
-text-5xl md:text-7xl font-bold
-leading-tight
-">
+
+<h1 className="text-5xl md:text-7xl font-bold">
 
 SADMAN
-<br/>
 
 <span className="text-green-400">
 
-SAKIB ABIR
+ SAKIB ABIR
 
 </span>
-
 
 </h1>
 
 
-<p className="
-text-xl text-gray-400 mt-6
-">
+
+<h2 className="text-xl mt-6 text-gray-300">
 
 Cybersecurity Enthusiast
 
-</p>
+</h2>
 
 
-<p className="
-text-gray-500 mt-4 max-w-xl
-">
+
+<p className="text-gray-500 mt-5 max-w-xl">
 
 Focused on penetration testing, SOC operations,
-security research, and building secure systems.
+security monitoring, vulnerability assessment,
+and secure system engineering.
 
 </p>
+
 
 
 
 <div className="flex gap-4 mt-8">
 
 
-<a className="btn">
+<a
+href="/Sadman-Sakib-Abir-Resume.pdf"
+download
+className="btn"
+>
 
 <Download size={18}/>
 
@@ -148,29 +188,38 @@ Resume
 </a>
 
 
-<a className="btn">
 
-Github
+
+<a
+href="https://github.com/sadmanthebatman"
+target="_blank"
+className="btn"
+>
+
+<Github size={18}/>
+
+GitHub
 
 </a>
 
 
-</div>
-
 
 </div>
 
 
 
+</div>
 
 
-{/* SYSTEM CARD */}
+
+
+
 
 
 <div className="glass">
 
 
-<div className="flex gap-3 items-center">
+<div className="flex items-center gap-3">
 
 <Terminal/>
 
@@ -179,46 +228,65 @@ SYSTEM STATUS
 </div>
 
 
-<div className="mt-8 space-y-5">
+
+<div className="mt-8 space-y-6">
 
 
 <div>
 
 <p className="text-gray-500">
+
 Availability
+
 </p>
 
 <p className="text-green-400 text-xl">
+
 ONLINE
+
 </p>
 
 </div>
 
 
 
+
 <div>
 
 <p className="text-gray-500">
+
 Security Level
+
 </p>
+
 
 <p className="text-green-400 text-xl">
+
 ACTIVE
+
 </p>
 
+
 </div>
+
 
 
 
 <div>
 
 <p className="text-gray-500">
-Primary Focus
+
+Primary Domain
+
 </p>
+
 
 <p>
-SOC / Pentesting
+
+SOC Operations / Pentesting
+
 </p>
+
 
 </div>
 
@@ -242,6 +310,7 @@ SOC / Pentesting
 {/* PROJECTS */}
 
 
+
 <section className="mt-24">
 
 
@@ -254,19 +323,18 @@ Featured Projects
 
 <p className="subtitle">
 
-Selected engineering and cybersecurity projects
+Security, networking and software engineering projects
 
 </p>
 
 
 
 
-<div className="
-grid md:grid-cols-3 gap-8 mt-10
-">
+<div className="grid md:grid-cols-3 gap-8 mt-10">
 
 
 {
+
 projects.map(project=>(
 
 
@@ -291,8 +359,7 @@ className="glass project-card"
 </h3>
 
 
-
-<p className="text-green-400 text-sm mt-2">
+<p className="text-green-400 text-sm mt-3">
 
 {project.type}
 
@@ -311,18 +378,17 @@ className="glass project-card"
 <div className="flex flex-wrap gap-2 mt-5">
 
 {
+
 project.tags.map(tag=>(
 
-<span
-key={tag}
-className="tag"
->
+<span className="tag" key={tag}>
 
 {tag}
 
 </span>
 
 ))
+
 }
 
 </div>
@@ -332,19 +398,16 @@ className="tag"
 <a
 href={project.link}
 target="_blank"
-className="
-flex items-center gap-2
-text-green-400
-mt-6
-"
+className="flex gap-2 items-center text-green-400 mt-6"
 >
+
+<Github size={18}/>
 
 View Repository
 
-<ExternalLink size={16}/>
+<ExternalLink size={15}/>
 
 </a>
-
 
 
 </div>
@@ -353,7 +416,6 @@ View Repository
 ))
 
 }
-
 
 
 </div>
@@ -369,7 +431,8 @@ View Repository
 
 
 
-{/* SKILLS */}
+{/* SECURITY ARSENAL */}
+
 
 
 <section className="mt-24">
@@ -382,35 +445,72 @@ Security Arsenal
 </h2>
 
 
+<p className="subtitle">
 
-<div className="
-grid grid-cols-2 md:grid-cols-5 gap-5 mt-10
-">
-
-
-{
-skills.map(skill=>(
-
-<div
-key={skill}
-className="glass text-center py-6"
->
-
-<Lock
-className="mx-auto text-green-400"
-/>
-
-
-<p className="mt-3">
-
-{skill}
+Tools and technologies used for offensive and defensive security
 
 </p>
 
 
+
+<div className="grid md:grid-cols-3 gap-6 mt-10">
+
+
+{
+
+securityGroups.map(group=>(
+
+
+<div className="glass" key={group.title}>
+
+
+<div className="flex gap-3 items-center text-green-400">
+
+
+{group.icon}
+
+
+<h3 className="text-xl text-white font-bold">
+
+{group.title}
+
+</h3>
+
+
+</div>
+
+
+
+<div className="mt-6 space-y-3">
+
+
+{
+
+group.items.map(item=>(
+
+<div
+key={item}
+className="border-b border-green-900 pb-2"
+>
+
+&gt; {item}
+
 </div>
 
 ))
+
+}
+
+
+</div>
+
+
+</div>
+
+
+))
+
+
 }
 
 
@@ -430,59 +530,97 @@ className="mx-auto text-green-400"
 {/* EXPERIENCE */}
 
 
+
 <section className="mt-24">
 
 
 <h2 className="section-title">
 
-Experience
+Professional Experience
 
 </h2>
 
 
 
-<div className="glass mt-8">
+
+<div className="glass mt-10">
 
 
-<div className="flex gap-3">
+<div className="flex gap-4 items-center">
 
-<Server/>
 
-<h3 className="text-xl">
+<Server className="text-green-400"/>
+
+
+
+<div>
+
+
+<h3 className="text-2xl font-bold">
 
 Cyber Security Analyst Intern
 
 </h3>
 
 
-</div>
-
-
-<p className="text-green-400 mt-3">
+<p className="text-green-400">
 
 Business Automation Limited
 
 </p>
 
 
+<p className="text-gray-500">
 
-<p className="text-gray-400 mt-5">
-
-• Vulnerability Assessment
-
-<br/>
-
-• Penetration Testing
-
-<br/>
-
-• Security Monitoring
-
-<br/>
-
-• Threat Analysis
+Oct 2025 — Jan 2026
 
 </p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div className="mt-8 text-gray-300 space-y-5 leading-relaxed">
+
+
+<p>
+• Performed vulnerability assessments and penetration testing using <b>Nessus</b> and <b>Nuclei</b> to identify, validate and document security weaknesses including CVE analysis.
+</p>
+
+
+<p>
+• Worked with threat detection, security monitoring, endpoint visibility and incident investigation for suspicious activity analysis.
+</p>
+
+
+<p>
+• Used <b>Suricata</b> for IDS/IPS monitoring, <b>Wazuh</b> for SIEM-based monitoring and <b>ESET</b> for XDR security operations.
+</p>
+
+
+<p>
+• Supported alert management, incident response and security orchestration workflows using <b>Splunk</b>, <b>TheHive</b> and <b>MISP</b> threat intelligence.
+</p>
+
+
+<p>
+• Conducted digital forensics, malware and network analysis using <b>Velociraptor</b>, <b>Wireshark</b> and <b>VirusTotal</b>.
+</p>
+
+
+<p>
+• Produced security assessment reports with remediation recommendations while supporting CIRT, infrastructure operations and secure system management.
+</p>
+
+
+</div>
+
 
 
 </div>
@@ -501,6 +639,7 @@ Business Automation Limited
 {/* CONTACT */}
 
 
+
 <section className="mt-24">
 
 
@@ -512,12 +651,10 @@ Secure Communication
 
 
 
-<div className="
-grid md:grid-cols-3 gap-6 mt-10
-">
+<div className="grid md:grid-cols-3 gap-6 mt-10">
 
 
-<ContactCard
+<Contact
 icon={<Github/>}
 title="GitHub"
 value="github.com/sadmanthebatman"
@@ -525,7 +662,7 @@ value="github.com/sadmanthebatman"
 
 
 
-<ContactCard
+<Contact
 icon={<Linkedin/>}
 title="LinkedIn"
 value="linkedin.com/in/sadman-sakib-abir"
@@ -533,19 +670,17 @@ value="linkedin.com/in/sadman-sakib-abir"
 
 
 
-<ContactCard
+<Contact
 icon={<Mail/>}
 title="Email"
 value="sadmansakibabir717@gmail.com"
 />
 
 
-
 </div>
 
 
 </section>
-
 
 
 
@@ -558,7 +693,10 @@ value="sadmansakibabir717@gmail.com"
 
 
 
-function ContactCard({
+
+
+
+function Contact({
 icon,
 title,
 value
@@ -573,6 +711,7 @@ return(
 
 <div className="glass">
 
+
 <div className="text-green-400">
 
 {icon}
@@ -580,14 +719,14 @@ return(
 </div>
 
 
-<h3 className="mt-4 text-xl">
+<h3 className="text-xl mt-4">
 
 {title}
 
 </h3>
 
 
-<p className="text-gray-400 mt-2 text-sm">
+<p className="text-gray-400 mt-2">
 
 {value}
 
@@ -595,6 +734,7 @@ return(
 
 
 </div>
+
 
 )
 

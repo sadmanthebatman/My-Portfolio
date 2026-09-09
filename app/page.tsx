@@ -17,6 +17,116 @@ import {
 } from "lucide-react";
 
 
+{/* EXPERIENCE */}
+
+
+<section className="mt-24">
+
+
+<h2 className="section-title">
+
+Professional Experience
+
+</h2>
+
+
+
+
+
+<div className="glass mt-10">
+
+
+<div className="flex gap-4 items-center">
+
+
+<Server className="text-green-400"/>
+
+
+
+<div>
+
+
+<h3 className="text-2xl font-bold">
+
+Cyber Security Analyst Intern
+
+</h3>
+
+
+
+<p className="text-green-400">
+
+Business Automation Limited
+
+</p>
+
+
+
+<p className="text-gray-500">
+
+Oct 2025 — Jan 2026
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div className="mt-8 text-gray-300 space-y-5 leading-relaxed">
+
+
+<p>
+• Performed vulnerability assessments and penetration testing using <b>Nessus</b> and <b>Nuclei</b> to identify, validate and document security weaknesses including CVE analysis.
+</p>
+
+
+
+<p>
+• Worked with threat detection, security monitoring, endpoint visibility and incident investigation for suspicious activity analysis.
+</p>
+
+
+
+<p>
+• Used <b>Suricata</b> for IDS/IPS monitoring, <b>Wazuh</b> for SIEM-based monitoring and <b>ESET</b> for XDR security operations.
+</p>
+
+
+
+<p>
+• Supported alert management, incident response and security orchestration workflows using <b>Splunk</b>, <b>TheHive</b> and <b>MISP</b> threat intelligence.
+</p>
+
+
+
+<p>
+• Conducted digital forensics, malware and network analysis using <b>Velociraptor</b>, <b>Wireshark</b> and <b>VirusTotal</b>.
+</p>
+
+
+
+<p>
+• Produced security assessment reports with remediation recommendations while supporting CIRT, infrastructure operations and secure system management.
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
 const projects = [
 
 {
@@ -497,117 +607,6 @@ className="border-b border-green-900 pb-2"
 </section>
 
 
-
-
-
-
-{/* EXPERIENCE */}
-
-
-<section className="mt-24">
-
-
-<h2 className="section-title">
-
-Professional Experience
-
-</h2>
-
-
-
-
-
-<div className="glass mt-10">
-
-
-<div className="flex gap-4 items-center">
-
-
-<Server className="text-green-400"/>
-
-
-
-<div>
-
-
-<h3 className="text-2xl font-bold">
-
-Cyber Security Analyst Intern
-
-</h3>
-
-
-
-<p className="text-green-400">
-
-Business Automation Limited
-
-</p>
-
-
-
-<p className="text-gray-500">
-
-Oct 2025 — Jan 2026
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div className="mt-8 text-gray-300 space-y-5 leading-relaxed">
-
-
-<p>
-• Performed vulnerability assessments and penetration testing using <b>Nessus</b> and <b>Nuclei</b> to identify, validate and document security weaknesses including CVE analysis.
-</p>
-
-
-
-<p>
-• Worked with threat detection, security monitoring, endpoint visibility and incident investigation for suspicious activity analysis.
-</p>
-
-
-
-<p>
-• Used <b>Suricata</b> for IDS/IPS monitoring, <b>Wazuh</b> for SIEM-based monitoring and <b>ESET</b> for XDR security operations.
-</p>
-
-
-
-<p>
-• Supported alert management, incident response and security orchestration workflows using <b>Splunk</b>, <b>TheHive</b> and <b>MISP</b> threat intelligence.
-</p>
-
-
-
-<p>
-• Conducted digital forensics, malware and network analysis using <b>Velociraptor</b>, <b>Wireshark</b> and <b>VirusTotal</b>.
-</p>
-
-
-
-<p>
-• Produced security assessment reports with remediation recommendations while supporting CIRT, infrastructure operations and secure system management.
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
 
 
 

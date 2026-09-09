@@ -16,7 +16,6 @@ import {
   Download,
 } from "lucide-react";
 
-
 const projects = [
 
 {

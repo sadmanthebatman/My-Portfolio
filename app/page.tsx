@@ -206,7 +206,7 @@ GitHub
 <section className="mt-24">
 
 
-<h2 className="section-title">
+<h2 className="section-title !text-white">
 
 Professional Experience
 
@@ -214,7 +214,7 @@ Professional Experience
 
 
 
-<div className="glass mt-10">
+<div ="glass mt-10">
 
 
 <div className="flex gap-4 items-center">
@@ -304,7 +304,7 @@ Oct 2025 — Jan 2026
 <section className="mt-24">
 
 
-<h2 className="section-title">
+<h2 className="section-title !text-white">
 
 Featured Projects
 
@@ -339,7 +339,7 @@ className="glass project-card"
 </div>
 
 
-<h3 className="text-xl font-bold mt-6">
+<h3 className="text-xl font-bold mt-6 !text-white">
 
 {project.title}
 
@@ -414,7 +414,7 @@ View Repository
 
 <section className="mt-24">
 
-<h2 className="section-title">
+<h2 className="section-title !text-white">
 
 Security Arsenal
 
@@ -446,9 +446,11 @@ Security Arsenal
 <div className="mt-6 space-y-3">
 
 {group.items.map(item=>(
-
-<div key={item}
-className="border-b border-green-900 pb-2">
+  
+<div 
+key={item}
+className="border-b border-green-900 pb-2 !text-white"
+>
 
 &gt; {item}
 
@@ -476,7 +478,7 @@ className="border-b border-green-900 pb-2">
 
 <section className="mt-24">
 
-<h2 className="section-title">
+<h2 className="section-title !text-white">
 
 Feel Free To Reach Out.
 

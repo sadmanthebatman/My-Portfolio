@@ -16,6 +16,7 @@ import {
   Download,
 } from "lucide-react";
 
+
 const projects = [
 
 {
@@ -36,7 +37,7 @@ icon:<Network size={45}/>,
 description:
 "Enterprise network architecture using Cisco Packet Tracer with VLSM, RIPv2, static routing, DHCP, DNS, HTTP, email services and redundancy.",
 tags:["Cisco","VLSM","Routing","Networking"],
-link:"https://github.com/sadmanthebatman/Bangladesh-Board-Evaluation-Emergency-Network"
+link:"https://github.com/sadmanthebatman/Bangladesh-Board-Examination-Emergency-Network"
 },
 
 
@@ -51,6 +52,7 @@ link:"https://github.com/sadmanthebatman/SportPulse"
 }
 
 ];
+
 
 
 const securityGroups=[
@@ -125,7 +127,7 @@ CYBER SECURITY PROFILE
 </div>
 
 
-<h1 className="text-5xl md:text-7xl font-bold">
+<h1 className="text-5xl md:text-7xl font-bold !text-white">
 
 SADMAN{" "}
 
@@ -146,7 +148,7 @@ Cybersecurity Enthusiast
 </h2>
 
 
-<p className="text-gray-500 mt-5 max-w-xl">
+<p className="text-gray-300 mt-5 max-w-xl">
 
 Focused on penetration testing, SOC operations,
 security monitoring, vulnerability assessment,
@@ -213,7 +215,7 @@ Professional Experience
 
 
 
-<div ="glass mt-10">
+<div className="glass mt-10">
 
 
 <div className="flex gap-4 items-center">
@@ -225,7 +227,7 @@ Professional Experience
 <div>
 
 
-<h3 className="text-2xl font-bold">
+<h3 className="text-2xl font-bold !text-white">
 
 Cyber Security Analyst Intern
 
@@ -239,7 +241,7 @@ Business Automation Limited
 </p>
 
 
-<p className="text-gray-500">
+<p className="text-gray-400">
 
 Oct 2025 — Jan 2026
 
@@ -310,14 +312,11 @@ Featured Projects
 </h2>
 
 
-<p className="subtitle">
+<p className="subtitle !text-gray-300">
 
 Security, networking and software engineering projects
 
 </p>
-
-
-
 
 <div className="grid md:grid-cols-3 gap-8 mt-10">
 
@@ -352,7 +351,9 @@ className="glass project-card"
 </p>
 
 
-<p className="text-gray-400 mt-5 text-sm">
+
+
+<p className="text-gray-300 mt-5 text-sm">
 
 {project.description}
 
@@ -360,11 +361,16 @@ className="glass project-card"
 
 
 
+
 <div className="flex flex-wrap gap-2 mt-5">
+
 
 {project.tags.map(tag=>(
 
-<span className="tag" key={tag}>
+<span 
+className="tag" 
+key={tag}
+>
 
 {tag}
 
@@ -372,7 +378,10 @@ className="glass project-card"
 
 ))}
 
+
 </div>
+
+
 
 
 
@@ -383,13 +392,16 @@ rel="noopener noreferrer"
 className="flex gap-2 items-center text-green-400 mt-6"
 >
 
+
 <Github size={18}/>
 
 View Repository
 
 <ExternalLink size={15}/>
 
+
 </a>
+
 
 
 
@@ -403,6 +415,7 @@ View Repository
 
 
 </section>
+
 
 
 
@@ -413,11 +426,22 @@ View Repository
 
 <section className="mt-24">
 
+
 <h2 className="section-title !text-white">
 
 Security Arsenal
 
 </h2>
+
+
+
+<p className="subtitle !text-gray-300">
+
+Tools and technologies used for offensive and defensive security
+
+</p>
+
+
 
 
 <div className="grid md:grid-cols-3 gap-6 mt-10">
@@ -426,38 +450,56 @@ Security Arsenal
 {securityGroups.map(group=>(
 
 
-<div className="glass" key={group.title}>
+<div 
+className="glass" 
+key={group.title}
+>
+
 
 
 <div className="flex gap-3 items-center text-green-400">
 
+
 {group.icon}
 
-<h3 className="text-xl text-white font-bold">
+
+
+<h3 className="text-xl font-bold !text-white">
 
 {group.title}
 
 </h3>
 
+
 </div>
+
+
+
 
 
 <div className="mt-6 space-y-3">
 
+
 {group.items.map(item=>(
-  
-<div 
+
+
+<div
 key={item}
 className="border-b border-green-900 pb-2 !text-white"
 >
 
+
 &gt; {item}
 
+
 </div>
+
 
 ))}
 
+
 </div>
+
 
 
 </div>
@@ -473,15 +515,23 @@ className="border-b border-green-900 pb-2 !text-white"
 
 
 
+
+
+
 {/* CONTACT */}
 
+
 <section className="mt-24">
+
 
 <h2 className="section-title !text-white">
 
 Feel Free To Reach Out.
 
 </h2>
+
+
+
 
 
 <div className="grid md:grid-cols-3 gap-6 mt-10">
@@ -496,12 +546,15 @@ link="https://github.com/sadmanthebatman"
 
 
 
+
 <Contact
 icon={<Linkedin/>}
 title="LinkedIn"
 value="www.linkedin.com/in/sadman-sakib-abir-38967841b"
 link="https://www.linkedin.com/in/sadman-sakib-abir-38967841b"
 />
+
+
 
 
 
@@ -513,10 +566,12 @@ link="mailto:sadmansakibabir717@gmail.com"
 />
 
 
+
 </div>
 
 
 </section>
+
 
 
 </main>
@@ -524,6 +579,7 @@ link="mailto:sadmansakibabir717@gmail.com"
 )
 
 }
+
 
 
 
@@ -552,6 +608,7 @@ className="block"
 >
 
 
+
 <div className="glass hover:border-green-400 transition cursor-pointer">
 
 
@@ -562,21 +619,27 @@ className="block"
 </div>
 
 
-<h3 className="text-xl mt-4">
+
+
+<h3 className="text-xl mt-4 !text-white">
 
 {title}
 
 </h3>
 
 
-<p className="text-gray-400 mt-2">
+
+
+<p className="text-gray-300 mt-2">
 
 {value}
 
 </p>
 
 
+
 </div>
+
 
 
 </a>

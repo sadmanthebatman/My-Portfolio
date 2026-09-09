@@ -17,116 +17,6 @@ import {
 } from "lucide-react";
 
 
-{/* EXPERIENCE */}
-
-
-<section className="mt-24">
-
-
-<h2 className="section-title">
-
-Professional Experience
-
-</h2>
-
-
-
-
-
-<div className="glass mt-10">
-
-
-<div className="flex gap-4 items-center">
-
-
-<Server className="text-green-400"/>
-
-
-
-<div>
-
-
-<h3 className="text-2xl font-bold">
-
-Cyber Security Analyst Intern
-
-</h3>
-
-
-
-<p className="text-green-400">
-
-Business Automation Limited
-
-</p>
-
-
-
-<p className="text-gray-500">
-
-Oct 2025 — Jan 2026
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div className="mt-8 text-gray-300 space-y-5 leading-relaxed">
-
-
-<p>
-• Performed vulnerability assessments and penetration testing using <b>Nessus</b> and <b>Nuclei</b> to identify, validate and document security weaknesses including CVE analysis.
-</p>
-
-
-
-<p>
-• Worked with threat detection, security monitoring, endpoint visibility and incident investigation for suspicious activity analysis.
-</p>
-
-
-
-<p>
-• Used <b>Suricata</b> for IDS/IPS monitoring, <b>Wazuh</b> for SIEM-based monitoring and <b>ESET</b> for XDR security operations.
-</p>
-
-
-
-<p>
-• Supported alert management, incident response and security orchestration workflows using <b>Splunk</b>, <b>TheHive</b> and <b>MISP</b> threat intelligence.
-</p>
-
-
-
-<p>
-• Conducted digital forensics, malware and network analysis using <b>Velociraptor</b>, <b>Wireshark</b> and <b>VirusTotal</b>.
-</p>
-
-
-
-<p>
-• Produced security assessment reports with remediation recommendations while supporting CIRT, infrastructure operations and secure system management.
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
 const projects = [
 
 {
@@ -147,7 +37,7 @@ icon:<Network size={45}/>,
 description:
 "Enterprise network architecture using Cisco Packet Tracer with VLSM, RIPv2, static routing, DHCP, DNS, HTTP, email services and redundancy.",
 tags:["Cisco","VLSM","Routing","Networking"],
-link:"https://github.com/sadmanthebatman/Bangladesh-Board-Examination-Emergency-Network"
+link:"https://github.com/sadmanthebatman/Bangladesh-Board-Evaluation-Emergency-Network"
 },
 
 
@@ -162,7 +52,6 @@ link:"https://github.com/sadmanthebatman/SportPulse"
 }
 
 ];
-
 
 
 const securityGroups=[
@@ -219,6 +108,8 @@ return(
 
 <main className="min-h-screen px-6 md:px-16 py-10">
 
+
+{/* HERO */}
 
 <section className="grid md:grid-cols-2 gap-10 items-center">
 
@@ -304,82 +195,96 @@ GitHub
 
 </div>
 
+</section>
 
 
 
-<div className="glass">
 
 
-<div className="flex items-center gap-3">
+{/* EXPERIENCE */}
 
-<Terminal/>
+<section className="mt-24">
 
-SYSTEM STATUS
+
+<h2 className="section-title">
+
+Professional Experience
+
+</h2>
+
+
+
+<div className="glass mt-10">
+
+
+<div className="flex gap-4 items-center">
+
+
+<Server className="text-green-400"/>
+
+
+<div>
+
+
+<h3 className="text-2xl font-bold">
+
+Cyber Security Analyst Intern
+
+</h3>
+
+
+<p className="text-green-400">
+
+Business Automation Limited
+
+</p>
+
+
+<p className="text-gray-500">
+
+Oct 2025 — Jan 2026
+
+</p>
+
+
+</div>
 
 </div>
 
 
 
-<div className="mt-8 space-y-6">
+
+<div className="mt-8 text-gray-300 space-y-5 leading-relaxed">
 
 
-<div>
-
-<p className="text-gray-500">
-
-Availability
-
-</p>
-
-<p className="text-green-400 text-xl">
-
-ONLINE
-
-</p>
-
-</div>
-
-
-
-
-<div>
-
-<p className="text-gray-500">
-
-Security Level
-
-</p>
-
-
-<p className="text-green-400 text-xl">
-
-ACTIVE
-
-</p>
-
-
-</div>
-
-
-
-
-<div>
-
-<p className="text-gray-500">
-
-Primary Domain
-
+<p>
+• Performed vulnerability assessments and penetration testing using <b>Nessus</b> and <b>Nuclei</b> including CVE analysis.
 </p>
 
 
 <p>
-
-SOC Operations / Pentesting
-
+• Worked with threat detection, security monitoring, endpoint visibility and incident investigation.
 </p>
 
 
-</div>
+<p>
+• Used <b>Suricata</b>, <b>Wazuh</b>, and <b>ESET XDR</b> for security monitoring.
+</p>
+
+
+<p>
+• Supported SOC workflows using <b>Splunk</b>, <b>TheHive</b> and <b>MISP</b>.
+</p>
+
+
+<p>
+• Conducted malware and network analysis using <b>Wireshark</b>, <b>Velociraptor</b> and <b>VirusTotal</b>.
+</p>
+
+
+<p>
+• Created security assessment reports with remediation recommendations.
+</p>
 
 
 </div>
@@ -390,8 +295,11 @@ SOC Operations / Pentesting
 
 </section>
 
-{/* PROJECTS */}
 
+
+
+
+{/* PROJECTS */}
 
 <section className="mt-24">
 
@@ -415,9 +323,7 @@ Security, networking and software engineering projects
 <div className="grid md:grid-cols-3 gap-8 mt-10">
 
 
-{
-
-projects.map(project=>(
+{projects.map(project=>(
 
 
 <div
@@ -433,8 +339,6 @@ className="glass project-card"
 </div>
 
 
-
-
 <h3 className="text-xl font-bold mt-6">
 
 {project.title}
@@ -442,14 +346,11 @@ className="glass project-card"
 </h3>
 
 
-
 <p className="text-green-400 text-sm mt-3">
 
 {project.type}
 
 </p>
-
-
 
 
 <p className="text-gray-400 mt-5 text-sm">
@@ -460,12 +361,9 @@ className="glass project-card"
 
 
 
-
 <div className="flex flex-wrap gap-2 mt-5">
 
-{
-
-project.tags.map(tag=>(
+{project.tags.map(tag=>(
 
 <span className="tag" key={tag}>
 
@@ -473,12 +371,9 @@ project.tags.map(tag=>(
 
 </span>
 
-))
-
-}
+))}
 
 </div>
-
 
 
 
@@ -502,16 +397,13 @@ View Repository
 </div>
 
 
-))
-
-}
+))}
 
 
 </div>
 
 
 </section>
-
 
 
 
@@ -522,7 +414,6 @@ View Repository
 
 <section className="mt-24">
 
-
 <h2 className="section-title">
 
 Security Arsenal
@@ -530,22 +421,10 @@ Security Arsenal
 </h2>
 
 
-
-<p className="subtitle">
-
-Tools and technologies used for offensive and defensive security
-
-</p>
-
-
-
-
 <div className="grid md:grid-cols-3 gap-6 mt-10">
 
 
-{
-
-securityGroups.map(group=>(
+{securityGroups.map(group=>(
 
 
 <div className="glass" key={group.title}>
@@ -553,9 +432,7 @@ securityGroups.map(group=>(
 
 <div className="flex gap-3 items-center text-green-400">
 
-
 {group.icon}
-
 
 <h3 className="text-xl text-white font-bold">
 
@@ -563,32 +440,21 @@ securityGroups.map(group=>(
 
 </h3>
 
-
 </div>
-
-
 
 
 <div className="mt-6 space-y-3">
 
+{group.items.map(item=>(
 
-{
-
-group.items.map(item=>(
-
-<div
-key={item}
-className="border-b border-green-900 pb-2"
->
+<div key={item}
+className="border-b border-green-900 pb-2">
 
 &gt; {item}
 
 </div>
 
-))
-
-}
-
+))}
 
 </div>
 
@@ -596,9 +462,7 @@ className="border-b border-green-900 pb-2"
 </div>
 
 
-))
-
-}
+))}
 
 
 </div>
@@ -608,25 +472,15 @@ className="border-b border-green-900 pb-2"
 
 
 
-
-
-
-
-
 {/* CONTACT */}
 
-
 <section className="mt-24">
-
 
 <h2 className="section-title">
 
 Feel Free To Reach Out.
 
 </h2>
-
-
-
 
 
 <div className="grid md:grid-cols-3 gap-6 mt-10">
@@ -658,13 +512,10 @@ link="mailto:sadmansakibabir717@gmail.com"
 />
 
 
-
 </div>
 
 
 </section>
-
-
 
 
 </main>
@@ -672,8 +523,6 @@ link="mailto:sadmansakibabir717@gmail.com"
 )
 
 }
-
-
 
 
 
@@ -712,7 +561,6 @@ className="block"
 </div>
 
 
-
 <h3 className="text-xl mt-4">
 
 {title}
@@ -720,13 +568,11 @@ className="block"
 </h3>
 
 
-
 <p className="text-gray-400 mt-2">
 
 {value}
 
 </p>
-
 
 
 </div>

@@ -76,10 +76,10 @@ return(
 
 <nav className="glass navbar">
 <div className="logo">
-<Shield/> SAB.SEC
+<Shield/> Welcome !!
 </div>
 <div className="online">
-● SYSTEM ONLINE
+● Still Alive
 </div>
 </nav>
 
@@ -93,7 +93,7 @@ return(
 SADMAN <span>SAKIB ABIR</span>
 </h1>
 
-<h2>Cybersecurity Analyst</h2>
+<h2>Cybersecurity Researcher</h2>
 
 <p className="desc">
 Focused on penetration testing, SOC operations,
@@ -129,8 +129,12 @@ security monitoring, vulnerability assessment and secure engineering.
 <p className="green">Business Automation Limited</p>
 
 <ul>
-<li>Performed vulnerability assessment and security testing.</li>
-<li>Worked with SOC monitoring tools.</li>
+<li>Performed hands-on vulnerability assessments and penetration testing using Nessus and Nuclei to identify, validate, and document security
+weaknesses across applications and infrastructure, including CVE analysis and vulnerability assessment.
+</li>
+<li> Worked with practical threat detection, security monitoring, endpoint visibility, and incident investigation, supporting the early identification
+and analysis of suspicious activities.
+</li>
 <li>Analysed security incidents and network traffic.</li>
 </ul>
 

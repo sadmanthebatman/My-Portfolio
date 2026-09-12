@@ -795,9 +795,6 @@ LOW
 </div>
 
 
-</div>
-
-
 
 <div className="
 absolute
@@ -817,6 +814,8 @@ animate-bounce
 <div className="
 
 absolute
+
+
 bottom-10
 left-10
 glass
@@ -1569,7 +1568,9 @@ text-green-400
         Last login: secure session established
  
 
-     </p>
+     <
+
+/p>
 
       <p className="mt-3">
         <span className="text-green-400">sadman@portfolio</span>

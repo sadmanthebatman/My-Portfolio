@@ -4,18 +4,19 @@
    PORTFOLIO — WARM EDITORIAL DESIGN
    Display: Fraunces (serif, italic accents)
    Body/UI: Manrope
+   Palette: deep forest ink, warm gold, muted rust
 ================================ */
 
 :root{
-  --bg:        #17111C;
-  --ivory:     #F4ECDD;
-  --taupe:     #D3C6B9;
-  --brass:     #C68A46;
-  --brass-deep:#9C6530;
-  --moss:      #7C9473;
-  --rose:      #A24B5E;
-  --line:      rgba(244,236,221,.08);
-  --glass:     rgba(244,236,221,.05);
+  --bg:        #12211C;
+  --ivory:     #F4EFE4;
+  --taupe:     #C7C2B0;
+  --brass:     #CBA35C;
+  --brass-deep:#A9803F;
+  --moss:      #A9C9A0;
+  --rose:      #B15E45;
+  --line:      rgba(244,239,228,.08);
+  --glass:     rgba(244,239,228,.05);
 }
 
 *{
@@ -34,9 +35,9 @@ body{
   -webkit-font-smoothing: antialiased;
 
   background:
-    radial-gradient(circle at 8% 8%, rgba(198,138,70,.16), transparent 40%),
-    radial-gradient(circle at 92% 15%, rgba(124,148,115,.12), transparent 38%),
-    radial-gradient(circle at 50% 100%, rgba(162,75,94,.10), transparent 45%),
+    radial-gradient(circle at 8% 8%, rgba(203,163,92,.16), transparent 40%),
+    radial-gradient(circle at 92% 15%, rgba(58,110,90,.18), transparent 38%),
+    radial-gradient(circle at 50% 100%, rgba(177,94,69,.10), transparent 45%),
     var(--bg);
 
   overflow-x: hidden;
@@ -157,20 +158,20 @@ h2{
   font-size: 15px;
   color: var(--bg);
   background: linear-gradient(135deg, var(--brass), var(--rose));
-  box-shadow: 0 18px 40px rgba(198,138,70,.22);
+  box-shadow: 0 18px 40px rgba(203,163,92,.22);
   transition: transform .35s ease, box-shadow .35s ease;
 }
 
 .btn:hover{
   transform: translateY(-4px);
-  box-shadow: 0 24px 55px rgba(198,138,70,.35);
+  box-shadow: 0 24px 55px rgba(203,163,92,.35);
 }
 
 /* =====================
    GLASS CARDS
 ===================== */
 .glass{
-  background: linear-gradient(160deg, rgba(244,236,221,.07), rgba(244,236,221,.02));
+  background: linear-gradient(160deg, rgba(244,239,228,.07), rgba(244,239,228,.02));
   border: 1px solid var(--line);
   backdrop-filter: blur(22px);
   border-radius: 24px;
@@ -180,7 +181,7 @@ h2{
 
 .glass:hover{
   transform: translateY(-8px);
-  border-color: rgba(198,138,70,.45);
+  border-color: rgba(203,163,92,.45);
 }
 
 /* .navbar sets border-radius:999px, but .glass below it in the cascade
@@ -191,29 +192,59 @@ h2{
 }
 
 /* =====================
-   SIGNATURE MEDALLION (was hud-core)
+   SIGNATURE MARK — rotating gradient ring + gradient monogram
 ===================== */
-.hud-core{
+.signature-mark{
+  position: relative;
   width: 340px;
   height: 340px;
-  border-radius: 50%;
-  border: 1px solid rgba(244,236,221,.12);
-  background: radial-gradient(circle at 32% 28%, rgba(198,138,70,.35), rgba(124,148,115,.12) 60%, transparent 75%);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 90px rgba(198,138,70,.22);
   animation: float 7s ease-in-out infinite;
 }
 
-.hud-core svg{
-  width: 110px;
-  height: 110px;
-  opacity: .85;
+.signature-mark::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 2px;
+  background: conic-gradient(from 0deg, var(--brass), var(--rose), var(--moss), var(--brass));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: spin 9s linear infinite;
+}
+
+.signature-mark::after{
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, rgba(203,163,92,.28), rgba(58,110,90,.12) 60%, transparent 75%);
+  box-shadow: 0 0 90px rgba(203,163,92,.22);
+}
+
+.signature-mark span{
+  position: relative;
+  z-index: 1;
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 68px;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--ivory), var(--brass));
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 @keyframes float{
   50%{ transform: translateY(-18px); }
+}
+
+@keyframes spin{
+  to{ transform: rotate(360deg); }
 }
 
 /* Section headings */
@@ -340,7 +371,7 @@ a:focus-visible,
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at center, transparent 45%, rgba(10,7,12,.45) 100%),
+    radial-gradient(ellipse at center, transparent 45%, rgba(6,12,10,.45) 100%),
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.02 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>") repeat;
   mix-blend-mode: overlay;
 }
@@ -352,7 +383,7 @@ a:focus-visible,
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(198,138,70,.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(203,163,92,.5), transparent);
   opacity: .5;
 }
 
@@ -375,8 +406,12 @@ a:focus-visible,
     margin: 0 auto;
   }
 
-  .hud-core{
+  .signature-mark{
     width: 240px;
     height: 240px;
+  }
+
+  .signature-mark span{
+    font-size: 48px;
   }
 }

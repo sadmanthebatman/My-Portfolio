@@ -1,831 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-
-/* ===========================
-   ROOT VARIABLES
-=========================== */
-
-:root {
-
-  --background: #030504;
-
-  --foreground: #e5e7eb;
-
-  --green: #00ff88;
-
-  --green-soft: rgba(0,255,136,0.15);
-
-  --cyan: #00e5ff;
-
-  --border: rgba(0,255,136,0.18);
-
-}
-
-
-/* ===========================
+/* =========================
    GLOBAL RESET
-=========================== */
+========================= */
 
-* {
-
-  box-sizing: border-box;
-
-}
-
-
-html {
-
-  scroll-behavior: smooth;
-
-}
-
-
-
-body {
-
-  margin:0;
-
-  min-height:100vh;
-
-  background:
-
-  radial-gradient(
-    circle at 20% 10%,
-    rgba(0,255,136,.12),
-    transparent 35%
-  ),
-
-  radial-gradient(
-    circle at 80% 20%,
-    rgba(0,229,255,.08),
-    transparent 30%
-  ),
-
-  #030504;
-
-
-  color:var(--foreground);
-
-
-  font-family:
-
-  "JetBrains Mono",
-  "Fira Code",
-  "Consolas",
-  monospace;
-
-
-  overflow-x:hidden;
-
-}
-
-
-
-/* ===========================
-   CYBER GRID BACKGROUND
-=========================== */
-
-
-body::before {
-
-
-content:"";
-
-
-position:fixed;
-
-
-inset:0;
-
-
-background-image:
-
-linear-gradient(
-rgba(0,255,136,.035) 1px,
-transparent 1px
-),
-
-linear-gradient(
-90deg,
-rgba(0,255,136,.035) 1px,
-transparent 1px
-);
-
-
-
-background-size:
-
-45px 45px;
-
-
-
-pointer-events:none;
-
-
-z-index:-2;
-
-
-}
-
-
-
-/* ===========================
-   SCANLINE EFFECT
-=========================== */
-
-
-body::after {
-
-
-content:"";
-
-
-position:fixed;
-
-
-inset:0;
-
-
-
-background:
-
-repeating-linear-gradient(
-0deg,
-rgba(255,255,255,.025),
-rgba(255,255,255,.025) 1px,
-transparent 2px,
-transparent 5px
-);
-
-
-
-pointer-events:none;
-
-
-z-index:100;
-
-
-}
-
-
-
-
-
-/* ===========================
-   GLASS CARDS
-=========================== */
-
-
-.glass {
-
-
-background:
-
-linear-gradient(
-145deg,
-rgba(15,20,18,.85),
-rgba(5,8,7,.75)
-);
-
-
-
-border:
-
-1px solid var(--border);
-
-
-
-border-radius:20px;
-
-
-
-padding:30px;
-
-
-
-backdrop-filter:
-
-blur(15px);
-
-
-
-box-shadow:
-
-
-0 0 35px
-rgba(0,255,136,.05),
-
-
-inset 0 0 25px
-rgba(0,255,136,.03);
-
-
-
-transition:
-
-all .35s ease;
-
-
-position:relative;
-
-
-overflow:hidden;
-
-
-}
-
-
-
-
-.glass::before {
-
-
-content:"";
-
-
-position:absolute;
-
-
-top:0;
-
-
-left:-100%;
-
-
-width:100%;
-
-
-height:2px;
-
-
-
-background:
-
-linear-gradient(
-90deg,
-transparent,
-var(--green),
-transparent
-);
-
-
-
-transition:.5s;
-
-
-}
-
-
-
-.glass:hover::before {
-
-
-left:100%;
-
-
-}
-
-
-
-.glass:hover {
-
-
-transform:
-
-translateY(-6px);
-
-
-
-border-color:
-
-rgba(0,255,136,.5);
-
-
-
-box-shadow:
-
-
-0 0 40px
-rgba(0,255,136,.18);
-
-
-}
-
-
-
-
-
-
-/* ===========================
-   TERMINAL STYLE
-=========================== */
-
-
-.terminal {
-
-
-background:
-
-rgba(0,0,0,.65);
-
-
-
-border:
-
-1px solid rgba(0,255,136,.2);
-
-
-
-border-radius:18px;
-
-
-
-padding:30px;
-
-
-
-box-shadow:
-
-
-0 0 30px
-rgba(0,255,136,.08);
-
-
-
-position:relative;
-
-
-overflow:hidden;
-
-
-}
-
-
-
-.terminal::after {
-
-
-content:"";
-
-
-position:absolute;
-
-
-height:2px;
-
-
-width:100%;
-
-
-top:0;
-
-
-left:-100%;
-
-
-
-background:
-
-linear-gradient(
-90deg,
-transparent,
-#00ff88,
-transparent
-);
-
-
-
-animation:
-
-terminalScan 4s infinite;
-
-
-}
-
-
-
-@keyframes terminalScan {
-
-
-0%{
-
-left:-100%;
-
-}
-
-
-50%{
-
-left:100%;
-
-}
-
-
-100%{
-
-left:100%;
-
-}
-
-
-}
-
-
-
-
-
-
-
-/* ===========================
-   HEADINGS
-=========================== */
-
-
-h1,h2,h3 {
-
-
-letter-spacing:-0.03em;
-
-
-}
-
-
-
-.section-title {
-
-
-font-size:
-
-2.5rem;
-
-
-font-weight:
-
-800;
-
-
-
-background:
-
-linear-gradient(
-90deg,
-#ffffff,
-#00ff88
-);
-
-
-
--webkit-background-clip:text;
-
-
-color:transparent;
-
-
-}
-
-
-
-
-/* ===========================
-   BUTTONS
-=========================== */
-
-
-.btn {
-
-
-display:flex;
-
-
-align-items:center;
-
-
-justify-content:center;
-
-
-gap:10px;
-
-
-background:
-
-linear-gradient(
-90deg,
-#00ff88,
-#00e5ff
-);
-
-
-
-color:#001;
-
-
-
-font-weight:
-
-700;
-
-
-
-padding:
-
-12px 22px;
-
-
-
-border-radius:
-
-12px;
-
-
-
-transition:
-
-.3s;
-
-
-
-cursor:pointer;
-
-
-}
-
-
-
-.btn:hover {
-
-
-transform:
-
-translateY(-3px)
-scale(1.03);
-
-
-
-box-shadow:
-
-0 0 30px
-rgba(0,255,136,.5);
-
-
-}
-
-
-
-
-
-
-/* ===========================
-   PROJECT CARDS
-=========================== */
-
-
-.project-card {
-
-
-min-height:430px;
-
-
-}
-
-
-
-.project-card:hover {
-
-
-border-color:
-
-#00ff88;
-
-
-}
-
-
-
-
-
-
-/* ===========================
-   TAGS
-=========================== */
-
-
-.tag {
-
-
-display:inline-flex;
-
-
-align-items:center;
-
-
-padding:
-
-6px 12px;
-
-
-
-border-radius:
-
-999px;
-
-
-
-font-size:
-
-12px;
-
-
-
-color:
-
-#00ff88;
-
-
-
-background:
-
-rgba(0,255,136,.08);
-
-
-
-border:
-
-1px solid rgba(0,255,136,.25);
-
-
-
-}
-
-
-
-
-
-
-/* ===========================
-   LINKS
-=========================== */
-
-
-a {
-
-
-transition:.3s;
-
-
-}
-
-
-
-a:hover {
-
-
-color:#00ff88;
-
-
-}
-
-
-
-
-
-
-/* ===========================
-   ICON GLOW
-=========================== */
-
-
-svg {
-
-
-filter:
-
-drop-shadow(
-0 0 8px
-rgba(0,255,136,.5)
-);
-
-
-}
-
-
-
-
-
-/* ===========================
-   CUSTOM SCROLLBAR
-=========================== */
-
-
-::-webkit-scrollbar {
-
-
-width:10px;
-
-
-}
-
-
-
-::-webkit-scrollbar-track {
-
-
-background:#020302;
-
-
-}
-
-
-
-::-webkit-scrollbar-thumb {
-
-
-background:
-
-linear-gradient(
-#00ff88,
-#00e5ff
-);
-
-
-
-border-radius:
-
-20px;
-
-
-}
-
-
-
-
-
-/* ===========================
-   SELECTION
-=========================== */
-
-
-::selection {
-
-
-background:#00ff88;
-
-
-color:black;
-
-
-}
-
-
-
-
-
-
-/* ===========================
-   MOBILE OPTIMIZATION
-=========================== */
-
-
-@media(max-width:768px){
-
-
-.glass,
-.terminal {
-
-
-padding:20px;
-
-
-}
-
-
-
-.section-title {
-
-
-font-size:
-
-2rem;
-
-
-}
-
-
-
-body {
-
-
-font-size:
-
-14px;
-
-
-}
-
-
-
-}
 html {
   scroll-behavior: smooth;
 }
@@ -835,13 +13,13 @@ body {
   background:
     radial-gradient(
       circle at 15% 10%,
-      rgba(34, 197, 94, 0.08),
-      transparent 25%
+      rgba(34,197,94,0.12),
+      transparent 30%
     ),
     radial-gradient(
-      circle at 85% 30%,
-      rgba(6, 182, 212, 0.07),
-      transparent 25%
+      circle at 85% 20%,
+      rgba(6,182,212,0.10),
+      transparent 30%
     ),
     #05070d;
 
@@ -851,10 +29,11 @@ body {
 
 
 /* =========================
-   CYBER GRID
+   CYBER GRID BACKGROUND
 ========================= */
 
 body::before {
+
   content: "";
 
   position: fixed;
@@ -864,12 +43,12 @@ body::before {
 
   background-image:
     linear-gradient(
-      rgba(34, 197, 94, 0.025) 1px,
+      rgba(74,222,128,0.035) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(34, 197, 94, 0.025) 1px,
+      rgba(74,222,128,0.035) 1px,
       transparent 1px
     );
 
@@ -879,65 +58,20 @@ body::before {
     linear-gradient(
       to bottom,
       black,
-      transparent 90%
+      transparent
     );
 
-  z-index: 0;
+  z-index: -1;
 }
 
 
 /* =========================
-   GLASS
-========================= */
-
-.glass {
-  position: relative;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.06),
-      rgba(255, 255, 255, 0.015)
-    );
-
-  border:
-    1px solid rgba(255, 255, 255, 0.09);
-
-  border-radius: 22px;
-
-  backdrop-filter: blur(18px);
-
-  -webkit-backdrop-filter: blur(18px);
-
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.35);
-}
-
-
-
-.glass-card {
-  position: relative;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(8, 20, 18, 0.85),
-      rgba(6, 10, 15, 0.9)
-    );
-
-  box-shadow:
-    0 25px 80px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-}
-
-
-/* =========================
-   SELECTION
+   TEXT SELECTION
 ========================= */
 
 ::selection {
-  background: rgba(74, 222, 128, 0.25);
-  color: white;
+  background: rgba(34,197,94,0.35);
+  color:white;
 }
 
 
@@ -950,237 +84,323 @@ body::before {
 }
 
 ::-webkit-scrollbar-track {
-  background: #05070d;
+  background:#05070d;
 }
 
 ::-webkit-scrollbar-thumb {
+
   background:
     linear-gradient(
       #22c55e,
       #06b6d4
     );
 
-  border-radius: 20px;
+  border-radius:20px;
 }
 
 
+
 /* =========================
-   CYBER SCAN LINE
+   GLASS EFFECT
 ========================= */
 
-@keyframes scanLine {
+.glass {
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.08),
+      rgba(255,255,255,0.02)
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.10);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.35);
+
+}
+
+
+
+.glass-card {
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10,20,25,0.85),
+      rgba(5,10,15,0.95)
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.45);
+
+}
+
+
+
+/* =========================
+   SCANNER LINE
+========================= */
+
+@keyframes scan {
 
   0% {
-    transform: translateY(-100%);
-    opacity: 0;
+    transform:translateY(-100vh);
+    opacity:0;
   }
 
-  10% {
-    opacity: 0.25;
-  }
-
-  90% {
-    opacity: 0.15;
+  20% {
+    opacity:.5;
   }
 
   100% {
-    transform: translateY(100vh);
-    opacity: 0;
+    transform:translateY(100vh);
+    opacity:0;
   }
 
 }
 
 
 .cyber-scan {
-  position: fixed;
 
-  left: 0;
-  top: 0;
+  position:fixed;
 
-  width: 100%;
-  height: 2px;
+  top:0;
+  left:0;
 
-  pointer-events: none;
+  width:100%;
+  height:2px;
 
   background:
     linear-gradient(
       90deg,
       transparent,
-      rgba(74, 222, 128, 0.7),
-      rgba(34, 211, 238, 0.7),
+      #22c55e,
+      #06b6d4,
       transparent
     );
 
   box-shadow:
-    0 0 20px rgba(74, 222, 128, 0.35);
+    0 0 20px #22c55e;
 
   animation:
-    scanLine 9s linear infinite;
+    scan 8s linear infinite;
 
-  z-index: 50;
+  z-index:50;
 
-  opacity: 0.3;
+  pointer-events:none;
 }
+
 
 
 /* =========================
-   FLOAT
+   ROTATIONS
 ========================= */
 
-@keyframes cyberFloat {
 
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-14px);
-  }
-
-}
-
-
-.cyber-float {
-  animation:
-    cyberFloat
-    5s
-    ease-in-out
-    infinite;
-}
-
-
-/* =========================
-   ROTATION
-========================= */
-
-@keyframes slowRotate {
+@keyframes rotateSlow {
 
   from {
-    transform: rotate(0deg);
+    transform:rotate(0deg);
   }
 
   to {
-    transform: rotate(360deg);
+    transform:rotate(360deg);
   }
 
 }
 
 
 .slow-rotate {
+
   animation:
-    slowRotate
+    rotateSlow
     25s
     linear
     infinite;
+
 }
 
 
-/* opposite rotation */
 
-@keyframes reverseRotate {
+@keyframes rotateReverse {
 
   from {
-    transform: rotate(360deg);
+    transform:rotate(360deg);
   }
 
   to {
-    transform: rotate(0deg);
+    transform:rotate(0deg);
   }
 
 }
 
 
 .reverse-rotate {
+
   animation:
-    reverseRotate
+    rotateReverse
     18s
     linear
     infinite;
+
 }
 
 
+
 /* =========================
-   GLOW PULSE
+   FLOATING OBJECT
 ========================= */
 
-@keyframes glowPulse {
+
+@keyframes float {
 
   0%,
   100% {
-    box-shadow:
-      0 0 10px rgba(34, 197, 94, 0.15);
+    transform:translateY(0);
   }
 
   50% {
+    transform:translateY(-15px);
+  }
+
+}
+
+
+.cyber-float {
+
+  animation:
+    float
+    5s
+    ease-in-out
+    infinite;
+
+}
+
+
+
+/* =========================
+   GLOW EFFECT
+========================= */
+
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+
     box-shadow:
-      0 0 35px rgba(34, 197, 94, 0.35);
+    0 0 15px rgba(34,197,94,.2);
+
+  }
+
+  50% {
+
+    box-shadow:
+    0 0 40px rgba(34,197,94,.45);
+
   }
 
 }
 
 
 .glow-pulse {
+
   animation:
-    glowPulse
+    pulseGlow
     3s
-    ease-in-out
     infinite;
+
 }
 
 
+
 /* =========================
-   MOVING GRADIENT
+   GRADIENT ANIMATION
 ========================= */
+
 
 @keyframes gradientMove {
 
   0% {
-    background-position: 0% 50%;
+    background-position:0% 50%;
   }
 
   50% {
-    background-position: 100% 50%;
+    background-position:100% 50%;
   }
 
   100% {
-    background-position: 0% 50%;
+    background-position:0% 50%;
   }
 
 }
 
 
 .animated-gradient {
-  background-size: 200% 200%;
+
+  background-size:200% 200%;
 
   animation:
     gradientMove
     6s
     ease
     infinite;
+
 }
 
 
+
 /* =========================
-   CYBER TEXT GLOW
+   TERMINAL CURSOR
 ========================= */
 
-.cyber-glow-text {
-  text-shadow:
-    0 0 10px rgba(74, 222, 128, 0.25),
-    0 0 25px rgba(34, 211, 238, 0.1);
+
+@keyframes cursorBlink {
+
+  0%,
+  50% {
+    opacity:1;
+  }
+
+  51%,
+  100% {
+    opacity:0;
+  }
+
 }
 
 
+.terminal-cursor {
+
+  animation:
+    cursorBlink
+    1s
+    infinite;
+
+}
+
+
+
 /* =========================
-   CARD LIGHT
+   CARD HOVER
 ========================= */
+
 
 .project-glow {
+
   transition:
-    transform 0.4s ease,
-    border-color 0.4s ease,
-    box-shadow 0.4s ease;
+    all .4s ease;
+
 }
 
 
@@ -1190,51 +410,27 @@ body::before {
     translateY(-10px);
 
   border-color:
-    rgba(74, 222, 128, 0.45);
+    rgba(34,197,94,.5);
 
   box-shadow:
-    0 25px 70px rgba(0, 0, 0, 0.5),
-    0 0 40px rgba(34, 197, 94, 0.08);
+    0 20px 60px rgba(34,197,94,.15);
+
 }
+
 
 
 /* =========================
-   TERMINAL CURSOR
+   MOBILE
 ========================= */
 
-@keyframes terminalBlink {
 
-  0%,
-  45% {
-    opacity: 1;
-  }
-
-  50%,
-  100% {
-    opacity: 0;
-  }
-
-}
-
-
-.terminal-cursor {
-  animation:
-    terminalBlink
-    1s
-    step-end
-    infinite;
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 768px) {
+@media(max-width:768px){
 
   body::before {
+
     background-size:
       30px 30px;
+
   }
 
 }

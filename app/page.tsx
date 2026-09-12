@@ -1,204 +1,383 @@
-"use client";
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Manrope:wght@400;500;600;700;800&display=swap');
 
-import type { ReactNode } from "react";
+/* ===============================
+   PORTFOLIO — WARM EDITORIAL DESIGN
+   Display: Fraunces (serif, italic accents)
+   Body/UI: Manrope
+   Palette: deep forest ink, warm gold, muted rust
+================================ */
 
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Shield,
-  ExternalLink,
-  Code2,
-  Network,
-  Database,
-  Crosshair,
-  Server,
-  Download,
-  Code,
-  SearchCode,
-  ShieldCheck,
-} from "lucide-react";
-
-const projects = [
-  {
-    title: "SimpleFS File System Implementation",
-    type: "Operating Systems • C Programming",
-    icon: <Database size={40}/>,
-    description:
-      "A lightweight file system implementation using inode architecture, bitmap allocation and virtual disk management.",
-    tags:["C","Operating Systems","Filesystem"],
-    link:"https://github.com/sadmanthebatman/SimpleFS-File-System-Implementation"
-  },
-  {
-    title:"Bangladesh Board Examination Emergency Network",
-    type:"Cisco Infrastructure",
-    icon:<Network size={40}/>,
-    description:
-      "Enterprise network design using VLSM, RIPv2, DHCP, DNS and routing configuration.",
-    tags:["Cisco","VLSM","Routing"],
-    link:"https://github.com/sadmanthebatman/Bangladesh-Board-Examination-Emergency-Network"
-  },
-  {
-    title:"SportPulse",
-    type:"Full Stack Development",
-    icon:<Code2 size={40}/>,
-    description:
-      "Sports analytics platform with statistics, comparisons and dashboard features.",
-    tags:["React","Node.js","Dashboard"],
-    link:"https://github.com/sadmanthebatman/SportPulse"
-  }
-];
-
-const arsenal = [
- {
-  title:"Programming Languages",
-  icon:<Code/>,
-  items:["Python","JAVA","C++"]
- },
- {
-  title:"Security Research & Bug Exploration",
-  icon:<SearchCode/>,
-  items:["HackerOne","Bugcrowd","YesWeHack"]
- },
- {
-  title:"Offensive Security Tools",
-  icon:<Crosshair/>,
-  items:["Burp Suite","Kali Linux","Nmap","Metasploit","Shodan","ffuf"]
- },
- {
-  title:"Security Testing",
-  icon:<ShieldCheck/>,
-  items:["Recon","XSS","IDOR","CSRF","SSRF","HTML Injection","SQL Injection","File Upload Vulnerability"]
- }
-];
-
-export default function Home(){
-return(
-<main className="portfolio">
-
-<div className="cyber-scan"/>
-
-<nav className="glass navbar">
-<div className="logo">
-<Shield/> Welcome !!
-</div>
-<div className="online">
-● Still Alive
-</div>
-</nav>
-
-<section className="hero">
-<div>
-<p className="green">CYBER SECURITY PROFILE</p>
-<h1>
-SADMAN <span>SAKIB ABIR</span>
-</h1>
-<h2>Cybersecurity Researcher</h2>
-<p className="desc">
-Focused on penetration testing, SOC operations,
-security monitoring, vulnerability assessment and secure engineering.
-</p>
-<div className="buttons">
-<a href="/Sadman-Sakib-Abir-Resume.pdf" className="btn">
-<Download/> Resume
-</a>
-<a href="https://github.com/sadmanthebatman" className="btn">
-<Github/> Github
-</a>
-</div>
-</div>
-<div className="hud-core">
-<Shield size={90}/>
-</div>
-</section>
-
-<section>
-<h2 className="section-title">Professional Experience</h2>
-<div className="glass card">
-<Server/>
-<h3>Cyber Security Analyst Intern</h3>
-<p className="green">Business Automation Limited</p>
-<ul>
-<li> Performed hands-on vulnerability assessments and penetration testing using Nessus and Nuclei to identify, validate, and document security weaknesses across applications and infrastructure, including CVE analysis and vulnerability assessment.
-</li>
-<li> Worked with practical threat detection, security monitoring, endpoint visibility, and incident investigation, supporting the early identification and analysis of suspicious activities.
-</li>
-<li> Gained hands-on experience with Suricata for IDS/IPS monitoring, and worked with Wazuh and in SIEM-based security monitoring and event analysis, while using ESET for XDR-related security operations.
-</li>
-<li> Supported alert management, incident response and security orchestration workflows using Splunk and TheHive, while working with MISP for threat intelligence and security event correlation.
-</li>
-<li> Conducted practical digital forensics, malware & network analysis using Velociraptor, Wireshark, VirusTotal, and assisting in the investigation of suspicious files, network activity, and potential security incidents.
-</li>
-<li> Produced detailed security assessment and incident analysis reports with actionable remediation recommendations, while supporting CIRT & Infrastructure operations, deployment workflows, DevOps activities, and secure system management.
-</li>
-</ul>
-</div>
-</section>
-
-<section>
-<h2 className="section-title">Featured Projects</h2>
-<div className="grid">
-{projects.map(project=>(
-<div className="glass card" key={project.title}>
-<div className="green">{project.icon}</div>
-<h3>{project.title}</h3>
-<p className="green">{project.type}</p>
-<p>{project.description}</p>
-<a href={project.link} target="_blank" rel="noopener noreferrer">
-<Github/> Repository <ExternalLink/>
-</a>
-</div>
-))}
-</div>
-</section>
-
-<section>
-<h2 className="section-title">Security Arsenal</h2>
-<div className="grid">
-{arsenal.map(group=>(
-<div className="glass card" key={group.title}>
-<div className="green">
-{group.icon} {group.title}
-</div>
-{group.items.map(item=>(
-<p key={item}>› {item}</p>
-))}
-</div>
-))}
-</div>
-</section>
-
-<section>
-<h2 className="section-title">Contact</h2>
-<div className="grid">
-<Contact icon={<Github/>} title="Github" value="github.com/sadmanthebatman" link="https://github.com/sadmanthebatman"/>
-<Contact icon={<Linkedin/>} title="LinkedIn" value="Sadman Sakib Abir" link="https://linkedin.com"/>
-<Contact icon={<Mail/>} title="Email" value="sadmansakibabir717@gmail.com" link="mailto:sadmansakibabir717@gmail.com"/>
-</div>
-</section>
-
-</main>
-)
+:root{
+  --bg:        #12211C;
+  --ivory:     #F4EFE4;
+  --taupe:     #C7C2B0;
+  --brass:     #CBA35C;
+  --brass-deep:#A9803F;
+  --moss:      #A9C9A0;
+  --rose:      #B15E45;
+  --line:      rgba(244,239,228,.08);
+  --glass:     rgba(244,239,228,.05);
 }
 
-function Contact({
-icon,
-title,
-value,
-link
-}:{
-icon:ReactNode;
-title:string;
-value:string;
-link:string;
-}){
-return(
-<a href={link} target="_blank" rel="noopener noreferrer">
-<div className="glass card">
-{icon}
-<h3>{title}</h3>
-<p>{value}</p>
-</div>
-</a>
-)
+*{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  color: var(--ivory);
+  -webkit-font-smoothing: antialiased;
+
+  background:
+    radial-gradient(circle at 8% 8%, rgba(203,163,92,.16), transparent 40%),
+    radial-gradient(circle at 92% 15%, rgba(58,110,90,.18), transparent 38%),
+    radial-gradient(circle at 50% 100%, rgba(177,94,69,.10), transparent 45%),
+    var(--bg);
+
+  overflow-x: hidden;
+}
+
+::selection{
+  background: var(--brass);
+  color: var(--bg);
+}
+
+/* Main container */
+.portfolio{
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 9%;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  margin-bottom: 90px;
+  background: var(--glass);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  backdrop-filter: blur(20px);
+}
+
+.logo{
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: -0.01em;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.online{
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--moss);
+}
+
+/* =====================
+   HERO
+===================== */
+.hero{
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 70px;
+  min-height: 78vh;
+  align-items: center;
+}
+
+.green{
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--brass);
+}
+
+h1{
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: clamp(44px, 6vw, 82px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 22px 0;
+}
+
+h1 span{
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(100deg, var(--brass), var(--rose));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+h2{
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.desc{
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 560px;
+  color: var(--taupe);
+}
+
+/* Buttons */
+.buttons{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.btn{
+  padding: 15px 28px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--bg);
+  background: linear-gradient(135deg, var(--brass), var(--rose));
+  box-shadow: 0 18px 40px rgba(203,163,92,.22);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.btn:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 24px 55px rgba(203,163,92,.35);
+}
+
+/* =====================
+   GLASS CARDS
+===================== */
+.glass{
+  background: linear-gradient(160deg, rgba(244,239,228,.07), rgba(244,239,228,.02));
+  border: 1px solid var(--line);
+  backdrop-filter: blur(22px);
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.35);
+  transition: transform .4s ease, border-color .4s ease;
+}
+
+.glass:hover{
+  transform: translateY(-8px);
+  border-color: rgba(203,163,92,.45);
+}
+
+/* .navbar sets border-radius:999px, but .glass below it in the cascade
+   was overriding that with its own 24px — bump specificity so the pill
+   shape wins on elements that carry both classes. */
+.navbar.glass{
+  border-radius: 999px;
+}
+
+/* =====================
+   SIGNATURE MEDALLION (was hud-core)
+===================== */
+.hud-core{
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 1px solid rgba(244,239,228,.12);
+  background: radial-gradient(circle at 32% 28%, rgba(203,163,92,.35), rgba(58,110,90,.14) 60%, transparent 75%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 90px rgba(203,163,92,.22);
+  animation: float 7s ease-in-out infinite;
+}
+
+.hud-core svg{
+  width: 110px;
+  height: 110px;
+  opacity: .85;
+}
+
+@keyframes float{
+  50%{ transform: translateY(-18px); }
+}
+
+/* Section headings */
+.section-title{
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 40px;
+  letter-spacing: -0.01em;
+  color: var(--ivory);
+  margin-top: 130px;
+  margin-bottom: 34px;
+}
+
+.section-title::after{
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 16px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--brass), var(--rose));
+}
+
+.card{
+  padding: 34px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+/* Card content — h3, paragraphs, lists and inline links used inside .card */
+h3{
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--ivory);
+  margin: 16px 0 6px;
+}
+
+.card p{
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--taupe);
+  margin: 4px 0;
+}
+
+.card ul{
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card li{
+  position: relative;
+  padding-left: 18px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--taupe);
+}
+
+.card li::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brass);
+}
+
+.card a{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--brass);
+}
+
+.card a:hover{
+  color: var(--rose);
+}
+
+/* Links */
+a{
+  color: var(--ivory);
+  text-decoration: none;
+  transition: color .25s ease;
+}
+
+a:hover{
+  color: var(--brass);
+}
+
+/* Accessibility: visible focus */
+a:focus-visible,
+.btn:focus-visible{
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+/* Full-page vignette + grain (renders the .cyber-overlay div from layout.tsx) */
+.cyber-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 45%, rgba(6,12,10,.45) 100%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.02 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>") repeat;
+  mix-blend-mode: overlay;
+}
+
+/* Quiet top hairline (was the scanning cyber-line — now a static accent) */
+.cyber-scan{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(203,163,92,.5), transparent);
+  opacity: .5;
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  .hero{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .buttons{
+    justify-content: center;
+  }
+
+  h1{
+    letter-spacing: -0.01em;
+  }
+
+  .desc{
+    margin: 0 auto;
+  }
+
+  .hud-core{
+    width: 240px;
+    height: 240px;
+  }
 }

@@ -14,6 +14,9 @@ import {
   Radar,
   Server,
   Download,
+  Cpu,
+  Lock,
+  Activity,
 } from "lucide-react";
 
 
@@ -22,31 +25,31 @@ const projects = [
 {
 title:"SimpleFS File System Implementation",
 type:"Operating Systems • C Programming",
-icon:<Database size={45}/>,
+icon:<Database size={42}/>,
 description:
-"A lightweight file system implementation featuring superblock management, inode-based storage, bitmap allocation, directory entries and virtual disk management.",
-tags:["C","File System","Inode","Operating Systems"],
+"Low level file system implementation featuring inode architecture, bitmap allocation, superblock management and virtual disk operations.",
+tags:["C","OS","Filesystem","Inode"],
 link:"https://github.com/sadmanthebatman/SimpleFS-File-System-Implementation"
 },
 
 
 {
 title:"Bangladesh Board Examination Emergency Network",
-type:"Cisco Networking • Infrastructure",
-icon:<Network size={45}/>,
+type:"Cisco Infrastructure",
+icon:<Network size={42}/>,
 description:
-"Enterprise network architecture using Cisco Packet Tracer with VLSM, RIPv2, static routing, DHCP, DNS, HTTP, email services and redundancy.",
-tags:["Cisco","VLSM","Routing","Networking"],
+"Enterprise level Cisco Packet Tracer network implementing VLSM, RIPv2, DHCP, DNS, HTTP, Email services and routing redundancy.",
+tags:["Cisco","VLSM","Routing","Network"],
 link:"https://github.com/sadmanthebatman/Bangladesh-Board-Examination-Emergency-Network"
 },
 
 
 {
 title:"SportPulse",
-type:"Full Stack Development",
-icon:<Code2 size={45}/>,
+type:"Full Stack Application",
+icon:<Code2 size={42}/>,
 description:
-"Multi-sport analytics platform with player statistics, match archives, standings, comparisons and administration dashboard.",
+"A sports analytics platform providing statistics, player comparison, standings and administration dashboard.",
 tags:["React","Node.js","Dashboard"],
 link:"https://github.com/sadmanthebatman/SportPulse"
 }
@@ -55,15 +58,15 @@ link:"https://github.com/sadmanthebatman/SportPulse"
 
 
 
-const securityGroups=[
+const arsenal = [
 
 {
 title:"Offensive Security",
 icon:<Crosshair/>,
 items:[
 "Kali Linux",
-"Burp Suite",
 "Nmap",
+"Burp Suite",
 "Metasploit",
 "ffuf",
 "Shodan"
@@ -72,12 +75,12 @@ items:[
 
 
 {
-title:"Detection & Monitoring",
+title:"SOC & Detection",
 icon:<Radar/>,
 items:[
-"Suricata IDS/IPS",
-"Wazuh",
 "Splunk",
+"Wazuh",
+"Suricata IDS",
 "TheHive",
 "MISP",
 "ESET XDR"
@@ -86,15 +89,15 @@ items:[
 
 
 {
-title:"Analysis & Engineering",
+title:"Engineering",
 icon:<Terminal/>,
 items:[
 "Python",
 "Docker",
+"Linux",
 "Wireshark",
 "Velociraptor",
-"VirusTotal",
-"Linux"
+"VirusTotal"
 ]
 }
 
@@ -107,18 +110,75 @@ export default function Home(){
 
 return(
 
-<main className="min-h-screen px-6 md:px-16 py-10">
+<main className="
+min-h-screen
+overflow-hidden
+bg-[#05070d]
+text-white
+relative
+px-6
+md:px-20
+py-12
+">
+
+
+{/* animated background */}
+
+<div className="
+absolute inset-0
+bg-[radial-gradient(circle_at_top,_rgba(34,197,94,0.18),transparent_35%)]
+">
+</div>
+
+
+<div className="
+absolute top-20 left-10
+h-40 w-40
+rounded-full
+bg-green-500/20
+blur-3xl
+animate-pulse
+">
+</div>
+
+
+<div className="
+absolute bottom-20 right-10
+h-60 w-60
+rounded-full
+bg-cyan-500/20
+blur-3xl
+animate-pulse
+">
+</div>
+
+
 
 
 {/* HERO */}
 
-<section className="grid md:grid-cols-2 gap-10 items-center">
+<section className="
+relative
+grid
+md:grid-cols-2
+gap-12
+items-center
+min-h-[80vh]
+">
 
 
 <div>
 
 
-<div className="flex gap-3 items-center text-green-400 mb-6">
+<div className="
+flex
+items-center
+gap-3
+text-green-400
+font-semibold
+tracking-widest
+animate-pulse
+">
 
 <Shield/>
 
@@ -127,13 +187,26 @@ CYBER SECURITY PROFILE
 </div>
 
 
-<h1 className="text-5xl md:text-7xl font-bold !text-white">
 
-SADMAN{" "}
+<h1 className="
+mt-8
+text-5xl
+md:text-7xl
+font-black
+leading-tight
+">
 
-<span className="text-green-400">
+SADMAN
 
-SAKIB ABIR
+<span className="
+text-transparent
+bg-clip-text
+bg-gradient-to-r
+from-green-400
+to-cyan-400
+">
+
+ SAKIB ABIR
 
 </span>
 
@@ -141,31 +214,62 @@ SAKIB ABIR
 
 
 
-<h2 className="text-xl mt-6 text-gray-300">
+<p className="
+mt-6
+text-xl
+text-gray-300
+">
 
-Cybersecurity Enthusiast
-
-</h2>
-
-
-<p className="text-gray-300 mt-5 max-w-xl">
-
-Focused on penetration testing, SOC operations,
-security monitoring, vulnerability assessment,
-and secure system engineering.
+Cybersecurity Analyst
+<br/>
+<span className="text-green-400">
+Offensive Security • SOC • Network Defense
+</span>
 
 </p>
 
 
 
-<div className="flex gap-4 mt-8">
+
+<p className="
+mt-6
+max-w-xl
+text-gray-400
+leading-relaxed
+">
+
+Focused on penetration testing, vulnerability assessment,
+security monitoring, malware analysis and secure system engineering.
+
+</p>
+
+
+
+
+<div className="
+flex
+flex-wrap
+gap-5
+mt-10
+">
 
 
 <a
 href="/Sadman-Sakib-Abir-Resume.pdf"
-target="_blank"
-rel="noopener noreferrer"
-className="btn"
+className="
+group
+flex
+items-center
+gap-3
+px-6
+py-3
+rounded-xl
+bg-green-500
+text-black
+font-bold
+hover:scale-105
+transition
+"
 >
 
 <Download size={18}/>
@@ -179,14 +283,25 @@ Resume
 
 <a
 href="https://github.com/sadmanthebatman"
-target="_blank"
-rel="noopener noreferrer"
-className="btn"
+className="
+flex
+items-center
+gap-3
+px-6
+py-3
+rounded-xl
+border
+border-green-400/40
+bg-white/5
+backdrop-blur
+hover:bg-green-400/10
+transition
+"
 >
 
-<Github size={18}/>
+<Github/>
 
-GitHub
+Github
 
 </a>
 
@@ -194,20 +309,107 @@ GitHub
 </div>
 
 
+
 </div>
 
-</section>
 
 
 
+{/* futuristic visual */}
+
+<div className="
+relative
+flex
+justify-center
+">
 
 
+<div className="
+h-80
+w-80
+rounded-full
+border
+border-green-400/30
+flex
+items-center
+justify-center
+animate-spin
+[animation-duration:20s]
+">
+
+
+<div className="
+h-60
+w-60
+rounded-full
+border
+border-cyan-400/40
+flex
+items-center
+justify-center
+">
+
+
+<Lock
+size={90}
+className="
+text-green-400
+animate-pulse
+"
+/>
+
+
+</div>
+
+
+</div>
+
+
+
+<div className="
+absolute
+top-10
+right-10
+glass
+p-5
+animate-bounce
+">
+
+<Activity className="text-green-400"/>
+
+</div>
+
+
+
+<div className="
+absolute
+bottom-10
+left-10
+glass
+p-5
+">
+
+<Cpu className="text-cyan-400"/>
+
+</div>
+
+
+
+</div>
 {/* EXPERIENCE */}
 
-<section className="mt-24">
+<section className="relative mt-32">
 
 
-<h2 className="section-title !text-white">
+<h2 className="
+text-4xl
+font-black
+bg-gradient-to-r
+from-green-400
+to-cyan-400
+bg-clip-text
+text-transparent
+">
 
 Professional Experience
 
@@ -215,33 +417,68 @@ Professional Experience
 
 
 
-<div className="glass mt-10">
+<div className="
+mt-10
+glass-card
+p-8
+rounded-3xl
+border
+border-green-400/20
+bg-white/5
+backdrop-blur-xl
+hover:border-green-400/50
+transition
+">
 
 
-<div className="flex gap-4 items-center">
+<div className="
+flex
+gap-5
+items-center
+">
 
 
-<Server className="text-green-400"/>
+<div className="
+p-4
+rounded-xl
+bg-green-400/10
+">
+
+<Server
+className="text-green-400"
+size={35}
+/>
+
+</div>
+
 
 
 <div>
 
-
-<h3 className="text-2xl font-bold !text-white">
+<h3 className="
+text-2xl
+font-bold
+">
 
 Cyber Security Analyst Intern
 
 </h3>
 
 
-<p className="text-green-400">
+<p className="
+text-green-400
+mt-1
+">
 
 Business Automation Limited
 
 </p>
 
 
-<p className="text-gray-400">
+<p className="
+text-gray-400
+text-sm
+">
 
 Oct 2025 — Jan 2026
 
@@ -250,42 +487,67 @@ Oct 2025 — Jan 2026
 
 </div>
 
+
 </div>
 
 
 
 
-<div className="mt-8 text-gray-300 space-y-5 leading-relaxed">
+<div className="
+mt-8
+grid
+md:grid-cols-2
+gap-5
+">
 
 
-<p>
-• Performed vulnerability assessments and penetration testing using <b>Nessus</b> and <b>Nuclei</b> including CVE analysis.
-</p>
+{
+
+[
+"Performed vulnerability assessment and penetration testing using Nessus and Nuclei.",
+"Analysed CVEs and prepared security remediation reports.",
+"Worked with SOC monitoring tools including Wazuh, Suricata and ESET XDR.",
+"Supported threat intelligence workflow using Splunk, TheHive and MISP.",
+"Performed malware and network analysis using Wireshark and VirusTotal.",
+"Investigated security events and improved defensive monitoring."
+]
+
+.map((item,index)=>(
 
 
-<p>
-• Worked with threat detection, security monitoring, endpoint visibility and incident investigation.
-</p>
+<div
+key={index}
+className="
+p-4
+rounded-xl
+bg-black/30
+border
+border-white/10
+hover:border-green-400/40
+transition
+text-gray-300
+"
+>
+
+<span className="
+text-green-400
+mr-2
+">
+
+&gt;
+
+</span>
+
+{item}
 
 
-<p>
-• Used <b>Suricata</b>, <b>Wazuh</b>, and <b>ESET XDR</b> for security monitoring.
-</p>
+</div>
 
 
-<p>
-• Supported SOC workflows using <b>Splunk</b>, <b>TheHive</b> and <b>MISP</b>.
-</p>
+))
 
 
-<p>
-• Conducted malware and network analysis using <b>Wireshark</b>, <b>Velociraptor</b> and <b>VirusTotal</b>.
-</p>
-
-
-<p>
-• Created security assessment reports with remediation recommendations.
-</p>
+}
 
 
 </div>
@@ -300,51 +562,130 @@ Oct 2025 — Jan 2026
 
 
 
+
+
 {/* PROJECTS */}
 
-<section className="mt-24">
+
+<section className="
+relative
+mt-32
+">
 
 
-<h2 className="section-title !text-white">
+<h2 className="
+text-4xl
+font-black
+bg-gradient-to-r
+from-green-400
+to-cyan-400
+bg-clip-text
+text-transparent
+">
 
 Featured Projects
 
 </h2>
 
 
-<p className="subtitle !text-gray-300">
+
+<p className="
+text-gray-400
+mt-3
+">
 
 Security, networking and software engineering projects
 
 </p>
 
-<div className="grid md:grid-cols-3 gap-8 mt-10">
 
 
-{projects.map(project=>(
+
+
+<div className="
+grid
+md:grid-cols-3
+gap-8
+mt-10
+">
+
+
+{
+
+projects.map(project=>(
 
 
 <div
 key={project.title}
-className="glass project-card"
+className="
+group
+relative
+rounded-3xl
+p-7
+overflow-hidden
+bg-white/5
+border
+border-white/10
+backdrop-blur-xl
+hover:-translate-y-3
+hover:border-green-400/60
+transition-all
+duration-500
+"
 >
 
 
-<div className="text-green-400">
+
+<div className="
+absolute
+inset-0
+bg-gradient-to-br
+from-green-400/10
+to-cyan-400/10
+opacity-0
+group-hover:opacity-100
+transition
+">
+
+</div>
+
+
+
+
+<div className="
+relative
+">
+
+
+<div className="
+text-green-400
+">
 
 {project.icon}
 
 </div>
 
 
-<h3 className="text-xl font-bold mt-6 !text-white">
+
+
+<h3 className="
+mt-6
+text-xl
+font-bold
+">
 
 {project.title}
 
 </h3>
 
 
-<p className="text-green-400 text-sm mt-3">
+
+
+<p className="
+text-green-400
+text-sm
+mt-3
+">
 
 {project.type}
 
@@ -353,7 +694,12 @@ className="glass project-card"
 
 
 
-<p className="text-gray-300 mt-5 text-sm">
+<p className="
+mt-5
+text-gray-400
+text-sm
+leading-relaxed
+">
 
 {project.description}
 
@@ -362,21 +708,42 @@ className="glass project-card"
 
 
 
-<div className="flex flex-wrap gap-2 mt-5">
+
+<div className="
+flex
+flex-wrap
+gap-2
+mt-6
+">
 
 
-{project.tags.map(tag=>(
+{
 
-<span 
-className="tag" 
+project.tags.map(tag=>(
+
+
+<span
 key={tag}
+className="
+px-3
+py-1
+rounded-full
+text-xs
+bg-green-400/10
+border
+border-green-400/20
+text-green-300
+"
 >
 
 {tag}
 
 </span>
 
-))}
+
+))
+
+}
 
 
 </div>
@@ -384,18 +751,24 @@ key={tag}
 
 
 
-
 <a
 href={project.link}
 target="_blank"
-rel="noopener noreferrer"
-className="flex gap-2 items-center text-green-400 mt-6"
+className="
+flex
+items-center
+gap-2
+mt-7
+text-green-400
+hover:text-cyan-400
+transition
+"
 >
 
 
 <Github size={18}/>
 
-View Repository
+Repository
 
 <ExternalLink size={15}/>
 
@@ -404,17 +777,26 @@ View Repository
 
 
 
+</div>
+
 
 </div>
 
 
-))}
+))
+
+
+}
 
 
 </div>
+
 
 
 </section>
+
+
+
 
 
 
@@ -424,10 +806,21 @@ View Repository
 {/* SECURITY ARSENAL */}
 
 
-<section className="mt-24">
+<section className="
+relative
+mt-32
+">
 
 
-<h2 className="section-title !text-white">
+<h2 className="
+text-4xl
+font-black
+bg-gradient-to-r
+from-green-400
+to-cyan-400
+bg-clip-text
+text-transparent
+">
 
 Security Arsenal
 
@@ -435,36 +828,63 @@ Security Arsenal
 
 
 
-<p className="subtitle !text-gray-300">
+<p className="
+text-gray-400
+mt-3
+">
 
-Tools and technologies used for offensive and defensive security
+Tools and technologies used in offensive and defensive security
 
 </p>
 
 
 
 
-<div className="grid md:grid-cols-3 gap-6 mt-10">
+<div className="
+grid
+md:grid-cols-3
+gap-7
+mt-10
+">
 
 
-{securityGroups.map(group=>(
+{
+
+arsenal.map(group=>(
 
 
-<div 
-className="glass" 
+
+<div
 key={group.title}
+className="
+rounded-3xl
+p-7
+bg-white/5
+border
+border-white/10
+backdrop-blur-xl
+hover:border-cyan-400/50
+transition
+"
 >
 
 
-
-<div className="flex gap-3 items-center text-green-400">
+<div className="
+flex
+items-center
+gap-4
+text-green-400
+">
 
 
 {group.icon}
 
 
-
-<h3 className="text-xl font-bold !text-white">
+<h3 className="
+text-xl
+font-bold
+text-white
+">
 
 {group.title}
 
@@ -476,174 +896,490 @@ key={group.title}
 
 
 
+<div className="
+mt-7
+space-y-3
+">
 
-<div className="mt-6 space-y-3">
 
+{
 
-{group.items.map(item=>(
+group.items.map(item=>(
 
 
 <div
 key={item}
-className="border-b border-green-900 pb-2 !text-white"
+className="
+flex
+items-center
+gap-3
+text-gray-300
+border-b
+border-white/10
+pb-3
+"
 >
 
 
-&gt; {item}
+<span className="
+text-green-400
+">
+
+›
+
+</span>
+
+
+{item}
 
 
 </div>
 
 
-))}
+))
 
-
-</div>
-
-
-
-</div>
-
-
-))}
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-{/* CONTACT */}
-
-
-<section className="mt-24">
-
-
-<h2 className="section-title !text-white">
-
-Feel Free To Reach Out.
-
-</h2>
-
-
-
-
-
-<div className="grid md:grid-cols-3 gap-6 mt-10">
-
-
-<Contact
-icon={<Github/>}
-title="GitHub"
-value="github.com/sadmanthebatman"
-link="https://github.com/sadmanthebatman"
-/>
-
-
-
-
-<Contact
-icon={<Linkedin/>}
-title="LinkedIn"
-value="www.linkedin.com/in/sadman-sakib-abir-38967841b"
-link="https://www.linkedin.com/in/sadman-sakib-abir-38967841b"
-/>
-
-
-
-
-
-<Contact
-icon={<Mail/>}
-title="Email"
-value="sadmansakibabir717@gmail.com"
-link="mailto:sadmansakibabir717@gmail.com"
-/>
-
-
-
-</div>
-
-
-</section>
-
-
-
-</main>
-
-)
 
 }
 
 
-
-
-
-
-function Contact({
-icon,
-title,
-value,
-link
-}:{
-icon:React.ReactNode;
-title:string;
-value:string;
-link:string;
-}){
-
-
-return(
-
-<a
-href={link}
-target="_blank"
-rel="noopener noreferrer"
-className="block"
->
-
-
-
-<div className="glass hover:border-green-400 transition cursor-pointer">
-
-
-<div className="text-green-400">
-
-{icon}
-
 </div>
-
-
-
-
-<h3 className="text-xl mt-4 !text-white">
-
-{title}
-
-</h3>
-
-
-
-
-<p className="text-gray-300 mt-2">
-
-{value}
-
-</p>
-
 
 
 </div>
 
 
+))
 
-</a>
 
-)
+}
+
+
+</div>
+
+
+</section>
+
+
+</section>
+{/* CONTACT */}
+
+<section className="relative mt-32 mb-20">
+
+  <div
+    className="
+    absolute
+    left-1/2
+    -translate-x-1/2
+    -top-24
+    w-[500px]
+    h-[250px]
+    bg-green-500/10
+    blur-[120px]
+    pointer-events-none
+    "
+  />
+
+  <div className="relative">
+
+    <p
+      className="
+      text-green-400
+      font-mono
+      tracking-[0.25em]
+      text-sm
+      uppercase
+      "
+    >
+      // establish_connection
+    </p>
+
+    <h2
+      className="
+      text-4xl
+      md:text-5xl
+      font-black
+      mt-3
+      bg-gradient-to-r
+      from-white
+      via-green-300
+      to-cyan-400
+      bg-clip-text
+      text-transparent
+      "
+    >
+      Feel Free To Reach Out.
+    </h2>
+
+    <p
+      className="
+      text-gray-400
+      mt-4
+      max-w-2xl
+      leading-relaxed
+      "
+    >
+      Interested in cybersecurity, networking, software engineering,
+      collaboration or new opportunities? Connect with me through the
+      platforms below.
+    </p>
+
+  </div>
+
+
+  <div
+    className="
+    grid
+    md:grid-cols-3
+    gap-6
+    mt-12
+    "
+  >
+
+    <Contact
+      icon={<Github size={28} />}
+      title="GitHub"
+      value="github.com/sadmanthebatman"
+      link="https://github.com/sadmanthebatman"
+    />
+
+    <Contact
+      icon={<Linkedin size={28} />}
+      title="LinkedIn"
+      value="Sadman Sakib Abir"
+      link="https://www.linkedin.com/in/sadman-sakib-abir-38967841b"
+    />
+
+    <Contact
+      icon={<Mail size={28} />}
+      title="Email"
+      value="sadmansakibabir717@gmail.com"
+      link="mailto:sadmansakibabir717@gmail.com"
+    />
+
+  </div>
+
+
+  {/* TERMINAL */}
+
+  <div
+    className="
+    mt-20
+    rounded-3xl
+    overflow-hidden
+    border
+    border-green-400/20
+    bg-black/60
+    backdrop-blur-xl
+    shadow-[0_0_60px_rgba(34,197,94,0.08)]
+    "
+  >
+
+    {/* terminal top bar */}
+
+    <div
+      className="
+      flex
+      items-center
+      justify-between
+      px-5
+      py-4
+      border-b
+      border-white/10 
+      bg-white/[0.03]
+      "
+    >
+
+      <div className="flex gap-2">
+
+        <div className="w-3 h-3 rounded-full bg-red-400" />
+        <div className="w-3 h-3 rounded-full bg-yellow-400" />
+        <div className="w-3 h-3 rounded-full bg-green-400" />
+
+      </div>
+
+      <div
+        className="
+        flex
+        items-center
+        gap-2
+        text-gray-500
+        text-xs
+        font-mono
+        "
+      >
+        <Terminal size={14} />
+        sadman@security-terminal
+      </div>
+
+    </div>
+
+
+    {/* terminal body */}
+
+    <div
+      className="
+      p-6
+      md:p-8
+      font-mono
+      text-sm
+      md:text-base
+      leading-8
+      "
+    >
+
+      <p className="text-gray-500">
+        Last login: secure session established
+      </p>
+
+      <p className="mt-3">
+        <span className="text-green-400">sadman@portfolio</span>
+        <span className="text-gray-500">:</span>
+        <span className="text-cyan-400">~</span>
+        <span className="text-white">$ whoami</span>
+      </p>
+
+      <p className="text-gray-300 ml-4">
+        Cybersecurity Enthusiast
+      </p>
+
+
+      <p className="mt-2">
+        <span className="text-green-400">sadman@portfolio</span>
+        <span className="text-gray-500">:</span>
+        <span className="text-cyan-400">~</span>
+        <span className="text-white">$ cat focus.txt</span>
+      </p>
+
+      <p className="text-gray-300 ml-4">
+        Penetration Testing • SOC • Network Security • System Engineering
+      </p>
+
+
+      <p className="mt-2">
+        <span className="text-green-400">sadman@portfolio</span>
+        <span className="text-gray-500">:</span>
+        <span className="text-cyan-400">~</span>
+        <span className="text-white">$ status</span>
+      </p>
+
+      <p className="ml-4 text-green-400">
+        ● Available for opportunities
+      </p>
+
+
+      <p className="mt-2 flex items-center">
+        <span className="text-green-400">sadman@portfolio</span>
+        <span className="text-gray-500">:</span>
+        <span className="text-cyan-400">~</span>
+        <span className="text-white">$</span>
+
+        <span
+          className="
+          inline-block
+          ml-2
+          w-[9px]
+          h-5
+          bg-green-400
+          animate-pulse
+          "
+        />
+
+      </p>
+
+    </div>
+
+  </div>
+
+
+  {/* FOOTER */}
+
+  <div
+    className="
+    mt-20
+    pt-8
+    border-t
+    border-white/10
+    flex
+    flex-col
+    md:flex-row
+    justify-between
+    items-center
+    gap-5
+    text-sm
+    text-gray-500
+    "
+  >
+
+    <p>
+      © {new Date().getFullYear()} Sadman Sakib Abir
+    </p>
+
+
+    <div className="flex items-center gap-3">
+
+      <div
+        className="
+        w-2
+        h-2
+        bg-green-400
+        rounded-full
+        animate-pulse
+        shadow-[0_0_10px_rgba(74,222,128,0.9)]
+        "
+      />
+
+      <span className="font-mono">
+        SYSTEM ONLINE
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+);
+
+}function Contact({
+  icon,
+  title,
+  value,
+  link,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  value: string;
+  link: string;
+}) {
+
+  return (
+
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+      group
+      relative
+      block
+      rounded-2xl
+      overflow-hidden
+      "
+    >
+
+      {/* hover glow */}
+
+      <div
+        className="
+        absolute
+        -inset-[1px]
+        rounded-2xl
+        bg-gradient-to-r
+        from-green-400
+        via-cyan-400
+        to-green-400
+        opacity-0
+        blur
+        group-hover:opacity-50
+        transition
+        duration-500
+        "
+      />
+
+
+      <div
+        className="
+        relative
+        h-full
+        rounded-2xl
+        p-6
+        bg-[#080d12]/90
+        border
+        border-white/10
+        backdrop-blur-xl
+        group-hover:border-green-400/40
+        transition-all
+        duration-500
+        group-hover:-translate-y-1
+        "
+      >
+
+        <div
+          className="
+          w-12
+          h-12
+          rounded-xl
+          flex
+          items-center
+          justify-center
+          bg-green-400/10
+          border
+          border-green-400/20
+          text-green-400
+          group-hover:text-cyan-300
+          group-hover:scale-110
+          transition-all
+          duration-300
+          "
+        >
+          {icon}
+        </div>
+
+
+        <h3
+          className="
+          text-xl
+          font-bold
+          text-white
+          mt-5
+          "
+        >
+          {title}
+        </h3>
+
+
+        <p
+          className="
+          text-gray-400
+          text-sm
+          mt-2
+          break-words
+          "
+        >
+          {value}
+        </p>
+
+
+        <div
+          className="
+          flex
+          items-center
+          gap-2
+          mt-5
+          text-green-400
+          text-sm
+          font-medium
+          "
+        >
+          Connect
+
+          <ExternalLink
+            size={14}
+            className="
+            group-hover:translate-x-1
+            group-hover:-translate-y-1
+            transition
+            "
+          />
+
+        </div>
+
+      </div>
+
+    </a>
+
+  );
 
 }

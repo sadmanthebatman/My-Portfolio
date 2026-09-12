@@ -1,5 +1,7 @@
 "use client";
 
+import type { ReactNode } from "react";
+
 import {
   Github,
   Linkedin,
@@ -938,7 +940,9 @@ gap-5
 {
 
 [
-"Performed vulnerability assessment and penetration testing using Nessus and Nuclei.",
+"Performed vulnerability assessment and penetration testing using Nessus
+
+ and Nuclei.",
 "Analysed CVEs and prepared security remediation reports.",
 "Worked with SOC monitoring tools including Wazuh, Suricata and ESET XDR.",
 "Supported threat intelligence workflow using Splunk, TheHive and MISP.",
@@ -1188,6 +1192,7 @@ text-green-300
 <a
 href={project.link}
 target="_blank"
+rel="noopener noreferrer"
 className="
 flex
 items-center
@@ -1645,7 +1650,7 @@ text-green-400
   >
 
     <p>
-      © {new Date().getFullYear()} Sadman Sakib Abir
+      © 2026 Sadman Sakib Abir
     </p>
 
 
@@ -1658,7 +1663,9 @@ text-green-400
         bg-green-400
         rounded-full
         animate-pulse
-        shadow-[0_0_10px_rgba(74,222,128,0.9)]
+       
+
+ shadow-[0_0_10px_rgba(74,222,128,0.9)]
         "
       />
 
@@ -1676,13 +1683,15 @@ text-green-400
 
 );
 
-}function Contact({
+}
+
+function Contact({
   icon,
   title,
   value,
   link,
 }: {
-  icon: React.ReactNode;
+  icon: ReactNode;
   title: string;
   value: string;
   link: string;

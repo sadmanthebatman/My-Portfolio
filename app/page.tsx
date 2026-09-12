@@ -120,7 +120,8 @@ px-6
 md:px-20
 py-12
 ">
-
+<div className="cyber-scan" />
+  
 
 {/* animated background */}
 
@@ -314,49 +315,479 @@ Github
 
 
 
+{/* NAVBAR */}
 
-{/* futuristic visual */}
-
-<div className="
+<nav
+className="
 relative
+mb-16
 flex
-justify-center
-">
+justify-between
+items-center
+rounded-2xl
+px-6
+py-4
+bg-white/5
+border
+border-white/10
+backdrop-blur-xl
+"
+>
 
 
-<div className="
-h-80
-w-80
-rounded-full
+<div
+className="
+flex
+items-center
+gap-3
+font-black
+tracking-widest
+"
+>
+
+<div
+className="
+w-10
+h-10
+rounded-xl
+bg-green-400/10
 border
 border-green-400/30
 flex
 items-center
 justify-center
-animate-spin
-[animation-duration:20s]
+"
+>
+
+<Shield
+className="text-green-400"
+/>
+
+</div>
+
+
+SAB.SEC
+
+
+</div>
+
+
+
+
+<div
+className="
+hidden
+md:flex
+items-center
+gap-8
+text-sm
+text-gray-400
+"
+>
+
+
+<a
+href="#experience"
+className="
+hover:text-green-400
+transition
+"
+>
+Experience
+</a>
+
+
+<a
+href="#projects"
+className="
+hover:text-green-400
+transition
+"
+>
+Projects
+</a>
+
+
+<a
+href="#contact"
+className="
+hover:text-green-400
+transition
+"
+>
+Contact
+</a>
+
+
+</div>
+
+
+
+
+<div
+className="
+flex
+items-center
+gap-2
+text-green-400
+text-sm
+font-mono
+"
+>
+
+<span
+className="
+w-2
+h-2
+rounded-full
+bg-green-400
+animate-pulse
+"
+/>
+
+SECURE
+
+</div>
+
+
+</nav>
+{/* futuristic visual */}
+
+{/* CYBER HUD VISUAL */}
+
+<div className="
+relative
+flex
+justify-center
+items-center
+h-[420px]
+">
+
+
+{/* outer radar rings */}
+
+<div className="
+absolute
+w-[360px]
+h-[360px]
+rounded-full
+border
+border-green-400/20
+slow-rotate
 ">
 
 
 <div className="
-h-60
-w-60
+absolute
+top-0
+left-1/2
+w-[2px]
+h-full
+bg-gradient-to-b
+from-green-400/50
+to-transparent
+">
+</div>
+
+
+</div>
+
+
+
+<div className="
+absolute
+w-[280px]
+h-[280px]
 rounded-full
 border
-border-cyan-400/40
-flex
-items-center
-justify-center
+border-cyan-400/20
+reverse-rotate
 ">
 
 
-<Lock
-size={90}
+<div className="
+absolute
+left-1/2
+top-0
+h-full
+w-[1px]
+bg-cyan-400/30
+">
+</div>
+
+
+</div>
+
+
+
+
+
+{/* center core */}
+
+<div className="
+relative
+z-10
+w-48
+h-48
+rounded-full
+bg-gradient-to-br
+from-green-400/20
+to-cyan-400/20
+border
+border-green-400/40
+backdrop-blur-xl
+flex
+items-center
+justify-center
+shadow-[0_0_80px_rgba(34,197,94,0.25)]
+cyber-float
+">
+
+
+<Shield
+size={85}
 className="
 text-green-400
+drop-shadow-[0_0_20px_rgba(74,222,128,0.8)]
+"
+/>
+
+
+</div>
+
+
+
+
+
+{/* floating status cards */}
+
+
+
+<div className="
+absolute
+top-10
+right-0
+glass
+px-5
+py-4
+border-green-400/20
+animate-bounce
+">
+
+
+<div className="
+flex
+items-center
+gap-3
+">
+
+
+<div className="
+w-3
+h-3
+rounded-full
+bg-green-400
 animate-pulse
 "
 />
+
+
+<div>
+
+<p className="
+text-xs
+text-gray-400
+">
+
+SYSTEM
+
+</p>
+
+
+<p className="
+text-green-400
+font-bold
+">
+
+ONLINE
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div className="
+absolute
+bottom-14
+left-0
+glass
+px-5
+py-4
+">
+
+
+<div className="
+flex
+gap-3
+items-center
+">
+
+
+<Terminal
+size={25}
+className="
+text-cyan-400
+"/>
+
+
+<div>
+
+<p className="
+text-xs
+text-gray-400
+">
+
+ACCESS
+
+</p>
+
+
+<p className="
+text-white
+font-bold
+">
+
+AUTHORIZED
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div className="
+absolute
+top-1/2
+left-0
+translate-y-[-50%]
+glass
+px-4
+py-3
+hidden
+lg:block
+">
+
+
+<p className="
+text-xs
+text-gray-400
+font-mono
+">
+
+PORT_SCAN
+
+</p>
+
+
+<p className="
+text-green-400
+font-bold
+">
+
+1024 PORTS
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div className="
+absolute
+bottom-8
+right-0
+glass
+px-5
+py-4
+hidden
+md:block
+">
+
+
+<div className="
+flex
+items-center
+gap-3
+">
+
+
+<Radar
+className="
+text-green-400
+"
+/>
+
+
+<div>
+
+<p className="
+text-xs
+text-gray-400
+">
+
+THREAT LEVEL
+
+</p>
+
+
+<p className="
+text-green-400
+font-bold
+">
+
+LOW
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
 
 
 </div>
@@ -398,7 +829,10 @@ p-5
 </div>
 {/* EXPERIENCE */}
 
-<section className="relative mt-32">
+<section 
+id="experience"
+className="relative mt-32"
+>
 
 
 <h2 className="

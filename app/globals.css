@@ -49,6 +49,8 @@ body{
 
 /* Main container */
 .portfolio{
+  position: relative;
+  z-index: 1;
   max-width: 1400px;
   margin: 0 auto;
   padding: 60px 9%;
@@ -181,6 +183,13 @@ h2{
   border-color: rgba(198,138,70,.45);
 }
 
+/* .navbar sets border-radius:999px, but .glass below it in the cascade
+   was overriding that with its own 24px — bump specificity so the pill
+   shape wins on elements that carry both classes. */
+.navbar.glass{
+  border-radius: 999px;
+}
+
 /* =====================
    SIGNATURE MEDALLION (was hud-core)
 ===================== */
@@ -238,6 +247,65 @@ h2{
   gap: 28px;
 }
 
+/* Card content — h3, paragraphs, lists and inline links used inside .card */
+h3{
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  color: var(--ivory);
+  margin: 16px 0 6px;
+}
+
+.card p{
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--taupe);
+  margin: 4px 0;
+}
+
+.card ul{
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card li{
+  position: relative;
+  padding-left: 18px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--taupe);
+}
+
+.card li::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brass);
+}
+
+.card a{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--brass);
+}
+
+.card a:hover{
+  color: var(--rose);
+}
+
 /* Links */
 a{
   color: var(--ivory);
@@ -263,6 +331,18 @@ a:focus-visible,
     animation-iteration-count: 1 !important;
     transition-duration: .001ms !important;
   }
+}
+
+/* Full-page vignette + grain (renders the .cyber-overlay div from layout.tsx) */
+.cyber-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 45%, rgba(10,7,12,.45) 100%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.02 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>") repeat;
+  mix-blend-mode: overlay;
 }
 
 /* Quiet top hairline (was the scanning cyber-line — now a static accent) */

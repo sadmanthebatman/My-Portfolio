@@ -51,20 +51,24 @@ const projects = [
 
 const arsenal = [
  {
-  title:"Offensive Security",
+  title:"Programming Languages",
+  icon:<Code/>,
+  items:["Python","JAVA","C++"]
+},
+{
+  title:"Security Research & Bug Exploration",
+  icon:<SearchCode/>,
+  items:["HackerOne","Bugcrowd","YesWeHack"]
+},
+{
+  title:"Offensive Security Tools",
   icon:<Crosshair/>,
-  items:["Kali Linux","Nmap","Burp Suite","Metasploit"]
- },
- {
-  title:"SOC Detection",
-  icon:<Radar/>,
-  items:["Splunk","Wazuh","Suricata","TheHive","MISP"]
- },
- {
-  title:"Engineering",
-  icon:<Terminal/>,
-  items:["Python","Docker","Linux","Wireshark"]
- }
+  items:["Burp Suite","Kali Linux","Nmap","Metasploit","Shodan","ffuf"]
+},{
+  title:"Security Testing",
+  icon:<ShieldCheck/>,
+  items:["Recon","XSS","IDOR","CSRF","SSRF","HTML Injection","SQL Injection","File Upload Vulnerability"]
+}
 ];
 
 export default function Home(){
@@ -129,19 +133,22 @@ security monitoring, vulnerability assessment and secure engineering.
 <p className="green">Business Automation Limited</p>
 
 <ul>
-<li>- Performed hands-on vulnerability assessments and penetration testing using Nessus and Nuclei to identify, validate, and document security
+<li> Performed hands-on vulnerability assessments and penetration testing using Nessus and Nuclei to identify, validate, and document security
 weaknesses across applications and infrastructure, including CVE analysis and vulnerability assessment.
 </li>
-<li>- Worked with practical threat detection, security monitoring, endpoint visibility, and incident investigation, supporting the early identification
+<li> Worked with practical threat detection, security monitoring, endpoint visibility, and incident investigation, supporting the early identification
 and analysis of suspicious activities.
 </li>
-<li>- Gained hands-on experience with Suricata for IDS/IPS monitoring, and worked with Wazuh and in SIEM-based security monitoring and event
-analysis, while using ESET for XDR-related security operations.
-- Supported alert management, incident response and security orchestration workflows using Splunk and TheHive, while working with
+<li> Gained hands-on experience with Suricata for IDS/IPS monitoring, and worked with Wazuh and in SIEM-based security monitoring and event
+analysis, while using ESET for XDR-related security operations. 
+</li>
+<li> Supported alert management, incident response and security orchestration workflows using Splunk and TheHive, while working with
 MISP for threat intelligence and security event correlation.
-- Conducted practical digital forensics, malware & network analysis using Velociraptor, Wireshark, VirusTotal, and assisting in the
+</li>
+<li> Conducted practical digital forensics, malware & network analysis using Velociraptor, Wireshark, VirusTotal, and assisting in the
 investigation of suspicious files, network activity, and potential security incidents.
-- Produced detailed security assessment and incident analysis reports with actionable remediation recommendations, while supporting CIRT &
+</li>
+<li> Produced detailed security assessment and incident analysis reports with actionable remediation recommendations, while supporting CIRT &
 Infrastructure operations, deployment workflows, DevOps activities, and secure system management.
 </li>
 </ul>

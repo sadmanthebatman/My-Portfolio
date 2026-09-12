@@ -129,13 +129,21 @@ security monitoring, vulnerability assessment and secure engineering.
 <p className="green">Business Automation Limited</p>
 
 <ul>
-<li>Performed hands-on vulnerability assessments and penetration testing using Nessus and Nuclei to identify, validate, and document security
+<li>- Performed hands-on vulnerability assessments and penetration testing using Nessus and Nuclei to identify, validate, and document security
 weaknesses across applications and infrastructure, including CVE analysis and vulnerability assessment.
 </li>
-<li> Worked with practical threat detection, security monitoring, endpoint visibility, and incident investigation, supporting the early identification
+<li>- Worked with practical threat detection, security monitoring, endpoint visibility, and incident investigation, supporting the early identification
 and analysis of suspicious activities.
 </li>
-<li>Analysed security incidents and network traffic.</li>
+<li>- Gained hands-on experience with Suricata for IDS/IPS monitoring, and worked with Wazuh and in SIEM-based security monitoring and event
+analysis, while using ESET for XDR-related security operations.
+- Supported alert management, incident response and security orchestration workflows using Splunk and TheHive, while working with
+MISP for threat intelligence and security event correlation.
+- Conducted practical digital forensics, malware & network analysis using Velociraptor, Wireshark, VirusTotal, and assisting in the
+investigation of suspicious files, network activity, and potential security incidents.
+- Produced detailed security assessment and incident analysis reports with actionable remediation recommendations, while supporting CIRT &
+Infrastructure operations, deployment workflows, DevOps activities, and secure system management.
+</li>
 </ul>
 
 </div>

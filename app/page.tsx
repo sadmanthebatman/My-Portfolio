@@ -815,6 +815,7 @@ animate-bounce
 
 
 <div className="
+
 absolute
 bottom-10
 left-10
@@ -940,9 +941,7 @@ gap-5
 {
 
 [
-"Performed vulnerability assessment and penetration testing using Nessus
-
- and Nuclei.",
+"Performed vulnerability assessment and penetration testing using Nessus and Nuclei.",
 "Analysed CVEs and prepared security remediation reports.",
 "Worked with SOC monitoring tools including Wazuh, Suricata and ESET XDR.",
 "Supported threat intelligence workflow using Splunk, TheHive and MISP.",
@@ -1568,7 +1567,9 @@ text-green-400
 
       <p className="text-gray-500">
         Last login: secure session established
-      </p>
+ 
+
+     </p>
 
       <p className="mt-3">
         <span className="text-green-400">sadman@portfolio</span>
@@ -1663,9 +1664,7 @@ text-green-400
         bg-green-400
         rounded-full
         animate-pulse
-       
-
- shadow-[0_0_10px_rgba(74,222,128,0.9)]
+        shadow-[0_0_10px_rgba(74,222,128,0.9)]
         "
       />
 

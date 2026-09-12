@@ -1,32 +1,68 @@
-/* Deployment safe globals.css
-   No @import "tailwindcss"
-   No Tailwind dependency required
-*/
-
-
 *{
 box-sizing:border-box;
 }
 
-
 html{
 scroll-behavior:smooth;
 }
-
 
 body{
 
 margin:0;
 
 background:
-radial-gradient(circle at top,
-rgba(34,197,94,.15),
+radial-gradient(circle at 20% 10%,
+rgba(34,197,94,.18),
 transparent 35%),
-#05070d;
+
+radial-gradient(circle at 80% 30%,
+rgba(6,182,212,.15),
+transparent 30%),
+
+linear-gradient(
+135deg,
+#020617,
+#05070d,
+#00150d
+);
 
 color:white;
 
-font-family:Arial, sans-serif;
+font-family:
+Inter,
+Arial,
+sans-serif;
+
+}
+
+
+/* futuristic grid background */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background-image:
+linear-gradient(
+rgba(34,197,94,.04) 1px,
+transparent 1px
+),
+linear-gradient(
+90deg,
+rgba(34,197,94,.04) 1px,
+transparent 1px
+);
+
+background-size:
+50px 50px;
+
+pointer-events:none;
+
+z-index:-1;
 
 }
 
@@ -42,24 +78,56 @@ overflow:hidden;
 
 
 
+/* Glass */
+
 .glass{
 
 background:
-rgba(255,255,255,.06);
+linear-gradient(
+135deg,
+rgba(255,255,255,.09),
+rgba(255,255,255,.03)
+);
 
 border:
-1px solid rgba(255,255,255,.12);
 
-backdrop-filter:blur(18px);
+1px solid rgba(255,255,255,.15);
 
-border-radius:24px;
+
+backdrop-filter:
+blur(20px);
+
+
+border-radius:26px;
+
 
 box-shadow:
-0 20px 60px rgba(0,0,0,.4);
+
+0 25px 80px rgba(0,0,0,.55),
+
+inset 0 0 40px rgba(34,197,94,.04);
+
+
+transition:.4s;
 
 }
 
 
+.glass:hover{
+
+transform:translateY(-8px);
+
+border-color:#22c55e;
+
+box-shadow:
+
+0 30px 100px rgba(34,197,94,.25);
+
+}
+
+
+
+/* Navbar */
 
 .navbar{
 
@@ -67,12 +135,11 @@ display:flex;
 
 justify-content:space-between;
 
-padding:20px;
+padding:22px;
 
-margin-bottom:60px;
+margin-bottom:70px;
 
 }
-
 
 
 .logo{
@@ -81,7 +148,9 @@ display:flex;
 
 align-items:center;
 
-gap:10px;
+gap:12px;
+
+font-size:20px;
 
 font-weight:900;
 
@@ -89,7 +158,8 @@ font-weight:900;
 
 
 
-.online,.green{
+.online,
+.green{
 
 color:#22c55e;
 
@@ -97,15 +167,17 @@ color:#22c55e;
 
 
 
+/* Hero */
+
 .hero{
 
 display:grid;
 
 grid-template-columns:1fr 1fr;
 
-gap:50px;
+gap:70px;
 
-min-height:70vh;
+min-height:75vh;
 
 align-items:center;
 
@@ -115,17 +187,24 @@ align-items:center;
 
 h1{
 
-font-size:70px;
+font-size:75px;
 
-font-weight:900;
+letter-spacing:-3px;
+
+font-weight:1000;
+
+line-height:1;
 
 }
-
 
 
 h1 span{
 
 color:#22c55e;
+
+text-shadow:
+
+0 0 30px rgba(34,197,94,.8);
 
 }
 
@@ -133,9 +212,11 @@ color:#22c55e;
 
 .desc{
 
-color:#aaa;
+color:#b8c1cc;
 
-font-size:18px;
+font-size:19px;
+
+line-height:1.7;
 
 max-width:600px;
 
@@ -143,16 +224,17 @@ max-width:600px;
 
 
 
+/* buttons */
+
 .buttons{
 
 display:flex;
 
 gap:20px;
 
-margin-top:30px;
+margin-top:35px;
 
 }
-
 
 
 .btn{
@@ -163,29 +245,53 @@ gap:10px;
 
 align-items:center;
 
-padding:12px 25px;
+padding:14px 28px;
 
-background:#22c55e;
+background:
+
+linear-gradient(
+135deg,
+#22c55e,
+#06b6d4
+);
+
 
 color:black;
 
-border-radius:12px;
+border-radius:14px;
 
-font-weight:bold;
+font-weight:900;
+
+transition:.3s;
 
 }
 
 
 
-.hud-core{
+.btn:hover{
 
-width:300px;
+transform:scale(1.08);
 
-height:300px;
+box-shadow:
 
-border-radius:50%;
+0 0 40px rgba(34,197,94,.8);
 
-border:2px solid #22c55e;
+}
+
+
+
+/* ==========================
+ FUTURE AI SCANNER
+========================== */
+
+
+.hud-scanner{
+
+position:relative;
+
+width:360px;
+
+height:360px;
 
 display:flex;
 
@@ -193,7 +299,52 @@ align-items:center;
 
 justify-content:center;
 
-box-shadow:0 0 80px rgba(34,197,94,.5);
+}
+
+
+
+.scanner-ring{
+
+position:absolute;
+
+border-radius:50%;
+
+border:1px solid rgba(34,197,94,.6);
+
+}
+
+
+
+.ring-one{
+
+width:100%;
+
+height:100%;
+
+animation:rotate 15s linear infinite;
+
+}
+
+
+.ring-two{
+
+width:75%;
+
+height:75%;
+
+border-style:dashed;
+
+animation:rotateReverse 10s linear infinite;
+
+}
+
+
+
+.ring-three{
+
+width:50%;
+
+height:50%;
 
 animation:pulse 3s infinite;
 
@@ -201,23 +352,203 @@ animation:pulse 3s infinite;
 
 
 
+/* rotating radar */
+
+.scanner-beam{
+
+position:absolute;
+
+width:50%;
+
+height:50%;
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+rgba(34,197,94,.5)
+);
+
+
+transform-origin:bottom right;
+
+animation:
+radar 4s linear infinite;
+
+}
+
+
+
+.scanner-core{
+
+width:120px;
+
+height:120px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(
+circle,
+#22c55e,
+#064e3b
+);
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+
+font-size:12px;
+
+font-weight:900;
+
+
+box-shadow:
+
+0 0 60px #22c55e;
+
+}
+
+
+
+.core-dot{
+
+position:absolute;
+
+width:12px;
+
+height:12px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:
+0 0 20px white;
+
+}
+
+
+
+.node{
+
+position:absolute;
+
+width:10px;
+
+height:10px;
+
+background:#06b6d4;
+
+border-radius:50%;
+
+box-shadow:
+
+0 0 25px #06b6d4;
+
+}
+
+
+
+.node-one{
+
+top:30px;
+
+right:80px;
+
+}
+
+
+.node-two{
+
+bottom:70px;
+
+left:50px;
+
+}
+
+
+.node-three{
+
+top:170px;
+
+right:10px;
+
+}
+
+
+
+/* rotation */
+
+@keyframes rotate{
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+
+@keyframes rotateReverse{
+
+to{
+transform:rotate(-360deg);
+}
+
+}
+
+
+
+@keyframes radar{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
 @keyframes pulse{
 
 50%{
-transform:scale(1.05);
-}
+
+transform:scale(1.08);
 
 }
 
+}
 
+
+
+/* section */
 
 .section-title{
 
 font-size:45px;
 
-margin-top:100px;
+margin-top:120px;
 
 color:#22c55e;
+
+text-shadow:
+
+0 0 20px rgba(34,197,94,.5);
 
 }
 
@@ -237,13 +568,16 @@ margin-top:30px;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
 
-gap:25px;
+gap:30px;
 
 }
 
 
+
+/* scanner line */
 
 .cyber-scan{
 
@@ -255,11 +589,20 @@ left:0;
 
 width:100%;
 
-height:2px;
+height:3px;
 
-background:#22c55e;
 
-animation:scan 8s linear infinite;
+background:
+
+linear-gradient(
+90deg,
+transparent,
+#22c55e,
+transparent
+);
+
+
+animation:scan 6s linear infinite;
 
 z-index:100;
 
@@ -268,17 +611,25 @@ z-index:100;
 
 @keyframes scan{
 
+
 from{
+
 transform:translateY(-100vh);
+
 }
+
 
 to{
+
 transform:translateY(100vh);
-}
 
 }
 
+}
 
+
+
+/* Mobile */
 
 @media(max-width:800px){
 
@@ -288,9 +639,19 @@ grid-template-columns:1fr;
 
 }
 
+
 h1{
 
 font-size:45px;
+
+}
+
+
+.hud-scanner{
+
+width:280px;
+
+height:280px;
 
 }
 

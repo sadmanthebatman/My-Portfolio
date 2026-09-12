@@ -1,436 +1,64 @@
 @import "tailwindcss";
 
-/* =========================
-   GLOBAL RESET
-========================= */
-
-html {
-  scroll-behavior: smooth;
+html{
+scroll-behavior:smooth;
 }
 
-body {
-  margin: 0;
-  background:
-    radial-gradient(
-      circle at 15% 10%,
-      rgba(34,197,94,0.12),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 85% 20%,
-      rgba(6,182,212,0.10),
-      transparent 30%
-    ),
-    #05070d;
-
-  color: white;
-  overflow-x: hidden;
+body{
+margin:0;
+background:#05070d;
+color:white;
 }
 
-
-/* =========================
-   CYBER GRID BACKGROUND
-========================= */
-
-body::before {
-
-  content: "";
-
-  position: fixed;
-  inset: 0;
-
-  pointer-events: none;
-
-  background-image:
-    linear-gradient(
-      rgba(74,222,128,0.035) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(74,222,128,0.035) 1px,
-      transparent 1px
-    );
-
-  background-size: 45px 45px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      black,
-      transparent
-    );
-
-  z-index: -1;
+.glass{
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.1);
+backdrop-filter:blur(18px);
 }
 
-
-/* =========================
-   TEXT SELECTION
-========================= */
-
-::selection {
-  background: rgba(34,197,94,0.35);
-  color:white;
+.btn{
+padding:12px 24px;
+border-radius:12px;
+background:#22c55e;
+color:black;
+font-weight:bold;
 }
 
-
-/* =========================
-   SCROLLBAR
-========================= */
-
-::-webkit-scrollbar {
-  width: 8px;
+.section-title{
+font-size:2.5rem;
+font-weight:900;
+background:linear-gradient(90deg,#22c55e,#06b6d4);
+-webkit-background-clip:text;
+color:transparent;
 }
 
-::-webkit-scrollbar-track {
-  background:#05070d;
+.cyber-scan{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:2px;
+background:#22c55e;
+animation:scan 8s infinite linear;
 }
 
-::-webkit-scrollbar-thumb {
-
-  background:
-    linear-gradient(
-      #22c55e,
-      #06b6d4
-    );
-
-  border-radius:20px;
+@keyframes scan{
+from{transform:translateY(-100vh)}
+to{transform:translateY(100vh)}
 }
 
-
-
-/* =========================
-   GLASS EFFECT
-========================= */
-
-.glass {
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,0.08),
-      rgba(255,255,255,0.02)
-    );
-
-  border:
-    1px solid rgba(255,255,255,0.10);
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.35);
-
+.hud-core{
+width:280px;
+height:280px;
+border-radius:50%;
+border:2px solid rgba(34,197,94,.4);
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 80px rgba(34,197,94,.3);
+animation:pulse 3s infinite;
 }
 
-
-
-.glass-card {
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(10,20,25,0.85),
-      rgba(5,10,15,0.95)
-    );
-
-  border:
-    1px solid rgba(255,255,255,0.08);
-
-  backdrop-filter: blur(20px);
-
-  box-shadow:
-    0 30px 80px rgba(0,0,0,0.45);
-
-}
-
-
-
-/* =========================
-   SCANNER LINE
-========================= */
-
-@keyframes scan {
-
-  0% {
-    transform:translateY(-100vh);
-    opacity:0;
-  }
-
-  20% {
-    opacity:.5;
-  }
-
-  100% {
-    transform:translateY(100vh);
-    opacity:0;
-  }
-
-}
-
-
-.cyber-scan {
-
-  position:fixed;
-
-  top:0;
-  left:0;
-
-  width:100%;
-  height:2px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #22c55e,
-      #06b6d4,
-      transparent
-    );
-
-  box-shadow:
-    0 0 20px #22c55e;
-
-  animation:
-    scan 8s linear infinite;
-
-  z-index:50;
-
-  pointer-events:none;
-}
-
-
-
-/* =========================
-   ROTATIONS
-========================= */
-
-
-@keyframes rotateSlow {
-
-  from {
-    transform:rotate(0deg);
-  }
-
-  to {
-    transform:rotate(360deg);
-  }
-
-}
-
-
-.slow-rotate {
-
-  animation:
-    rotateSlow
-    25s
-    linear
-    infinite;
-
-}
-
-
-
-@keyframes rotateReverse {
-
-  from {
-    transform:rotate(360deg);
-  }
-
-  to {
-    transform:rotate(0deg);
-  }
-
-}
-
-
-.reverse-rotate {
-
-  animation:
-    rotateReverse
-    18s
-    linear
-    infinite;
-
-}
-
-
-
-/* =========================
-   FLOATING OBJECT
-========================= */
-
-
-@keyframes float {
-
-  0%,
-  100% {
-    transform:translateY(0);
-  }
-
-  50% {
-    transform:translateY(-15px);
-  }
-
-}
-
-
-.cyber-float {
-
-  animation:
-    float
-    5s
-    ease-in-out
-    infinite;
-
-}
-
-
-
-/* =========================
-   GLOW EFFECT
-========================= */
-
-
-@keyframes pulseGlow {
-
-  0%,
-  100% {
-
-    box-shadow:
-    0 0 15px rgba(34,197,94,.2);
-
-  }
-
-  50% {
-
-    box-shadow:
-    0 0 40px rgba(34,197,94,.45);
-
-  }
-
-}
-
-
-.glow-pulse {
-
-  animation:
-    pulseGlow
-    3s
-    infinite;
-
-}
-
-
-
-/* =========================
-   GRADIENT ANIMATION
-========================= */
-
-
-@keyframes gradientMove {
-
-  0% {
-    background-position:0% 50%;
-  }
-
-  50% {
-    background-position:100% 50%;
-  }
-
-  100% {
-    background-position:0% 50%;
-  }
-
-}
-
-
-.animated-gradient {
-
-  background-size:200% 200%;
-
-  animation:
-    gradientMove
-    6s
-    ease
-    infinite;
-
-}
-
-
-
-/* =========================
-   TERMINAL CURSOR
-========================= */
-
-
-@keyframes cursorBlink {
-
-  0%,
-  50% {
-    opacity:1;
-  }
-
-  51%,
-  100% {
-    opacity:0;
-  }
-
-}
-
-
-.terminal-cursor {
-
-  animation:
-    cursorBlink
-    1s
-    infinite;
-
-}
-
-
-
-/* =========================
-   CARD HOVER
-========================= */
-
-
-.project-glow {
-
-  transition:
-    all .4s ease;
-
-}
-
-
-.project-glow:hover {
-
-  transform:
-    translateY(-10px);
-
-  border-color:
-    rgba(34,197,94,.5);
-
-  box-shadow:
-    0 20px 60px rgba(34,197,94,.15);
-
-}
-
-
-
-/* =========================
-   MOBILE
-========================= */
-
-
-@media(max-width:768px){
-
-  body::before {
-
-    background-size:
-      30px 30px;
-
-  }
-
+@keyframes pulse{
+50%{transform:scale(1.05)}
 }

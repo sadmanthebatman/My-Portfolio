@@ -191,61 +191,6 @@ h2{
   border-radius: 999px;
 }
 
-/* =====================
-   SIGNATURE MARK — rotating gradient ring + gradient monogram
-===================== */
-.signature-mark{
-  position: relative;
-  width: 340px;
-  height: 340px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: float 7s ease-in-out infinite;
-}
-
-.signature-mark::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  padding: 2px;
-  background: conic-gradient(from 0deg, var(--brass), var(--rose), var(--moss), var(--brass));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  animation: spin 9s linear infinite;
-}
-
-.signature-mark::after{
-  content: "";
-  position: absolute;
-  inset: 16px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 32% 28%, rgba(203,163,92,.28), rgba(58,110,90,.12) 60%, transparent 75%);
-  box-shadow: 0 0 90px rgba(203,163,92,.22);
-}
-
-.signature-mark span{
-  position: relative;
-  z-index: 1;
-  font-family: "Fraunces", serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: 68px;
-  letter-spacing: -0.03em;
-  background: linear-gradient(135deg, var(--ivory), var(--brass));
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-@keyframes float{
-  50%{ transform: translateY(-18px); }
-}
-
-@keyframes spin{
-  to{ transform: rotate(360deg); }
-}
 
 /* Section headings */
 .section-title{

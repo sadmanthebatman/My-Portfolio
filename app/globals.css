@@ -94,13 +94,12 @@ body{
    HERO
 ===================== */
 .hero{
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 70px;
-  min-height: 78vh;
-  align-items: center;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:40px;
+  min-height:78vh;
+  align-items:center;
 }
-
 .green{
   font-family: "Fraunces", serif;
   font-style: italic;

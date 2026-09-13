@@ -107,9 +107,6 @@ security monitoring, vulnerability assessment and secure engineering.
 </a>
 </div>
 </div>
-<div className="signature-mark">
-<span>SA</span>
-</div>
 </section>
 
 <section>

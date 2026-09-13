@@ -350,12 +350,3 @@ a:focus-visible,
     margin: 0 auto;
   }
 
-  .signature-mark{
-    width: 240px;
-    height: 240px;
-  }
-
-  .signature-mark span{
-    font-size: 48px;
-  }
-}
